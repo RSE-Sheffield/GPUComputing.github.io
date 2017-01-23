@@ -1,0 +1,21 @@
+[
+	{
+		"name": "FLAME GPU",
+		"image": "http://paulrichmond.shef.ac.uk/assets/images/flamegpu.png",
+		"url": "http://www.flamegpu.com",
+		"tags": ["CUDA","Multi Agent Simulation", "Complex Systems", "Sheffiled"]
+	},
+	{
+		"name": "OP2",
+		"image": "http://www.oerc.ox.ac.uk/sites/default/files/styles/project_page/public/projects/OP2.jpg?itok=LgoTy42U",
+		"url": "http://www.oerc.ox.ac.uk/projects/op2",
+		"tags": ["CUDA", "Oxford", "Unstructured Grids"]
+	},
+	{
+		"name": "PyFR",
+		"image": "http://www.pyfr.org/images/research/gbp-2.jpg",
+		"url": "http://www.pyfr.org/",
+		"tags": ["CUDA","Imperial","PyFR", "CFD"]
+	}
+
+]

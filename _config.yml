@@ -1,0 +1,24 @@
+title: GPUComputing Sheffield 
+description: GPU Computing Resources and Community at the University of Sheffield
+author: Paul Richmond
+logo: TUOS.png
+github: https://github.com/AcceleratedComputing/AcceleratedComputing.github.io
+
+url: "localhost:4000"
+
+disqus_shortname: acceleratedcomputing
+google_analytics: Todo
+
+share:
+  twitter_username: \#gpu_mondus
+
+
+enableTags: true
+tagarray: []
+future: true
+
+paginate: 20
+per_page: 20
+paginate_path: "/page:num/"
+markdown: kramdown
+gems: [jekyll-paginate, jekyll-gist]

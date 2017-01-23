@@ -1,0 +1,38 @@
+[
+  {
+    "text": "Home",
+    "url": "/",
+    "icon": "fa-home",
+    "layout": "post"
+  },
+  {
+    "text": "About",
+    "url": "/about/",
+    "icon": "fa-info"
+  },
+  {
+    "text": "Software",
+    "url": "/software",
+    "icon": "fa-code",
+  },
+  {
+    "text": "Education",
+    "url": "/education",
+    "icon": "fa-calendar",
+  },
+  {
+    "text": "Help",
+    "url": "/help/",
+    "icon": "fa-code",
+  },
+  {
+    "text": "Hardware",
+    "url": "/hardware",
+    "icon": "fa-code",
+  },
+  {
+    "text": "Contact",
+    "url": "/contact/",
+    "icon": "fa-mobile"
+  },
+]

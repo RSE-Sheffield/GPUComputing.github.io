@@ -1,0 +1,31 @@
+[
+	{
+		"name": "GPU Training Course",
+		"length": "One day course",
+		"image": "TUOS.png",
+		"url": "./todo",
+		"tags": ["CUDA", "Introduction", "Lectures", "Labs", "Iceberg"]
+	},
+	{
+		"name": "Introduction to CUDA",
+		"length": "Two day course",
+		"image": "TUOS.png",
+		"url": "./todo",
+		"tags": ["CUDA", "Introduction", "Lectures", "Labs", "ShARC"]
+	},
+	{
+		"name": "Parallel Computing with GPUS",
+		"length": "2016 Spring Semester Taught module (and DDP)",
+		"image": "TUOS.png",
+		"url": "http://paulrichmond.shef.ac.uk/teaching/COM4521/index_2016/",
+		"tags": ["CUDA", "Lectures", "Labs", "DDP"]
+	},
+	{
+		"name": "Intel Parallel Computing Training",
+		"length": "Two day course",
+		"image": "bristol.jpg",
+		"url": "http://rse.shef.ac.uk/training/intel/",
+		"tags": ["Intel", "TBB", "Vectorisation", "Iceberg"]
+	},
+
+]
