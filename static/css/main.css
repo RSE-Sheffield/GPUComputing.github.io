@@ -45,7 +45,6 @@ p.info a {
     margin-left: 15px;
 }
 .full img{
-    display: block;
     max-width: 100%;
     height: auto;
 }
@@ -185,4 +184,8 @@ footer {
 
 .floatright{
 	float: right;
+}
+
+.center {
+	text-align:center;
 }
