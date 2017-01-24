@@ -35,12 +35,12 @@ Deep Learning (DL) on GPUs has led to what NVIDA describe as the "AI era of comp
 
 ## Accelerated Libraries ##
 
-Accelerated libraries abstract the GPU from users completely which will typically use a domain specific language of API which the library efficiently translates to GPU code (usually with a CUDA backend). The DL software is an example of an acclerated library. Other examples include Matlab (which ahs GPU computing support for certain libraries), cuBLAST for CUDA accelerated BLAS, cuSPARSE for CUDA accelerated sparse matrices) and many others.
+Accelerated libraries abstract the GPU from users completely which will typically use a domain specific language of API which the library efficiently translates to GPU code (usually with a CUDA backend). The DL software is an example of an accelerated library. Other examples include Matlab (which ahs GPU computing support for certain libraries), cuBLAST for CUDA accelerated BLAS, cuSPARSE for CUDA accelerated sparse matrices) and many others.
 
 
 ## Software Support at University of Sheffield ##
 
-GPU supported software and libraries upported on the universities HPC systems is documented on the [HPC Documents Wesbite](http://rcg.group.shef.ac.uk/). These are community driven sites so if you have documentation on installation of software then please consider [contributing](https://github.com/rcgsheffield/iceberg_software) to this site. The [Sheffield RSE community](http://www.rse.shef.ac.uk) frequently add software to this site to support University of Sheffield researchers and software developers.
+GPU supported software and libraries upported on the universities HPC systems is documented on the [HPC Documents Wesbite](http://docs.hpc.shef.ac.uk/). These are community driven sites so if you have documentation on installation of software then please consider [contributing](https://github.com/rcgsheffield/iceberg_software) to this site. The [Sheffield RSE community](http://www.rse.shef.ac.uk) frequently add software to this site to support University of Sheffield researchers and software developers.
 
 If you would like to request new software, libraries or library updates to run GPU code on Iceberg or ShARC then submit an [issue on the github site](https://github.com/rcgsheffield/iceberg_software/issues). If you require longer term support then consider costing dedicated RSE support into your next research grant. [Contact RSE Sheffield](http://www.rse.shef.ac.uk/contact) for details.
  

@@ -1,3 +1,7 @@
+.list-group-item-heading{
+	margin-right:100px;
+}
+
 .main.outer{padding-top: 50px;}
 .header-panel.shadow-z-2 {
     background-color: #009587;
@@ -46,7 +50,7 @@ p.info a {
     height: auto;
 }
 .social-icons {
-    margin: 20px 0 0;
+    margin: 5px 0 0;
 }
 .icon {
     background: rgba(255, 255, 255, 0.63);
@@ -98,8 +102,14 @@ li.current-menu-item:before {
     color: #01c87b;
     font-weight: 300;
 }
-h2.blog-title-pro{color: #fff;}
-h2.blog-title-pro:after {
+
+h2 {
+	background-color: lightgrey;
+    padding: 3px;
+}
+
+h1.blog-title-pro{color: #fff;}
+h1.blog-title-pro:after {
     content: "";
     display: block;
     width: 70px;

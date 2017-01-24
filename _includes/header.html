@@ -5,10 +5,6 @@
             <div class="row-picture">
               <img id="about" class="logo-img" src="/static/img/{{ site.logo }}">
             </div>
-            <div class="row-details">
-              <p class="list-group-item-text" style="text-align:center">{{ site.description }}</p>
-              {% include social_links.html %}
-            </div>
             <div class="navbar-header pull-right">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
@@ -17,7 +13,7 @@
             </div>
           </div>
           <div class="col-md-9 col-sm-8 col-xs-12">
-            <h2 class="blog-title-pro">{{ page.title }}</h2>
+            <h1 class="blog-title-pro">{{ page.title }}</h1>
             <p class="info">
               {% if page.date %}
                 <span class="time">{{ page.date | date_to_string }}</span>
@@ -32,7 +28,12 @@
                 </span>
               {% endif %}
             </p>
+			<div class="row-details">
+              <p class="list-group-item-text" style="text-align:center">{{ site.description }}</p>
+              {% include social_links.html %}
+            </div>
           </div>
-        </div>
+		  
+		</div>
       </div>
     </div>

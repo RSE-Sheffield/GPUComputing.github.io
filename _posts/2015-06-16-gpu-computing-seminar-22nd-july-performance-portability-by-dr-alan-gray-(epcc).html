@@ -1,0 +1,40 @@
+---
+layout: post
+title: GPU Computing Seminar 22nd July - Performance Portability by Dr Alan Gray (EPCC)
+---
+
+
+	<div>
+	<table cellspacing="0" class="sites-layout-name-one-column sites-layout-hbox">
+	<tbody>
+	<tr>
+	<td class="sites-layout-tile sites-tile-name-content-1">
+	<div dir="ltr">As part of 
+	<b>GPUComputing@Sheffield </b>
+we will be hosting a seminar series for sharing practical issues relating to GPU computing and HPC. The first of these will take place on 
+	<b>22nd of July at 14:30 in the Information Commons,IC-126</b>
+. The invited speaker is 
+	<b>Dr Alan Gray</b>
+ from 
+	<b>EPCC</b>
+. 
+	<br>
+	<br>Alan's Bio and abstract for the talk are below. The talk’s topic of performance portability will give some great insight into scaling of HPC applications to multi GPU environments and how to write code that can easily be targeted to both CPU and GPU environments. 
+	<br>
+	<br>
+	<b>Bio</b>
+: Alan's research career began in the area of theoretical physics: his Ph.D. thesis was awarded the UK-wide Ogden Prize in 2004 for the best thesis in particle physics phenomenology. He continued this work under a University Fellowship at The Ohio State University, before moving to EPCC in 2005. His current research focuses on the exploitation of GPUs to the benefit of real scientific and industrial applications: he has a particular interest in the programming of large-scale GPU-accelerated supercomputers. He was awarded the status of 
+	<a href="https://research.nvidia.com/content/cuda-fellows" rel="nofollow">CUDA Fellow</a>
+ in 2014. Alan leads EPCC's GPU related activities, and is involved in management, teaching and supervision for the 
+	<a href="http://www.epcc.ed.ac.uk/msc" rel="nofollow">EPCC MSc in High Performance Computing</a>
+.
+	<br> 
+	<br>
+	<b> Talk Abstract</b>
+: Many fluid dynamics problems are made tractable through the discretisation of space and time, to allow representation and evolution within a computer simulation. The continued rise in performance of the largest supercomputers has permitted increasingly complex and realistic models. But complexity increases within the computational architectures themselves, such as the increasing reliance on multiple levels of hierarchical parallelism coupled with non-uniform and distributed memory spaces, pose a tremendous challenge for programmers. The emergence of powerful accelerators such as Graphics Processing Units (GPUs) has further increased diversity. Applications must intelligently map to the hardware whilst retaining intuitiveness and portability. We will describe our efforts to manage such issues in relation to a particular application, Ludwig. We believe that our experiences, techniques and software components may be of interest more widely. 
+	<br> Ludwig is a versatile package which can simulate a wide range of complex fluids using lattice Boltzmann and finite difference techniques. A current research focus involves combining liquid crystals with colloidal particles to create substances with potentially interesting optical properties: these simulations are extremely computationally demanding due to the range of scales involved. We will first describe a multi-GPU implementation, and present results showing excellent scaling to thousands of GPUs in parallel on the Titan supercomputer at Oak Ridge National Laboratory. We will then go on to describe our work to re-develop Ludwig using our new domain specific abstraction layer, targetDP, which targets data parallel hardware in a platform agnostic manner, by abstracting the memory spaces and the hierarchy of task, thread and instruction levels of parallelism. We will present performance results targetDP for Ludwig, where the same source code is targeted at both GPU-accelerated and traditional CPU-based architectures. These demonstrate both performance portability and also the benefit gained through the intelligent exposure of the lattice-based parallelism to this hierarchy.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>

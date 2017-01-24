@@ -6,14 +6,15 @@ permalink: /hardware/
 
 # Hardware Overview #
 
+NVIDIA GPUs are manufactured under a range of product families all of which support CUDA. The cheapest desktop GPUs are the GeForce range which are consumer cards primarily designed for gaming workstations. GeForce GPUs are excellent value for money by lack some advanced functionality (ECC memroy correction and high double performance) of the more expensive product ranges. GeForce GPus can be run in server environments but this is generally not encouraged by NVIDIA. The Quadro range of cards is more expensive than the GeForce range and are designed for professional graphics workstations, as such they have features and support which are advantageous for professional graphics rendering. As their CUDA capabilities represent poor value for money in comparison to other products they are rarely recommended for GPU computing (unless you also require professional graphics). The Tesla range of GPUs is designed for professional GPU computing. Tesla GPUs are based on the same architectures are the GeForce and Quadro devices but are designed run compute rather than have displays connected to them. The Tesla GPUs have improved double precision support, are made form higher quality components and are warranted to be run in server solutions. Due to the advent of Deep Learning the Tesla range is now more specialised into general compute GPUs (e.g. K20, K40 and P100) and inference GPUs (e.g. M40, M80) which are designed to be run on production servers where deep learning networks are deployed.
 
-# Cloud Based Resources #
+For more in depth details on NVIDIA GPU product ranges take a look at one of the [CUDA training courses](./education) which cover architecturual details.
 
-Azure and Amazon Ec2. Grants etc.
+GPUs are also available from ATI at very competitive price points and with similar product ranges. These GPUs do not howwver support CUDA so care should be taken to ensure the software you intend to deploy on them has OpenCL support (see (software)[./software] section of the site).
 
-# Local Hardware Options #
+Xeon Phis are an alternative to GPUs which also employ many core parallelism and vectorisation. These were previously designed as acclerator cards (with simmilar form factor to GPUs) but are now availble as sockets CPUs. Xeon Phis use 
 
-## Local GPU Facilities ##
+## Sheffield GPU Facilities ##
 
 ICEBERG: The University of Sheffield has a local HPC Facility called Iceberg. This has a limited number of  GPUs. 
 
@@ -41,3 +42,7 @@ For larger GPU purchases CICS are committed to working with RSE Sheffield to bui
 * You will have priority access to your own nodes but when not in use these will be available within the general ShARC pool (this is different to exclusive access).
 
 If you are interested in purchasing GPU servers then please contact [RSE Sheffield](http://www.rse.shef.ac.uk/contact) who can advice on purchasing options and arrange this via CICS.
+
+## National Facilities ##
+
+A number of EPSRC Tier 2 centre with GPUs will be available in Mid 2017. Details of which will be listed here.

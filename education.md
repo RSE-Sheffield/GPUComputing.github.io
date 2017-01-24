@@ -4,7 +4,7 @@ title: Education Training and Course Material
 permalink: /education/
 ---
 
-The GPUComputing@Sheffield group provides regular training for GPU programming and use of GPU accelerated software. Training is always announced first via the [GPUComputing@Sheffield mailing-list](./mailing-list) (giving priority to members). Training is also annouced via RSE-Sheffield and disseminated more widely based on availability of places (which is usually restricted). 
+The GPUComputing@Sheffield group provides regular training for GPU programming and use of GPU accelerated software. Training is always announced first via the [GPUComputing@Sheffield mailing-list](.\home) (giving priority to members). Training is also announced via RSE-Sheffield and disseminated more widely based on availability of places (which is usually restricted). 
 
 This page provides a number of permanently available resources and self paced labs which are the result of previous training sessions delivered at the University of Sheffield. For questions relating to the content in this training material please raise a [Github issue](./todo).
 

@@ -3,14 +3,14 @@
 		"name": "GPU Training Course",
 		"length": "One day course",
 		"image": "TUOS.png",
-		"url": "./todo",
+		"url": "http://paulrichmond.shef.ac.uk/teaching/CUDA/",
 		"tags": ["CUDA", "Introduction", "Lectures", "Labs", "Iceberg"]
 	},
 	{
 		"name": "Introduction to CUDA",
 		"length": "Two day course",
 		"image": "TUOS.png",
-		"url": "./todo",
+		"url": "./training/cuda",
 		"tags": ["CUDA", "Introduction", "Lectures", "Labs", "ShARC"]
 	},
 	{
