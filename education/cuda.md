@@ -19,11 +19,11 @@ The aim of the course is to provide a basic understanding of principles of CUDA 
 
 | [**Getting Started**: Using GPUs on the ShARC system](./sharc) |
 
-| [**Lab01**: CUDA Basics Lab](../lab01) |
+| [**Lab01**: CUDA Basics Lab](./lab01) |
 
 | [**Optimisation**: Optimising CUDA programs](../) | ![pdf icon](/static/img/pdf.png) |
 
-| [**Lab02**: CUDA Optimisation Lab](../lab02) |
+| [**Lab02**: CUDA Optimisation Lab](./lab02) |
 
 
 ## Day 2 ##
@@ -31,8 +31,8 @@ The aim of the course is to provide a basic understanding of principles of CUDA 
 
 | [**Advanced Memory**: GPU Memory Caches](../) | ![pdf icon](/static/img/pdf.png) |
 
-| [**Lab03**: Caching and Memory](../lab03) |
+| [**Lab03**: Caching and Memory](./lab03) |
 
 | [**Libraries and Primitives**: Parallel building blocks and Thrust](../) | ![pdf icon](/static/img/pdf.png) |
 
-| [**Lab04**: Primitives and Thrust](../lab04) |
+| [**Lab04**: Primitives and Thrust](./lab04) |
