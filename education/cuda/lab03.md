@@ -10,7 +10,7 @@ permalink: /education/cuda/lab03/
 
 Get the Starting code from github by cloning the master branch of the CUDALab03 repository from the RSE-Sheffield github account. E.g. 
     
-    git clone https://github.com/RSE-Sheffield/CUDALab01.git
+    git clone https://github.com/RSE-Sheffield/CUDALab03.git
     
 This will check out all the starting code for you to work with.
 

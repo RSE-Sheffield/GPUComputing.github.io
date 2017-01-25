@@ -2,12 +2,11 @@ title: GPUComputing Sheffield
 description: GPU Computing Resources and Community at the University of Sheffield
 author: Paul Richmond
 logo: GPUComputingSheffield.png
-github: https://github.com/AcceleratedComputing/AcceleratedComputing.github.io
+github: https://github.com/RSE-Sheffield/GPUComputing.github.io
 
 url: "localhost:4000"
 
-disqus_shortname: acceleratedcomputing
-google_analytics: Todo
+disqus_shortname: gpucomputingsheffield
 
 share:
   twitter_username: \#gpu_mondus
