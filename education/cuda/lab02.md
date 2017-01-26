@@ -70,13 +70,10 @@ The `image_blur_columns kernel` currently has a poor memory access pattern. Let 
 
 Our previous implementations of the blur kernel have a limited amount of parallelism. There are in total `IMAGE_DIM `threads launched and each of the threads is responsible for calculating a unique row or column. Whilst this number of threads might seem reasonably large it is unlikely that it is sufficient to occupy all of the Streaming Multiprocessors of the device. To increase the level of parallelism and improve the occupancy it is possible to launch a unique thread for each pixel of the image. To implement this, complete the following steps.
 
-* 3.1	Make a copy of the image_blur_rows kernel and call it `image_blur_2d`. Modify the new kernel so that the `x` and `y` locations are determined form the thread and block index. You can then remove the row loop as the kernel is responsible for calculating only a single pixel value.
+* 3.1	Make a copy of the image_blur_rows kernel and call it `image_blur_2d`. Modify the new kernel so that the `x` and `y` locations are determined from the thread and block index. You can then remove the row loop as the kernel is responsible for calculating only a single pixel value.
 * 3.2	Implement the `EXERCISE_03` switch case (by copying the previous one). You will need to change the block and grid dimensions so that they launch `IMAGE_DIM²` threads in total.
 * 3.3	Compile and execute your code. Ensure that the variable `exercise` is set to `EXERCISE_03` so that your modified code is executed. Make a note of the execution time. It should be considerably faster than previously.
 
-## Exercise 04 ##
-
-It is possible to improve the code further by using shared memory and there are a number of ways in which this could be implemented. To avoid branching the best solution is to remap threads within the block to a shared memory tile which is larger than thread block (`18x18` rather than `16x16`). Each thread can then load a consecutive value into shared memory. The entire shared memory block can be loaded with *at most* two loads per thread. Some threads will not be required for the second load. Check out the solutions and read through the implementation and comments for exercise 4. Compile and execute the code. Ensure that the variable `exercise` is set to `EXERCISE_04` so that the correct version of the modified code is executed. Make a note of the execution time. It should be slightly faster than the previous version.
 
 ## Exercise Solutions ##
 
