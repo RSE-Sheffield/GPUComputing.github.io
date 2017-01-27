@@ -44,7 +44,7 @@ As each of the encrypted character values are independent we can use the GPU to 
 In exercise 2 we are going to extend the vector addition example from the lecture. The file `exercise02.cu` has been provided as a starting point. Perform the following modifications.
 
 * 2.1. The code has an obvious mistake. Rather than correct it implement a CPU version of the vector addition (Called `vectorAddCPU`) storing the result in an array called `c_ref`. Implement a new function `validate` which compares the GPU result to the CPU result. It should print an error for each value which is incorrect and return a value indicating the total number of errors. You should also print the number of errors to the console. Now fix the error and confirm your error check code works.
-* 2.2. Change the value of `N` to `2050`. Your code will now perform two unsafe writes beyond the memory bounds which you have allocated. Correct the error by performing a check in the kernel so that you do not write beyond the bounds of the allocated memory. 
+* 2.2. Change the value of `N` to `2050`. Do not run your code yet as it will now perform unsafe writes beyond the memory bounds which you have allocated. This is because a whole thread block is required for the extra two threads (our grid is always made upt of entire blocks). You should modify the kernel by adding a check in the kernel so that you do not write beyond the bounds of the allocated memory. This will require you the ensure that the threads unique position that it indexed into memory does not exceed `N`. Threads which fail this test should no nothing. 
 
 ## Exercise 03 ##
 
