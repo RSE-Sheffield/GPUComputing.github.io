@@ -60,7 +60,7 @@ We are going to implement a matrix addition kernel. In matrix addition, two matr
 
 The exercise solutions are available from the solution branch of the repository. To check these out either clone the repository using the branch command to a new directory as follows;
 
-    git clone –b solutions https://github.com/RSE-Sheffield/CUDALab01.git
+    git clone -b solutions https://github.com/RSE-Sheffield/CUDALab01.git
  
 Alternately commit your changes and switch branch
 

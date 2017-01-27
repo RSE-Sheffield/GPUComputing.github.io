@@ -80,11 +80,11 @@ Our previous implementations of the blur kernel have a limited amount of paralle
 
 The exercise solutions are available from the solution branch of the repository. To check these out either clone the repository using the branch command to a new directory as follows;
  
-    git clone –b solutions https://github.com/RSE-Sheffield/CUDALab02.git
+    git clone -b solutions https://github.com/RSE-Sheffield/CUDALab02.git
 
 Alternately commit your changes and switch branch:
 
-    git commit –m “my local changes to src files” 
+    git commit -m “my local changes to src files” 
     git checkout solutions
 
 You will need to commit your local changes to avoid overwriting your changes when switching to the solutions branch. You can then return to your modified versions by returning to the master branch.
