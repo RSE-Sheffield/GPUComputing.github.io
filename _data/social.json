@@ -1,10 +1,19 @@
 [
+
+  {
+    "icon": "fa-github",
+    "link": "https://github.com/RSE-Sheffield/GPUComputing.github.io"
+  },
+  {
+    "icon": "fa-envelope",
+    "link": "https://groups.google.com/a/sheffield.ac.uk/forum/#!forum/gpucomputing"
+  },
   {
     "icon": "fa-twitter",
     "link": "https://twitter.com/gpu_mondus"
   },
   {
-    "icon": "fa-github",
-    "link": "https://github.com/AcceleratedComputing/AcceleratedComputing.github.io"
+    "icon": "fa-university",
+    "link": "http://www.shef.ac.uk"
   }
 ]

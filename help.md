@@ -14,7 +14,7 @@ As part of RSE Sheffield we are able to privide some free short term consultancy
 
 ## Coding Help and Queries ##
 
-The GPUComputing@Sheffield mailing list is for announcements only. If you require support or help then either;
+The [GPUComputing Sheffield mailing list](https://groups.google.com/a/sheffield.ac.uk/forum/#!forum/gpucomputing) is for announcements only. If you require support or help then either;
 
 * email the [HPC discussion forums](https://groups.google.com/a/sheffield.ac.uk/forum/?hl=en-GB#!forum/hpc) for queries regarding HPC on Iceberg or ShARC
 * [Contact RSE Sheffield](http://rse.shef.ac.uk/contact/) to ask for software consultancy help
