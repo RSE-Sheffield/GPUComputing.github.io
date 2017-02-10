@@ -28,5 +28,12 @@
 		"url": "http://rse.shef.ac.uk/training/intel/",
 		"tags": ["Intel", "TBB", "Vectorisation", "Iceberg"]
 	},
+	{
+		"name": "Introduction to Deep Learning on ShARC's DGX-1",
+		"length": "Two afternoon course",
+		"image": "TUOS.png",
+		"url": "/education/intro_dl_sharc_dgx1",
+		"tags": ["Nvidia", "Deep Learning", "Machine Learning", "ShARC", "DGX-1", "Introduction", "Lectures", "Labs"]
+	},
 
 ]
