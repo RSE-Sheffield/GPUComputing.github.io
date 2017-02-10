@@ -20,27 +20,25 @@ The course aims to introduce core concepts of deep learning and how it can be ap
 ## Pre-requisites ##
 
 Familiarity with Linux, the use of command line, Python and basic understanding of neural network.
-If you're not familiar with Nueral Networks please see Stephen Welch's Neural Networks Demystified to get a better understanding. **Working through his code exercises may also be useful to you but is not essential for the course**:
+If you're not familiar with Nueral Networks please see Stephen Welch's Neural Networks Demystified to get a better understanding. **Working through his code exercises may also be useful but is not essential for the course**:
 - [Short Videos (7 in total)](https://www.youtube.com/playlist?list=PLiaHhY2iBX9hdHaRr6b7XevZtgZRa1PoU)
 - [Accompanying Code](https://github.com/stephencwelch/Neural-Networks-Demystified)
 
 
 ## Day 1 ##
 
-* [Architectures.pdf](https://drive.google.com/file/d/0B2HbOiEppVPMZHlrSzYwSXNmTVU/view?usp=sharing)
-* [Introduction to CUDA.pdf](https://drive.google.com/file/d/0B2HbOiEppVPMR3ZEWE5iaWtBS00/view?usp=sharing)
-* [**Lab**: Getting Started](./getting_started)
-* [**Lab**: Lab01 - A Simple Neural Network Model](./lab01)
-* [Optimisation.pdf](https://drive.google.com/file/d/0B2HbOiEppVPMNmZ2b2JWa2V3d00/view?usp=sharing)
-* [**Lab**: Lab 02 - CUDA Optimisation Lab](./lab02)
+
+* [**Lab 00**: Getting Started](./getting_started)
+* [**Lab 01**: A Simple Neural Network Model](./lab01)
+* [**Lab 02**: Convolution Neural Network](./lab02)
+* [**Lab 03**: Deploying and using your trained model](./lab03)
 
 
 ## Day 2 ##
 
-* [Advanced Memory.pdf](https://drive.google.com/file/d/0B2HbOiEppVPMTVh1eDRsbWFKM2M/view?usp=sharing)
-* [**Lab03**: Caching and Memory](./lab03)
-* [Libraries and Primitives.pdf](https://drive.google.com/file/d/0B2HbOiEppVPMQ1dkQ1dXN2VvWjA/view?usp=sharing)
-* [**Lab04**: Primitives and Thrust](./lab04)
+* [**Lab 04**: Using and visualising pre-trained models](./lab04)
+* [**Lab 05**: Multi-GPU and Benchmarking](./lab05)
+* [**Lab 06**: Recurrent Neural Networks](./lab06)
 
 
 ## Additional Material ##
