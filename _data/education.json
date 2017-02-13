@@ -27,6 +27,6 @@
 		"image": "bristol.jpg",
 		"url": "http://rse.shef.ac.uk/training/intel/",
 		"tags": ["Intel", "TBB", "Vectorisation", "Iceberg"]
-	},
+	}
 
 ]
