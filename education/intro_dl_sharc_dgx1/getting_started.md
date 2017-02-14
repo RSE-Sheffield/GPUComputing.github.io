@@ -117,11 +117,17 @@ Sending you an e-mail when the job is completed/aborted/suspended:
 -M your.email@yourdomain.com -m eas
 ```
 
+Putting it all together:
 
+```
+qsub -l gpu=1 -P rse-training -q rse-training.q -l rmem=10G -j y -o your/path -M your.email@yourdomain.com -m eas my_script.sh
+```
+
+**Note:*** When specifying `qsub` parameters from the command line, add the parameters before your script name as shown above.
 
 ## Getting your environment ready for Caffe ##
 
-There are two version of Caffe on ShARC (see [documentation](https://github.com/RSE-Sheffield/GPUComputing/blob/master/deeplearning/Caffe.rst)), the standard version which is newer (has more layer types) and Nvidia's version that is more optimised for the multi-GPU use. We'll use the default version as it has support for recurrent networks.
+There are two version of Caffe on ShARC (see [documentation](https://github.com/RSE-Sheffield/GPUComputing/blob/master/deeplearning/Caffe.rst)), the standard version that is newer (has more layer types) and Nvidia's version that is more optimised for multi-GPU use. We'll be using the standard version as it has support for recurrent layers.
 
 To use the python bindings for Caffe we need to prepare our python environment. First we load up the Caffe module which also loads Conda 3.4, CUDA 8, cuDNN 5.1 and GCC 4.9.4
 

@@ -94,10 +94,12 @@ In this example a `MAX` pooling is used which selects the highest activation val
 
 Try to implement the LeNet model shown in the following diagram:
 
+{: .center}
 ![LeNet MNIST diagram](/static/img/intro_dl_sharc_dgx1/mnist_lenet.jpg)
 
 Which looks like the following in netscope:
 
+{: .center}
 ![Netscope LeNet](/static/img/intro_dl_sharc_dgx1/mnist_lenet_netscope.png)
 
 *Notice that in this model no activation layers are used after the convolution or pooling layers and that Caffe does not implicitly add activation layers. When implementing models such as ConvNet which use activation layers after convolutions, they have to be explicitly added*.
@@ -150,6 +152,7 @@ $ tools/plot_log.py mnist_lenet_train.sh.o<jobid>.train Iters TrainingLoss mnist
 
 The above code produces the graph shown below. An optional `.png` image was also saved.
 
+{: .center}
 ![Mnist lenet Iteration vs TrainingLoss plot](/static/img/intro_dl_sharc_dgx1/mnist_lenet_iters_vs_trainingloss_plot.png)
 
 ## Extra: Full Convolution Networks and Object Detection ##

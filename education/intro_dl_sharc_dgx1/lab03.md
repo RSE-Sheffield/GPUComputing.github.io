@@ -6,7 +6,7 @@ permalink: /education/intro_dl_sharc_dgx1/lab03/
 
 # Lab 3: Deploying and using your trained model #
 
-## Alter model file for deployment ##
+## Altering the model file for deployment ##
 We'll use the previous MNIST LeNet model that you've just trained.
 
 Copy the `mnist_lenet.prototxt` to `mnist_lenet_deploy.prototxt`.

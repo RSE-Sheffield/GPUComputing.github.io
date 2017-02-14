@@ -53,6 +53,7 @@ A model file consists of sequences of layers each with specific functionality su
 
 To get a feel for the model file we will implement a very simple model that trains on the mnist data with only one dense hidden layer.
 
+{: .center}
 ![mnist simple](/static/img/intro_dl_sharc_dgx1/mnist_simple.png)
 
 We'll use the Netscope to visualise our network as we make it. Open the following link in a new tab/window to get started: [http://ethereon.github.io/netscope/#/editor](http://ethereon.github.io/netscope/#/editor).
@@ -145,6 +146,7 @@ The `loss` layer takes the 2 input blobs `ip` and `label` and generates a `loss`
 
 That's all we need to create a model for training. Press `Shift+Enter` to view the network. You should get something like this:
 
+{: .center}
 ![simple mnist](/static/img/intro_dl_sharc_dgx1/mnist_simple_netscope.jpg)
 
 Rules can be added to layers to specify when they're included in to a network. The `phase` rule indicates whether the layer will be included in either the Training or the Testing phase
@@ -387,8 +389,10 @@ Our current model has `Softmax` (sigmoid) rolled in to the loss layer to introdu
 
 The `ReLU` (rectified linear unit) is a popular activation function filters out values below 0. It reduces the chance of vanishing gradients and has been found to converge faster than sigmoid type functions.
 
+
 ![ReLU](/static/img/intro_dl_sharc_dgx1/relu_function.png)
 
+{: .center}
 ![ReLU plot](/static/img/intro_dl_sharc_dgx1/relu_plot.jpg)
 
 The `ReLU` layer can be added to the model with
