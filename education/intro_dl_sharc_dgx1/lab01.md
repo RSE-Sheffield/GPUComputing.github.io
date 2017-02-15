@@ -6,18 +6,20 @@ permalink: /education/intro_dl_sharc_dgx1/lab01/
 
 # Lab 01: A simple MNIST model #
 
-In this lab we will put together a basic 3-layer model that can identify handwritten digits by learning from the [MNIST database](http://yann.lecun.com/exdb/mnist/).
+**Remember to be working from the root directory of DLTraining code sample throughout all practicals.**
+
+In this lab, we will put together a basic 3-layer model that can identify handwritten digits by learning from the [MNIST database](http://yann.lecun.com/exdb/mnist/).
 
 
 ## Running the pre-made model ##
 
-Submit the job file `code/lab01/mnist_job.sh` using `qsub`:
+Submit the job file `code/lab01/mnist_simple_train.sh` using `qsub`:
 
 ```
-qsub code/lab01/mnist_job.sh
+qsub code/lab01/mnist_simple_train.sh
 ```
 
-Once the job has finished, check the output for more information in the file `mnist_job.sh.o<jobid>` at the end of the file you should get something like below
+Once the job has finished, check the output for more information in the file `mnist_simple_train.sh.o<jobid>` at the end of the file you should get something like below:
 
 ```
 I0127 16:04:25.357823  9366 solver.cpp:317] Iteration 10000, loss = 0.207118
@@ -33,7 +35,7 @@ You've just trained a basic neural network model on Caffe! The accuracy should b
 Let's have a look at how caffe is used from the command line, type in:
 
 ```
-cat code/lab01/mnist_job.sh
+cat code/lab01/mnist_simple_train.sh
 ```
 
 In the script you will see the line with `caffe train`:
@@ -42,7 +44,7 @@ In the script you will see the line with `caffe train`:
 caffe train -solver=code/lab01/mnist_simple_solver.prototxt
 ```
 
-Caffe offers a command line interface for training your models. The above command indicates that you will be training the model solver file located at `code/lab01/mnist_simple_solver.prototxt`.
+Caffe offers a command line interface for training your models. The above command indicates that you will be using `caffe` to `train` the model with solver file located at `code/lab01/mnist_simple_solver.prototxt`.
 
 
 ## Implementing the model ##
@@ -51,7 +53,7 @@ Two text files are needed to get a model running in Caffe. A model file which de
 
 A model file consists of sequences of layers each with specific functionality such as `Data` layer that allows import of external data from raw images or databases such as LMDB or the Loss layer that calculates the error/loss function. Blobs are matrices for storing data and are used as input (`bottom`) and generated as outputs (`top`) of layers. Layers can have multiple blobs as inputs or outputs depending on the type. The model file is written in the format of Google's protocol buffer (protobuf).
 
-To get a feel for the model file we will implement a very simple model that trains on the mnist data with only one dense hidden layer.
+To get a feel for the model file, we will implement a very simple model that trains on the mnist data with only one dense hidden layer.
 
 {: .center}
 ![mnist simple](/static/img/intro_dl_sharc_dgx1/mnist_simple.png)
@@ -385,7 +387,7 @@ When do we stop training?
 
 ## Activation Layers ##
 
-Our current model has `Softmax` (sigmoid) rolled in to the loss layer to introduce non-linearity but as you start to add additional layers, activation functions has to be added manually.
+Our current model has `Softmax` (Sigmoid) rolled in to the loss layer to introduce non-linearity but as you start to add additional layers, activation functions has to be added manually.
 
 The `ReLU` (rectified linear unit) is a popular activation function filters out values below 0. It reduces the chance of vanishing gradients and has been found to converge faster than sigmoid type functions.
 
@@ -409,15 +411,14 @@ layer {
 
 See the [layer catalogue](http://caffe.berkeleyvision.org/tutorial/layers.html) for more activation layers.
 
-## Exercise 1.1: Different solvers ##
 
-Try using different solvers such as `Adam` or `RMSProp`. Does the model converge faster? (See the [solver page](http://caffe.berkeleyvision.org/tutorial/solver.html) for specific parameters required for each solver type.)
+## Exercise 1: Additional Layers ##
 
-## Exercise 1.2: Additional Layers ##
+Try adding additional `InnerProduct` layer(s) to the current network, does the accuracy improve? (Don't forget to add activation functions.)
 
-Try adding additional `InnterProduct` layer(s) to the current network, does the accuracy improve? (Don't forget to add activation functions.)
+Check your model at `code/lab01/mnist_simple_extra_layer.prototxt`.
 
 
 ---
 
-&#124; [Getting Started](../getting_started) &#124; [Lab02](../lab02) &#124;
+&#124; [Home](../) &#124; [Getting Started](../getting_started) &#124; [Lab02](../lab02) &#124;

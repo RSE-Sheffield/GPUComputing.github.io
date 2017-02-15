@@ -6,18 +6,20 @@ permalink: /education/intro_dl_sharc_dgx1/lab02/
 
 # Lab 02: Convolution Neural Network #
 
+**Remember to be working from the root directory of DLTraining code sample throughout all practicals.**
+
 In this lab we will put together a convolution model that can identify handwritten digits by learning from the [MNIST database](http://yann.lecun.com/exdb/mnist/) with a much higher accuracy.
 
 ## Running the pre-made model ##
 
-Submit the job file `code/lab02/mnist_lenet_job.sh` using `qsub`:
+Submit the job file `code/lab02/mnist_lenet_train.sh` using `qsub`:
 
 ```
-qsub code/lab02/mnist_lenet_job.sh
+qsub code/lab02/mnist_lenet_train.sh
 ```
 
 
-Once the job has finished, check the output for more information in the file `mnist_lenet_job.sh.o<jobid>`, at the end of the file you should get something like below
+Once the job has finished, check the output for more information in the file `mnist_lenet_train.sh.o<jobid>`, at the end of the file you should get something like below
 
 ```
 I0127 16:04:25.357823  9366 solver.cpp:317] Iteration 10000, loss = 0.207118
@@ -32,7 +34,7 @@ The accuracy of the model is much better at 99.24%.
 
 ## Convolution and Pooling layers ##
 
-The `Convolution` layer is defined similarly to the `InnerProduct` layer but instead of `inner_product_param` we have `convolution_param`:
+The `Convolution` layer is defined similarly to the `InnerProduct` layer, but instead of `inner_product_param` we have `convolution_param`:
 
 ```
 layer {
@@ -62,7 +64,7 @@ layer {
 
 In `convolution_param` the `num_output` variable refers to the number of feature maps to use. `kernel_size` of 5 means a 5x5 convolution and `stride` of 1 means the convolution areas shifts by 1 each time.
 
-For an input image size of 28x28 with kernel size of 5 and stride of 1, each feature map will be of size 24x24 (generating a Nx20x24x24 top blob, with N being number of samples in the batch). Zero-padding can also be added, using `pad: 1` will add a pixel to each side of the input image.
+For an input image size of 28x28 with kernel size of 5 and stride of 1, each feature map will be of size 24x24 (generating a Nx20x24x24 top blob, with N being number of samples in the batch). Zero-padding can also be added using `pad: 1` which adds a pixel to each side of the input image.
 
 **Note:** Separate width and height dimensions can be specified for 2D convolutions. Use kernel `kernel_w, kernel_w`, stride `stride_w, stride_h` and padding `pad_w, pad_h`.
 
@@ -88,9 +90,9 @@ layer {
 }
 ```
 
-In this example a `MAX` pooling is used which selects the highest activation value inside each kernel. The previous convolution layer has feature map size of 24x24 so using `kernel_size: 2` and `stride: 2` we get an Nx20x12x12 output blob.
+In this example, `MAX` pooling is used which selects the highest activation value inside each kernel. The previous convolution layer has feature map size of 24x24 so by using `kernel_size: 2` and `stride: 2` we get an Nx20x12x12 output blob.
 
-## Exercise 2: Implementing the LeNet CNN model and Solver ##
+## Exercise 2.1: Implementing the LeNet CNN model and Solver ##
 
 Try to implement the LeNet model shown in the following diagram:
 
@@ -114,7 +116,7 @@ Create a batch script to tell caffe to train the model. The result you get shoul
 
 
 ## Resume training ##
-Snapshots are taken every 5000 iterations according to the solver file (`snapshot: 5000`), this generates a `.caffemodel` file that contains model weights and a `.solverstate` file that contains all information to resume training from that point. The files can be used to continue training the model should something go wrong while training (power cuts etc.).
+Snapshots are taken every 5000 iterations according to the solver file (`snapshot: 5000`). This generates a `.caffemodel` file that contains model weights and a `.solverstate` file that contains all information to resume training from that point. The files can be used to continue training the model from the previous state.
 
 Use the `-snapshot` flag to include snapshots in your training e.g.:
 
@@ -125,7 +127,11 @@ caffe test -solver mnist_lenet_solver.prototxt -snapshot mnist_lenet_iter_5000.s
 
 ## Plotting your training and testing progress ##
 
-A modified version of Caffe's tool for parsing output logs are included in the `tools` directory.
+A modified version of Caffe's tool for parsing output logs are included in the `tools` directory. Make all the scripts inside the folder executable with:
+
+```
+chmod +x tools/*
+```
 
 Use the `tools/parse_log.sh` on the the generated log file to create a `.train` and `.test` files with the training and test statistics.
 
@@ -155,6 +161,10 @@ The above code produces the graph shown below. An optional `.png` image was also
 {: .center}
 ![Mnist lenet Iteration vs TrainingLoss plot](/static/img/intro_dl_sharc_dgx1/mnist_lenet_iters_vs_trainingloss_plot.png)
 
+## Exercise 2.2: Using different solvers ##
+
+Try using different solvers such as `Adam` or `RMSProp`. Does the model converge faster? (See the [solver page](http://caffe.berkeleyvision.org/tutorial/solver.html) for specific parameters required for each solver type.)
+
 ## Extra: Full Convolution Networks and Object Detection ##
 
 * Approaches to Object Detection using DIGITS at [https://nvidia.qwiklab.com/](https://nvidia.qwiklab.com)
@@ -167,4 +177,4 @@ The above code produces the graph shown below. An optional `.png` image was also
 
 ---
 
-&#124; [Lab01](../lab01) &#124; [Lab03](../lab03) &#124;
+&#124; [Home](../) &#124; [Lab01](../lab01) &#124; [Lab03](../lab03) &#124;

@@ -141,9 +141,17 @@ We'll create a local python 3.5 environment named `caffe`, activate it then inst
 conda create -n caffe python=3.5
 source activate caffe
 conda install -y matplotlib numpy scikit-image
+pip install protobuf
 ```
 
-Every time you log in to the node and in all your job scripts, you will need to load the module and activate the caffe conda environment again.
+We'll also add the python libraries to your system path in `.bashrc` so Caffe can find it. **Replace `[Your CiCs Username]` with your username**:
+
+```
+echo "export LD_LIBRARY_PATH=\"/home/[Your CiCs Username]/.conda/envs/caffe/lib:\$LD_LIBRARY_PATH\"" >> ~/.bashrc
+. ~/.bashrc
+```
+
+Every time you log in to the node and in **all your job scripts**, you will need to load the module and activate the `caffe` conda environment again.
 
 ```
 module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
@@ -152,12 +160,14 @@ source activate caffe
 
 ## Downloading the code for the practicals ##
 
-Code to use along with the coure are made available from a Github repository. Use the following command to download them and go in to the directory:
+Code to use along with the course are made available from a Github repository. Use the following command to download them and go in to the directory:
 
 ```
 git clone https://github.com/RSE-Sheffield/DLTraining.git
 cd DLTraining
 ```
+
+**You will want to be working from this current directory through all the following practicals. This is because all paths specified in the models are relative to this root folder**
 
 Now we're ready to start the first practical.
 

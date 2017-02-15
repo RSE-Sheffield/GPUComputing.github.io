@@ -6,6 +6,8 @@ permalink: /education/intro_dl_sharc_dgx1/lab06/
 
 # Practical 6: Recurrent Neural Networks #
 
+**Remember to be working from the root directory of DLTraining code sample throughout all practicals.**
+
 Make in to LMDB
 LMDB tutorial here http://deepdish.io/2015/04/28/creating-lmdb-in-python/
 
@@ -37,4 +39,4 @@ dropout_ratio: 0.5
 ```
 ---
 
-&#124; [Lab05](../lab05) &#124; [Introduction to Deeep Learning on ShARC Home](../) &#124;
+[Lab05](../lab05) &#124; [Introduction to Deeep Learning on ShARC Home](../) &#124;

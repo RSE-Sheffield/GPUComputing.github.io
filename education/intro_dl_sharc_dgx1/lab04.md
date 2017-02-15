@@ -6,6 +6,8 @@ permalink: /education/intro_dl_sharc_dgx1/lab04/
 
 # Lab 04: Using and visualising pre-trained models #
 
+**Remember to be working from the root directory of DLTraining code sample throughout all practicals.**
+
 The ImageNet competition provides a dataset of tagged images collected from the internet. The whole set is around 55GB and can take days or weeks to train.
 
 In this lab we will look at using a pre-trained models provided by Caffe and its community, in particular the Caffenet model that was based on Alexnet architecture that won the 2012 ImageNet competition. In addition we will explore how the model parameters can be visualised using the Python interface.
@@ -207,4 +209,4 @@ Another tutorial is also provided for re-shaping an existing network:
 
 ---
 
-&#124; [Lab03](../lab03) &#124; [Lab05](../lab05) &#124;
+&#124; [Home](../) &#124; [Lab03](../lab03) &#124; [Lab05](../lab05) &#124;
