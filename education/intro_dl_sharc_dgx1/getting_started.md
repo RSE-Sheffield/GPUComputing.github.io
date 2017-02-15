@@ -123,7 +123,7 @@ Putting it all together:
 qsub -l gpu=1 -P rse-training -q rse-training.q -l rmem=10G -j y -o your/path -M your.email@yourdomain.com -m eas my_script.sh
 ```
 
-**Note:*** When specifying `qsub` parameters from the command line, add the parameters before your script name as shown above.
+**Note:** When specifying `qsub` parameters from the command line, add the parameters **before** your script name as shown above.
 
 ## Getting your environment ready for Caffe ##
 
@@ -135,7 +135,7 @@ To use the python bindings for Caffe we need to prepare our python environment. 
 module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
 ```
 
-We'll create a local python 3.5 environment named `caffe`, activate it then install `matplotlib`, `numpy` and `scikit-image` which which be needed later for visualising our models.
+We'll create a local python 3.5 environment named `caffe`, activate it then install `matplotlib`, `numpy`, `scikit-image` and Python `protobuf` runtime  which which be needed later for visualising our models.
 
 ```
 conda create -n caffe python=3.5
@@ -151,7 +151,7 @@ echo "export LD_LIBRARY_PATH=\"/home/[Your CiCs Username]/.conda/envs/caffe/lib:
 . ~/.bashrc
 ```
 
-Every time you log in to the node and in **all your job scripts**, you will need to load the module and activate the `caffe` conda environment again.
+Every time you log in to the node and in **all your job scripts**, you will need to load the module and activate the `caffe` conda environment again:
 
 ```
 module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
@@ -160,7 +160,7 @@ source activate caffe
 
 ## Downloading the code for the practicals ##
 
-Code to use along with the course are made available from a Github repository. Use the following command to download them and go in to the directory:
+The code to use along with the course are made available from a Github repository. Use the following command to download them and go in to the directory:
 
 ```
 git clone https://github.com/RSE-Sheffield/DLTraining.git

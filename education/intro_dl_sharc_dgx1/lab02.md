@@ -165,6 +165,8 @@ The above code produces the graph shown below. An optional `.png` image was also
 
 Try using different solvers such as `Adam` or `RMSProp`. Does the model converge faster? (See the [solver page](http://caffe.berkeleyvision.org/tutorial/solver.html) for specific parameters required for each solver type.)
 
+Example solvers for `AdaDelta`, `Adam` and `RMSProp` is provided in `code/lab02` folder.
+
 ## Extra: Full Convolution Networks and Object Detection ##
 
 * Approaches to Object Detection using DIGITS at [https://nvidia.qwiklab.com/](https://nvidia.qwiklab.com)

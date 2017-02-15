@@ -19,7 +19,7 @@ Submit the job file `code/lab01/mnist_simple_train.sh` using `qsub`:
 qsub code/lab01/mnist_simple_train.sh
 ```
 
-Once the job has finished, check the output for more information in the file `mnist_simple_train.sh.o<jobid>` at the end of the file you should get something like below:
+Once the job has finished, check the output for more information in the file `mnist_simple_train.sh.e<jobid>` at the end of the file you should get something like below:
 
 ```
 I0127 16:04:25.357823  9366 solver.cpp:317] Iteration 10000, loss = 0.207118
@@ -46,12 +46,13 @@ caffe train -solver=code/lab01/mnist_simple_solver.prototxt
 
 Caffe offers a command line interface for training your models. The above command indicates that you will be using `caffe` to `train` the model with solver file located at `code/lab01/mnist_simple_solver.prototxt`.
 
+Two text files are needed to get a model running in Caffe. A model file which defines the architecture of the network and a solver file that lets you choose the approach to training and optimisation.
 
 ## Implementing the model ##
 
-Two text files are needed to get a model running in Caffe. A model file which defines the architecture of the network and a solver file that lets you choose the approach to training and optimisation.
+A model file consists of sequences of layers each with specific functionality such as `Data` layer that allows import of external data from raw images or databases such as LMDB or the `Loss` layer that calculates the error/loss function.
 
-A model file consists of sequences of layers each with specific functionality such as `Data` layer that allows import of external data from raw images or databases such as LMDB or the Loss layer that calculates the error/loss function. Blobs are matrices for storing data and are used as input (`bottom`) and generated as outputs (`top`) of layers. Layers can have multiple blobs as inputs or outputs depending on the type. The model file is written in the format of Google's protocol buffer (protobuf).
+Blobs are matrices for storing data and are used as input (`bottom`) and generated as outputs (`top`) of layers. Layers can have multiple blobs as inputs or outputs depending on the type. The model file is written in the format of Google's protocol buffer (protobuf).
 
 To get a feel for the model file, we will implement a very simple model that trains on the mnist data with only one dense hidden layer.
 
@@ -100,7 +101,7 @@ layer {
 }
 ```
 
-Now add an `InnerProduct` layer, this is essentially a 'dense' layer where all nodes are connected to every other node below:
+Now add an `InnerProduct` layer, this is essentially a 'dense' layer where all nodes are connected to every other node in the layer below:
 
 ```
 layer {
@@ -355,7 +356,7 @@ Create a `mnist_simple_solver.prototxt` file and copy in the code below:
 
 See the comments in the code for more details.
 
-Fore more information on Caffe's available solvers http://caffe.berkeleyvision.org/tutorial/solver.html.
+For more information on Caffe's available solvers, see [http://caffe.berkeleyvision.org/tutorial/solver.html](http://caffe.berkeleyvision.org/tutorial/solver.html).
 
 ## Training ##
 

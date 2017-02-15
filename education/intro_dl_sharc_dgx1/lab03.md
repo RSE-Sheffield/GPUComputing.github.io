@@ -21,7 +21,7 @@ Open the `mnist_lenet_deploy.prototxt` for editing.
 
 For model's deployment, `Data` layers also need to be replaced with one that accepts user input. There's also no need for `Accuracy` and `SoftmaxWithLoss` layer.
 
-Start with removing the `Data` layers name `mnist` for both training and testing phases and replace it with
+Start with removing the `Data` layers name `mnist` for both training and testing phases and replace it with:
 
 ```
 layer {
@@ -32,7 +32,7 @@ layer {
 }
 ```
 
-Remove the `accuracy` and `loss` layer. Replace with a new loss layer that only does Softmax
+Remove the `accuracy` and `loss` layer. Replace with a new loss layer that only does Softmax:
 
 ```
 layer {
