@@ -117,11 +117,17 @@ Sending you an e-mail when the job is completed/aborted/suspended:
 -M your.email@yourdomain.com -m eas
 ```
 
+Putting it all together:
 
+```
+qsub -l gpu=1 -P rse-training -q rse-training.q -l rmem=10G -j y -o your/path -M your.email@yourdomain.com -m eas my_script.sh
+```
+
+**Note:** When specifying `qsub` parameters from the command line, add the parameters **before** your script name as shown above.
 
 ## Getting your environment ready for Caffe ##
 
-There are two version of Caffe on ShARC (see [documentation](https://github.com/RSE-Sheffield/GPUComputing/blob/master/deeplearning/Caffe.rst)), the standard version which is newer (has more layer types) and Nvidia's version that is more optimised for the multi-GPU use. We'll use the default version as it has support for recurrent networks.
+There are two version of Caffe on ShARC (see [documentation](https://github.com/RSE-Sheffield/GPUComputing/blob/master/deeplearning/Caffe.rst)), the standard version that is newer (has more layer types) and Nvidia's version that is more optimised for multi-GPU use. We'll be using the standard version as it has support for recurrent layers.
 
 To use the python bindings for Caffe we need to prepare our python environment. First we load up the Caffe module which also loads Conda 3.4, CUDA 8, cuDNN 5.1 and GCC 4.9.4
 
@@ -129,15 +135,23 @@ To use the python bindings for Caffe we need to prepare our python environment. 
 module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
 ```
 
-We'll create a local python 3.5 environment named `caffe`, activate it then install `matplotlib`, `numpy` and `scikit-image` which which be needed later for visualising our models.
+We'll create a local python 3.5 environment named `caffe`, activate it then install `matplotlib`, `numpy`, `scikit-image` and Python `protobuf` runtime  which which be needed later for visualising our models.
 
 ```
 conda create -n caffe python=3.5
 source activate caffe
 conda install -y matplotlib numpy scikit-image
+pip install protobuf
 ```
 
-Every time you log in to the node and in all your job scripts, you will need to load the module and activate the caffe conda environment again.
+We'll also add the python libraries to your system path in `.bashrc` so Caffe can find it. **Replace `[Your CiCs Username]` with your username**:
+
+```
+echo "export LD_LIBRARY_PATH=\"/home/[Your CiCs Username]/.conda/envs/caffe/lib:\$LD_LIBRARY_PATH\"" >> ~/.bashrc
+. ~/.bashrc
+```
+
+Every time you log in to the node and in **all your job scripts**, you will need to load the module and activate the `caffe` conda environment again:
 
 ```
 module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
@@ -146,12 +160,14 @@ source activate caffe
 
 ## Downloading the code for the practicals ##
 
-Code to use along with the coure are made available from a Github repository. Use the following command to download them and go in to the directory:
+The code to use along with the course are made available from a Github repository. Use the following command to download them and go in to the directory:
 
 ```
 git clone https://github.com/RSE-Sheffield/DLTraining.git
 cd DLTraining
 ```
+
+**You will want to be working from this current directory through all the following practicals. This is because all paths specified in the models are relative to this root folder**
 
 Now we're ready to start the first practical.
 

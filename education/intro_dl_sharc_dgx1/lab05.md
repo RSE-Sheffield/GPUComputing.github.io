@@ -6,6 +6,7 @@ permalink: /education/intro_dl_sharc_dgx1/lab05/
 
 # Lab 05: Multi-GPU and Benchmarking #
 
+**Remember to be working from the root directory of DLTraining code sample throughout all practicals.**
 
 ## Getting the GPU topology ##
 
@@ -82,4 +83,4 @@ Caffe notes on multi-gpu: [https://github.com/BVLC/caffe/blob/master/docs/multig
 
 ---
 
-&#124; [Lab04](../lab04) &#124; [Lab06](../lab06) &#124;
+&#124; [Home](../) &#124; [Lab04](../lab04) &#124; [Lab06](../lab06) &#124;

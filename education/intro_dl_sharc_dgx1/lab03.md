@@ -6,7 +6,9 @@ permalink: /education/intro_dl_sharc_dgx1/lab03/
 
 # Lab 3: Deploying and using your trained model #
 
-## Alter model file for deployment ##
+**Remember to be working from the root directory of DLTraining code sample throughout all practicals.**
+
+## Altering the model file for deployment ##
 We'll use the previous MNIST LeNet model that you've just trained.
 
 Copy the `mnist_lenet.prototxt` to `mnist_lenet_deploy.prototxt`.
@@ -17,9 +19,9 @@ cp mnist_lenet.prototxt mnist_lenet_deploy.prototxt
 
 Open the `mnist_lenet_deploy.prototxt` for editing.
 
-For model's deployment `Data` layers also need to be replaced with one that accepts user input. There's also no need for `Accuracy` and `SoftmaxWithLoss` layer.
+For model's deployment, `Data` layers also need to be replaced with one that accepts user input. There's also no need for `Accuracy` and `SoftmaxWithLoss` layer.
 
-Start with removing the `Data` layers name `mnist` for both training and testing phases and replace it with
+Start with removing the `Data` layers name `mnist` for both training and testing phases and replace it with:
 
 ```
 layer {
@@ -30,7 +32,7 @@ layer {
 }
 ```
 
-Remove the `accuracy` and `loss` layer. Replace with a new loss layer that only does Softmax
+Remove the `accuracy` and `loss` layer. Replace with a new loss layer that only does Softmax:
 
 ```
 layer {
@@ -127,7 +129,7 @@ else:
     print("Digit "+ str(digits_label[highest_index]) + " detected with " + str(highest_probability*100.0)+"%  probability.")
 ```
 
-Save and run the script:
+Save and create a batch script with the command:
 
 ```
 python mnist_deploy.py data/minist_six.png
@@ -138,34 +140,44 @@ python mnist_deploy.py data/minist_six.png
 
 As with training, you can also use the GPU when deploying the model for classification.
 
-Remove the line:
+Just below the line:
 
 ```
-caffe.set_mode_cpu()
+net.forward()
 ```
 
-And add the following two lines in place:
+Add the following lines :
 
 ```
 caffe.set_mode_gpu()
 caffe.set_device(0)
+net.forward()
 ```
 
-A useful command to time your scripts is to use `time -p` before the python command e.g.
+Now the training will be run twice, first time with CPU and second with the GPU. Let's also try to time how long it takes by first importing the `time` package:
 
 ```
-time -p python mnist_deploy.py ......
+import time
 ```
 
-Where after all the python outputs you will get the excution times as shown below
+And surround the `net.forward()` lines like this:
 
 ```
-real 11.07
-user 7.59
-sys 1.89
+startTime = time.time()
+net.forward()
+endTime = time.time()
+print("Inferencing with CPU took {:.2f}ms".format((endTime-startTime)*1000.0))
 ```
 
-How much faster was it when using the GPU?
+How much faster was it when using the GPU? Did you get something like this?:
+
+```
+Inferencing with CPU took 18.85ms
+
+Inferencing with GPU took 3.25ms
+```
+
+
 
 ## Exercise 3: Batching Inputs ##
 
@@ -194,4 +206,4 @@ data/mnist_nine.png
 
 ---
 
-&#124; [Lab02](../lab02) &#124; [Lab04](../lab04) &#124;
+&#124; [Home](../) &#124; [Lab02](../lab02) &#124;
