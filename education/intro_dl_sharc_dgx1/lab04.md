@@ -113,8 +113,7 @@ prob	(50, 1000)
 ## Examining model parameters ##
 
 
-
-Similarly the `net.params` contain the parameters of the model. To print our their dimension use the following code:
+The parmeters `net.params` contain the weights and biases of the layers. To print our their dimension use the following code:
 
 ```
 for layer_name, param in net.params.items():
@@ -204,8 +203,10 @@ plt.subplot(2, 1, 1)
 plt.plot(feat.flat)
 plt.subplot(2, 1, 2)
 _ = plt.hist(feat.flat[feat.flat > 0], bins=100)
-plt.savefig("fc6_histogram.png")
+plt.savefig("fc6_output.png")
 ```
+
+The top plot shows the activation values of the output, the bottom plot shows the histogram of activation values.
 
 ![Caffenet fc6](/static/img/intro_dl_sharc_dgx1/caffenet_fc6_histogram.png)
 
@@ -215,7 +216,7 @@ The final probability output, `prob`:
 feat = net.blobs['prob'].data[0]
 plt.figure(figsize=(15, 3))
 plt.plot(feat.flat)
-plot.savefig("prob_distribution.png")
+plt.savefig("prob_distribution.png")
 ```
 
 ![Caffenet output prob](/static/img/intro_dl_sharc_dgx1/caffenet_prob_distribution.png)

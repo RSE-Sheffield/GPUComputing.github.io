@@ -47,6 +47,44 @@ Legend:
 
 For best performance, peer to peer (P2P) direct memory access (DMA)  between devices is needed. Look for the GPUs that are connected NVLink (`NV1`). Without P2P access, for example crossing PCIe root complex, data is copied through host and effective exchange bandwidth is greatly reduced.
 
+## GPU query using Caffe ##
+
+Caffe also provides a function for query the GPU:
+
+```
+# query the first device
+$caffe device_query -gpu=0
+
+I0221 22:16:16.010140  7842 caffe.cpp:138] Querying GPUs 0
+I0221 22:16:21.959296  7842 common.cpp:177] Device id:                     0
+I0221 22:16:21.959368  7842 common.cpp:178] Major revision number:         6
+I0221 22:16:21.959378  7842 common.cpp:179] Minor revision number:         0
+I0221 22:16:21.959383  7842 common.cpp:180] Name:                          Tesla P100-SXM2-16GB
+I0221 22:16:21.959482  7842 common.cpp:181] Total global memory:           17071669248
+I0221 22:16:21.959503  7842 common.cpp:182] Total shared memory per block: 49152
+I0221 22:16:21.959509  7842 common.cpp:183] Total registers per block:     65536
+I0221 22:16:21.959516  7842 common.cpp:184] Warp size:                     32
+I0221 22:16:21.959543  7842 common.cpp:185] Maximum memory pitch:          2147483647
+I0221 22:16:21.959559  7842 common.cpp:186] Maximum threads per block:     1024
+I0221 22:16:21.959566  7842 common.cpp:187] Maximum dimension of block:    1024, 1024, 64
+I0221 22:16:21.959594  7842 common.cpp:190] Maximum dimension of grid:     2147483647, 65535, 65535
+I0221 22:16:21.959609  7842 common.cpp:193] Clock rate:                    1480500
+I0221 22:16:21.959616  7842 common.cpp:194] Total constant memory:         65536
+I0221 22:16:21.959641  7842 common.cpp:195] Texture alignment:             512
+I0221 22:16:21.959656  7842 common.cpp:196] Concurrent copy and execution: Yes
+I0221 22:16:21.959662  7842 common.cpp:198] Number of multiprocessors:     56
+I0221 22:16:21.959668  7842 common.cpp:199] Kernel execution timeout:      No
+
+```
+
+It can also be used to query multiple GPUs:
+
+```
+# querying device 0 and 1
+$caffe device_query -gpu=0,1
+```
+
+
 ## Training models on multiple GPUs with Caffe ##
 
 Caffe only supports the data parallel approach for multi-GPU and only for training on the command line (other interfaces coming soon).
