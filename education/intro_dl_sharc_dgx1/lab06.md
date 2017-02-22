@@ -10,6 +10,22 @@ permalink: /education/intro_dl_sharc_dgx1/lab06/
 
 In this lab we will create a simple text generation model that allows us to see the capabilities of the Long Short Term Memory (LSTM) units. It will include creating a HDF5 data set from raw sample text 'Alice in Wonderland'. The lab introduces 4 new layers, the `HDF5Data`, `LSTM`, `Embed` and `Dropout` layers.
 
+## Job scripts ##
+A reminder to add the following lines to all the script that you submit with `qsub`:
+
+```
+#!/bin/bash
+#$ -l gpu=1 -P rse-training -q rse-training.q -l rmem=10G
+
+module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
+source activate caffe
+export LD_LIBRARY_PATH="/home/$USER/.conda/envs/caffe/lib:$LD_LIBRARY_PATH"
+
+#Your code below....
+```
+
+Currently when you run Caffe you will get a `libpython3.5m.so.1.0` missing error if the `export` part is not included.
+
 ## LSTM Layer ##
 
 The `LSTM` is a layer  that takes in a sequence of input over time steps and can be used to generate a sequence of output over time.

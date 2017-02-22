@@ -21,6 +21,21 @@ git clone https://github.com/RSE-Sheffield/DLTraining2.git
 cd DLTraining2
 ```
 
+## Job scripts ##
+A reminder to add the following lines to all the script that you submit with `qsub`:
+
+```
+#!/bin/bash
+#$ -l gpu=1 -P rse-training -q rse-training.q -l rmem=10G
+
+module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
+source activate caffe
+export LD_LIBRARY_PATH="/home/$USER/.conda/envs/caffe/lib:$LD_LIBRARY_PATH"
+
+#Your code below....
+```
+
+Currently when you run Caffe you will get a `libpython3.5m.so.1.0` missing error if the `export` part is not included.
 
 ## Caffe model zoo ##
 

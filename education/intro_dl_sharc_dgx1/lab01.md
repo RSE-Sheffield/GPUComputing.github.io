@@ -368,6 +368,7 @@ To train the model create a new script `mnist_simple_train.sh` with the contents
 
 module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
 source activate caffe
+export LD_LIBRARY_PATH="/home/$USER/.conda/envs/caffe/lib:$LD_LIBRARY_PATH"
 
 caffe train -solver=mnist_simple_solver.prototxt
 ```
