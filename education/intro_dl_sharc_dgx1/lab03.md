@@ -129,12 +129,22 @@ else:
     print("Digit "+ str(digits_label[highest_index]) + " detected with " + str(highest_probability*100.0)+"%  probability.")
 ```
 
-Save and create a batch script with the command:
+Save and create a batch script named `mnist_deploy.sh` with the command:
 
 ```
+#!/bin/bash
+module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
+source activate caffe
+export LD_LIBRARY_PATH="/home/$USER/.conda/envs/caffe/lib:$LD_LIBRARY_PATH"
+
 python mnist_deploy.py data/minist_six.png
 ```
 
+Run with `qsub`:
+
+```
+qsub mnist_deploy.sh
+```
 
 ## Using the GPU ##
 

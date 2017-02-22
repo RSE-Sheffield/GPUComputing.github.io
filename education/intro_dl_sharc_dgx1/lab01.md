@@ -320,7 +320,7 @@ Create a `mnist_simple_solver.prototxt` file and copy in the code below:
 	net: "mnist_simple.prototxt"
 
 	# Declare solver type, SGD is Stochastic Gradient Descent
-	type: SGD
+	type: "SGD"
 
 	# test_iter specifies how many forward passes the test should carry out.
 	# In the case of MNIST, we have test batch size 100 and 100 test iterations,

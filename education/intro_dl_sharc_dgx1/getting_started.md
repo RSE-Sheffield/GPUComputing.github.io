@@ -125,6 +125,14 @@ qsub -l gpu=1 -P rse-training -q rse-training.q -l rmem=10G -j y -o your/path -M
 
 **Note:** When specifying `qsub` parameters from the command line, add the parameters **before** your script name as shown above.
 
+## See more details about your job ##
+
+Use `qstat -j` to get more information about your job:
+
+```
+ qstat -j <jobid>
+```
+
 ## Getting your environment ready for Caffe ##
 
 There are two version of Caffe on ShARC (see [documentation](https://github.com/RSE-Sheffield/GPUComputing/blob/master/deeplearning/Caffe.rst)), the standard version that is newer (has more layer types) and Nvidia's version that is more optimised for multi-GPU use. We'll be using the standard version as it has support for recurrent layers.
@@ -144,18 +152,13 @@ conda install -y matplotlib numpy scikit-image
 pip install protobuf
 ```
 
-We'll also add the python libraries to your system path in `.bashrc` so Caffe can find it. **Replace `[Your CiCs Username]` with your username**:
-
-```
-echo "export LD_LIBRARY_PATH=\"/home/[Your CiCs Username]/.conda/envs/caffe/lib:\$LD_LIBRARY_PATH\"" >> ~/.bashrc
-. ~/.bashrc
-```
 
 Every time you log in to the node and in **all your job scripts**, you will need to load the module and activate the `caffe` conda environment again:
 
 ```
 module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
 source activate caffe
+export LD_LIBRARY_PATH="/home/$USER/.conda/envs/caffe/lib:$LD_LIBRARY_PATH"
 ```
 
 ## Downloading the code for the practicals ##

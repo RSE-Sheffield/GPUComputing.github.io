@@ -12,9 +12,19 @@ The ImageNet competition provides a dataset of tagged images collected from the 
 
 In this lab we will look at using a pre-trained models provided by Caffe and its community, in particular the Caffenet model that was based on Alexnet architecture that won the 2012 ImageNet competition. In addition we will explore how the model parameters can be visualised using the Python interface.
 
+## Getting the code for Day 2 ##
+
+Another set of code and data has been provided day 2 of the course. Navigate to a suitable directory then, clone it and go in to the directory using:
+
+```
+git clone https://github.com/RSE-Sheffield/DLTraining2.git
+cd DLTraining2
+```
+
+
 ## Caffe model zoo ##
 
-Caffe provides a directory of official and community trained models. They can be found at the [model zoo](http://caffe.berkeleyvision.org/model_zoo.html) page.
+Caffe provides a directory of official and community trained models. They can be found at the [model zoo](http://caffe.berkeleyvision.org/model_zoo.html) page. Today we will be using the pre-trained Caffenet model.
 
 
 ## Getting the pre-trained Caffenet model ##
@@ -25,24 +35,31 @@ All necessary files are included in `code/lab04/caffenet` folder apart from the 
 wget "https://www.dropbox.com/s/srmy7h9bqy25vaq/bvlc_reference_caffenet.caffemodel?dl=0"  -O data/lab04/caffenet/bvlc_reference_caffenet.caffemodel
 ```
 
-The model is more complex than our previous LeNet model using five stages of convolution and Local Response Normalization `LRN` layers which introduces lateral inhibition for bounding response of unbounded activation functions such as ReLU.
+The model is more complex than our previous LeNet MNIST model using five stages of convolution and Local Response Normalization `LRN` layers which introduces lateral inhibition for bounding response of unbounded activation functions such as ReLU.
 
 ![Alexnet diagram](/static/img/intro_dl_sharc_dgx1/alexnet_small.png)
 
 
 ## Exercise 4: Deploying the Caffenet model for classification ##
 
-Using the previous python deployment code for our LeNet model. Modify it so that it can classify the `data/cat.jpg` image then print out the text labels with associated probabilities. See guidance below on the necessary steps:
+Using the previous python deployment code for our LeNet model which is now located in `code/lab04/mnist_deploy_sample.py`. Copy it to the root directory using:
 
+```
+cp code/lab04/mnist_deploy_sample.py caffenet_deploy.py
+```
+
+Modify it so that it can classify the `data/cat.jpg` image then print out the text labels with associated probabilities. See guidance below on the necessary steps:
+
+* Use **only** the **CPU mode** for inferencing `caffe.set_mode_cpu()`. The model uses a deprecated layer that causes it to crash on the GPU.
 * The model file is located at `code/lab04/caffenet/deploy.prototxt`
 * The weights file is located at `code/lab04/caffenet/bvlc_reference_caffenet.caffemodel`
 * The model takes an image input of `227 width x 227 height x 3 channels (RGB)`
-  * The channel must be swapped from RGB to BGR
+  * The channel must be swapped from RGB to BGR.
       ```
       transformer.set_channel_swap('data', (2,1,0))
       ```
 * The mean value file is located at `code/lab04/caffenet/ilsvrc_2012_mean.npy`
-  * The mean file can be loaded like so
+  * The mean file can be loaded like so:
 
     ```
     mu = np.load('code/lab04/caffenet/ilsvrc_2012_mean.npy')
@@ -95,7 +112,8 @@ prob	(50, 1000)
 
 ## Examining model parameters ##
 
-Similarly the `net.params` contain the parameters of the model. To print our their dimension use the following code:
+
+The parmeters `net.params` contain the weights and biases of the layers. To print our their dimension use the following code:
 
 ```
 for layer_name, param in net.params.items():
@@ -116,6 +134,12 @@ fc8	(1000, 4096) (1000,)
 ```
 
 ## Visulisation of model parameters ##
+
+We'll be using `matplotlib.pyplot` for visualising our model. Include the `import` code first:
+
+```
+import matplotlib.pyplot as plt
+```
 
 Let's try to visualise these parameters. Add the following function in to your script:
 
@@ -139,6 +163,7 @@ def vis_square(data):
     data = data.reshape((n * data.shape[1], n * data.shape[3]) + data.shape[4:])
 
     plt.imshow(data); plt.axis('off')
+    plt.savefig(figname+".png")
 ```
 
 For `conv1` layer's parameter:
@@ -146,31 +171,31 @@ For `conv1` layer's parameter:
 ```
 # the parameters are a list of [weights, biases]
 filters = net.params['conv1'][0].data
-vis_square(filters.transpose(0, 2, 3, 1))
+vis_square(filters.transpose(0, 2, 3, 1), "conv1_params")
 ```
 
 ![Caffenet conv1 params](/static/img/intro_dl_sharc_dgx1/caffenet_conv1_param.png)
 
-The first layer output, conv1 (rectified responses of the filters above, first 36 only):
+The first layer output, `conv1` (rectified responses of the filters above, first 36 only):
 
 ```
 feat = net.blobs['conv1'].data[0, :36]
-vis_square(feat)
+vis_square(feat, "conv1_output")
 ```
 
 ![Caffenet conv1 blob](/static/img/intro_dl_sharc_dgx1/caffenet_conv1_blob.png)
 
 
-The fifth layer after pooling, pool5:
+The fifth layer after pooling, `pool5`:
 
 ```
 feat = net.blobs['pool5'].data[0]
-vis_square(feat)
+vis_square(feat, "pool5_output")
 ```
 
 ![Caffenet pool5 blob](/static/img/intro_dl_sharc_dgx1/caffenet_pool5_blob.png)
 
-The first fully connected layer, fc6 (rectified). We show the output values and the histogram of the positive values:
+The first fully connected layer, `fc6` (rectified). We show the output values and the histogram of the positive values:
 
 ```
 feat = net.blobs['fc6'].data[0]
@@ -178,15 +203,20 @@ plt.subplot(2, 1, 1)
 plt.plot(feat.flat)
 plt.subplot(2, 1, 2)
 _ = plt.hist(feat.flat[feat.flat > 0], bins=100)
+plt.savefig("fc6_output.png")
 ```
+
+The top plot shows the activation values of the output, the bottom plot shows the histogram of activation values.
 
 ![Caffenet fc6](/static/img/intro_dl_sharc_dgx1/caffenet_fc6_histogram.png)
 
-The final probability output, prob:
+The final probability output, `prob`:
+
 ```
 feat = net.blobs['prob'].data[0]
 plt.figure(figsize=(15, 3))
 plt.plot(feat.flat)
+plt.savefig("prob_distribution.png")
 ```
 
 ![Caffenet output prob](/static/img/intro_dl_sharc_dgx1/caffenet_prob_distribution.png)
@@ -196,7 +226,7 @@ Note the cluster of strong predictions; the labels are sorted semantically. The 
 
 ## Extra: Fine-tuning and rehaping pre-train models ##
 
-Caffe has provided tutorials for using an network trained on ImageNet data and repurposing it for classifying flickr style. To use the tutorial you will want to clone Caffe from github
+Caffe has provided tutorials for using an network trained on ImageNet data and repurposing it for classifying flickr style. To use the tutorial you will want to clone Caffe from github:
 
 ```
 git clone https://github.com/BVLC/caffe.git

@@ -19,7 +19,7 @@ qsub code/lab02/mnist_lenet_train.sh
 ```
 
 
-Once the job has finished, check the output for more information in the file `mnist_lenet_train.sh.o<jobid>`, at the end of the file you should get something like below
+Once the job has finished, check the output for more information in the file `mnist_lenet_train.sh.e<jobid>`, at the end of the file you should get something like below
 
 ```
 I0127 16:04:25.357823  9366 solver.cpp:317] Iteration 10000, loss = 0.207118
@@ -136,13 +136,13 @@ chmod +x tools/*
 Use the `tools/parse_log.sh` on the the generated log file to create a `.train` and `.test` files with the training and test statistics.
 
 ```
-tools/parse_log.py mnist_lenet_train.sh.o<jobid>
+tools/parse_log.py mnist_lenet_train.sh.e<jobid>
 ```
 
 Use the `tools/plot_log.py` on one of the generated files to see what fields are available to plot against:
 
 ```
-$ tools/plot_log.py mnist_lenet_train.sh.o<jobid>.train
+$ tools/plot_log.py mnist_lenet_train.sh.e<jobid>.train
 Available headers:
  Iters
  Seconds
@@ -153,7 +153,7 @@ Available headers:
 To generate a plot, simply add the correct header to use for X and Y axis:
 
 ```
-$ tools/plot_log.py mnist_lenet_train.sh.o<jobid>.train Iters TrainingLoss mnist_lenet_plot.png
+$ tools/plot_log.py mnist_lenet_train.sh.e<jobid>.train Iters TrainingLoss mnist_lenet_plot.png
 ```
 
 The above code produces the graph shown below. An optional `.png` image was also saved.
