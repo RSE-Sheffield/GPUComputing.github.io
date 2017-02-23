@@ -133,6 +133,16 @@ A copy of 'Alice in Wonderland' is located at `data/wonderland.txt`. We will be 
 
 ![Alice data](/static/img/intro_dl_sharc_dgx1/alice_continuity.png)
 
+Start by installing the `h5py` package:
+
+```
+module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
+source activate caffe
+export LD_LIBRARY_PATH="/home/$USER/.conda/envs/caffe/lib:$LD_LIBRARY_PATH"
+
+pip install h5py
+```
+
 Create a python file `create_text_gen_dataset.py` add the start importing packages that we'll need:
 
 ```
@@ -369,7 +379,7 @@ clip_gradients: 1.0
 
 An additional variable `clip_gradients` was added, it has been shown to help deal with exploding gradients and vanishing gradients problem \([Pascam et al. 2012 ](https://arxiv.org/abs/1211.5063)\) which occurs more frequently in recurrent networks due to the use of sigmoid function in the recurrent units.
 
-Create a script for training the model and submit with `qsub`. The loss values will depend on the model variable you've set but for the example model it should be around `0.4`.
+Create a job script for training the model and submit with `qsub`. The loss values will depend on the model variable you've set but for the example model it should be around `0.4`.
 
 ## Exercise 6.2 Create a deployable model ##
 
@@ -531,13 +541,16 @@ print("Final output:")
 print(result)
 ```
 
-Check with the file `code/lab06/generate_text.py` to ensure your script is correct. Create and run a job script with `qsub` when done.
+Check with the file `code/lab06/generate_text.py` to ensure your script is correct.
 
-With the following seed:
+Create and run a job script with `qsub` when done.
+
+We select random part of the text for seeding so your results will be variable. With the following seed for example:
 ```
 nished: and the trial doesn’t
 even begin till next
 ```
+
 You should get something almost legible:
 
 ```
@@ -554,7 +567,6 @@ was to dry be
 if she could no reasing to her
 very good--bores, i fon’t fintth the rook, and ‘whey seemid out of
 ```
-
 
 ## Exercise 6.3 Varying dropouts and adding additional LSTM layers ##
 * Try changing the dropout values when training
