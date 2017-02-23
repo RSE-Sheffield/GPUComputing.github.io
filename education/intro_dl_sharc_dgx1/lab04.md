@@ -14,7 +14,7 @@ In this lab we will look at using a pre-trained models provided by Caffe and its
 
 ## Getting the code for Day 2 ##
 
-Another set of code and data has been provided day 2 of the course. Navigate to a suitable directory then, clone it and go in to the directory using:
+Another set of code and data has been provided for day 2 of the course. Navigate to a suitable directory then, clone it and go in to the directory using:
 
 ```
 git clone https://github.com/RSE-Sheffield/DLTraining2.git
