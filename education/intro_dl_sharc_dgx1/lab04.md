@@ -6,7 +6,7 @@ permalink: /education/intro_dl_sharc_dgx1/lab04/
 
 # Lab 04: Using and visualising pre-trained models #
 
-**Remember to be working from the root directory of DLTraining code sample throughout all practicals.**
+**Remember to be working from the root directory of DLTraining2 code sample throughout all practicals.**
 
 The ImageNet competition provides a dataset of tagged images collected from the internet. The whole set is around 55GB and can take days or weeks to train.
 
@@ -21,6 +21,23 @@ git clone https://github.com/RSE-Sheffield/DLTraining2.git
 cd DLTraining2
 ```
 
+## Job scripts ##
+**A reminder to add the following lines to all the job script that you submit with `qsub`:**
+
+```
+#!/bin/bash
+#$ -l gpu=1 -P rse-training -q rse-training.q -l rmem=10G -j y
+
+module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
+source activate caffe
+export LD_LIBRARY_PATH="/home/$USER/.conda/envs/caffe/lib:$LD_LIBRARY_PATH"
+
+#Your code below....
+```
+
+The `-j y` option is included so that the job output prints everything to one output file e.g. `your_scriptname.sh.o<jobid>`.
+
+Currently when you run Caffe you will get a `libpython3.5m.so.1.0` missing error if the `export` part is not included.
 
 ## Caffe model zoo ##
 
@@ -35,10 +52,11 @@ All necessary files are included in `code/lab04/caffenet` folder apart from the 
 wget "https://www.dropbox.com/s/srmy7h9bqy25vaq/bvlc_reference_caffenet.caffemodel?dl=0"  -O data/lab04/caffenet/bvlc_reference_caffenet.caffemodel
 ```
 
-The model is more complex than our previous LeNet MNIST model using five stages of convolution and Local Response Normalization `LRN` layers which introduces lateral inhibition for bounding response of unbounded activation functions such as ReLU.
+The model is more complex than our previous LeNet MNIST model using five stages of convolution and uses Local Response Normalization `LRN` layers after pooling which introduces lateral inhibition allowing more excited neurons to subdue the activty of others around it. A diagram of the model is shown below:
 
 ![Alexnet diagram](/static/img/intro_dl_sharc_dgx1/alexnet_small.png)
 
+For more information about normalization in Neural Networks, [see this blog page](http://yeephycho.github.io/2016/08/03/Normalizations-in-neural-networks/).
 
 ## Exercise 4: Deploying the Caffenet model for classification ##
 
@@ -48,8 +66,14 @@ Using the previous python deployment code for our LeNet model which is now locat
 cp code/lab04/mnist_deploy_sample.py caffenet_deploy.py
 ```
 
-Modify it so that it can classify the `data/cat.jpg` image then print out the text labels with associated probabilities. See guidance below on the necessary steps:
+Now open the `caffenet_deploy.py` and modify it so that it can classify the `data/cat.jpg` image then print out the text labels with associated probabilities. See guidance below on the necessary steps:
 
+* Add the following code at the top of your file that prevents pyplot from using X11 window:
+  ```
+  import matplotlib
+  # Force matplotlib to not use any Xwindows backend.
+  matplotlib.use('Agg')
+  ```
 * Use **only** the **CPU mode** for inferencing `caffe.set_mode_cpu()`. The model uses a deprecated layer that causes it to crash on the GPU.
 * The model file is located at `code/lab04/caffenet/deploy.prototxt`
 * The weights file is located at `code/lab04/caffenet/bvlc_reference_caffenet.caffemodel`
@@ -76,12 +100,23 @@ Modify it so that it can classify the `data/cat.jpg` image then print out the te
   ```
   labels = np.loadtxt(`code/lab04/caffenet/synset_words.txt`, str, delimiter='\t')
   ```
+  This returns 1D list with the correct index to label mapping.
 
 When done, you can check your code against `code/lab04/caffenet_deploy.py`.
 
+Create a job script to run the code and submit with `qsub` and check the output results and you should get the following at the end of the file:
+
+```
+predicted class is: 281
+output label: b'n02123045 tabby, tabby cat'
+probabilities and labels:
+[(0.3124361, "b'n02123045 tabby, tabby cat'"), (0.23797192, "b'n02123159 tiger cat'"), (0.12387263, "b'n02124075 Egyptian cat'"), (0.10075711, "b'n02119022 red fox, Vulpes vulpes'"), (0.070957027, "b'n02127052 lynx, catamount'")]
+```
+
 ## Examining Blobs ##
 
-The `net.blobs` object is an `OrderedDict` containing Blob objects with its name as the key. Add the following code to your Python script to print out all blob dimensions:
+
+The `net.blobs` object is an `OrderedDict` containing Blob objects with its name as the key. Add the following code to your `caffenet_deploy.py` script to print out all blob dimensions:
 
 ```
 # for each layer, show the output shape
@@ -223,6 +258,7 @@ plt.savefig("prob_distribution.png")
 
 Note the cluster of strong predictions; the labels are sorted semantically. The top peaks correspond to the top predicted labels, as shown above.
 
+You can check the final code at `code/lab04/caffenet_deploy_visualise.py`.
 
 ## Extra: Fine-tuning and rehaping pre-train models ##
 

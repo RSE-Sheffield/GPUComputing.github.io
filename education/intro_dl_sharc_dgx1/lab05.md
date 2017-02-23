@@ -6,17 +6,37 @@ permalink: /education/intro_dl_sharc_dgx1/lab05/
 
 # Lab 05: Multi-GPU and Benchmarking #
 
-**Remember to be working from the root directory of DLTraining code sample throughout all practicals.**
+**Remember to be working from the root directory of DLTraining2 code sample throughout all practicals.**
 
 In this lab, we will be looking at the use of multiple GPUs for running our models. We will also look at Cafffe's facilities for benchmarking the models for us.
 
+## Job scripts ##
+**A reminder to add the following lines to all the job script that you submit with `qsub`:**
+
+```
+#!/bin/bash
+#$ -l gpu=1 -P rse-training -q rse-training.q -l rmem=10G -j y
+
+module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
+source activate caffe
+export LD_LIBRARY_PATH="/home/$USER/.conda/envs/caffe/lib:$LD_LIBRARY_PATH"
+
+#Your code below....
+```
+
+The `-j y` option is included so that the job output prints everything to one output file e.g. `your_scriptname.sh.o<jobid>`.
+
+Currently when you run Caffe you will get a `libpython3.5m.so.1.0` missing error if the `export` part is not included.
+
 ## Getting the GPU topology ##
 
-The topology matrix can be obtained using:
+The GPU topology matrix can be obtained using:
 
 ```
 nvidia-smi topo -m
 ```
+
+Create a job script and submit with `qsub` to test it out.
 
 For the DGX-1 you will get something like:
 
@@ -48,6 +68,7 @@ Legend:
 For best performance, peer to peer (P2P) direct memory access (DMA)  between devices is needed. Look for the GPUs that are connected NVLink (`NV1`). Without P2P access, for example crossing PCIe root complex, data is copied through host and effective exchange bandwidth is greatly reduced.
 
 ## GPU query using Caffe ##
+**Don't forget to use `qsub` to submit the script with the following commands.**
 
 Caffe also provides a function for query the GPU:
 
@@ -89,11 +110,11 @@ $caffe device_query -gpu=0,1
 
 Caffe only supports the data parallel approach for multi-GPU and only for training on the command line (other interfaces coming soon).
 
-In your job scripts you have been using the parameter `-l gpu=1` which means we're requesting 1 GPU. Simply replace the number for the GPUs you require e.g. for 4 GPUs:
+In your job scripts you have been using the parameter `-l gpu=1` which means we're requesting 1 GPU. Simply replace the number for the GPUs you require e.g. for 2 GPUs:
 
 ```
 #!/bin/bash
-#$ -l gpu=4 -P rse-training -q rse-training.q -l rmem=10G
+#$ -l gpu=2 -P rse-training -q rse-training.q -l rmem=10G -j y
 
 module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
 source activate caffe
@@ -118,21 +139,28 @@ Caffe notes on multi-gpu: [https://github.com/BVLC/caffe/blob/master/docs/multig
 
 ## Benchmarking your models ##
 
+**Don't forget to use `qsub` to submit the script with the following commands.**
+
 Caffe provides a convenient tool for benchmarking your model with `caffe time`, use as follows:
 
 ```
 # (These example calls require you complete the LeNet / MNIST example first.)
 # time LeNet training on CPU for 10 iterations
-caffe time -model code/lab05/mnist_lenet.prototxt -iterations 10
+caffe time -model=code/lab05/mnist_lenet.prototxt -iterations 10
 
 # time LeNet training on GPU for the default 50 iterations
-caffe time -model code/lab05/mnist_lenet.prototxt  -gpu 0
+caffe time -model=code/lab05/mnist_lenet.prototxt  -gpu 0
+
+# time LeNet training on the first two GPUs for the default 50 iterations
+caffe time -model=code/lab05/mnist_lenet.prototxt   -gpu 0,1
+
+#If you want to run the code below, make sure you've trained the MNIST model first and are pointing to the correct .caffemodel file
 
 # time a model architecture with the given weights on the first GPU for 10 iterations
-caffe time -model code/lab05/mnist_lenet.prototxt  -weights mnist_lenet_iter_10000.caffemodel -gpu 0 -iterations 10
+caffe time -model code/lab05/mnist_lenet.prototxt  -weights=mnist_lenet_iter_10000.caffemodel -gpu 0 -iterations 10
 
 # time a model architecture with the given weights on the first two GPUs for 10 iterations
-caffe time -model code/lab05/mnist_lenet.prototxt  -weights mnist_lenet_iter_10000.caffemodel -gpu 0,1 -iterations 10
+caffe time -model code/lab05/mnist_lenet.prototxt  -weights=mnist_lenet_iter_10000.caffemodel -gpu 0,1 -iterations 10
 ```
 
 Use the `-gpu` flag to declare which GPU to use. To use GPU 0 and 1 for example use the flag `-gpu 0,1` or to use all GPUs you can set `-gpu all`.

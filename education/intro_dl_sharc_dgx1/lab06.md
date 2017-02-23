@@ -6,13 +6,31 @@ permalink: /education/intro_dl_sharc_dgx1/lab06/
 
 # Practical 6: Recurrent Neural Networks #
 
-**Remember to be working from the root directory of DLTraining code sample throughout all practicals.**
+**Remember to be working from the root directory of DLTraining2 code sample throughout all practicals.**
 
-In this lab we will create a simple text generation model that allows us to see the capabilities of the Long Short Term Memory (LSTM) units. It will include creating a HDF5 data set from raw sample text 'Alice in Wonderland'. The lab introduces 4 new layers, the `HDF5Data`, `LSTM`, `Embed` and `Dropout` layers.
+In this lab we will create a simple text generation model that allows us to see the capabilities of the Long Short Term Memory (LSTM) units. It will include creating a HDF5 data set from raw sample text 'Alice in Wonderland' as well as creating a simple script for generating a random text sequence from the output of our trained model. The lab introduces 4 new layers, the `HDF5Data`, `LSTM`, `Embed` and `Dropout` layers.
+
+## Job scripts ##
+**A reminder to add the following lines to all the job script that you submit with `qsub`:**
+
+```
+#!/bin/bash
+#$ -l gpu=1 -P rse-training -q rse-training.q -l rmem=10G -j y
+
+module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
+source activate caffe
+export LD_LIBRARY_PATH="/home/$USER/.conda/envs/caffe/lib:$LD_LIBRARY_PATH"
+
+#Your code below....
+```
+
+The `-j y` option is included so that the job output prints everything to one output file e.g. `your_scriptname.sh.o<jobid>`.
+
+Currently when you run Caffe you will get a `libpython3.5m.so.1.0` missing error if the `export` part is not included.
 
 ## LSTM Layer ##
 
-The `LSTM` is a layer  that takes in a sequence of input over time steps and can be used to generate a sequence of output over time.
+The `LSTM` is a layer that takes in a sequence of input over time steps and can be used to generate a sequence of output over time.
 
 
 ```
@@ -44,7 +62,7 @@ The layer also has an  *optional* input with dimensions `Nx...` which is a stati
 
 ## The Embedding Layer ##
 
-The `Embed` layer transforms a one-hot encoded input of size `input_dim` in to a continous vector of size `num_output`.
+The `Embed` layer transforms a one-hot encoded input of size `input_dim` and maps it as a vector in continous space of size `num_output`.
 
 {: .center}
 ![Embedding](/static/img/intro_dl_sharc_dgx1/embedding.png)
@@ -63,15 +81,15 @@ layer {
     input_dim: 8801  # = vocab_size
     num_output: 1000
     weight_filler {
-      type: "uniform"
-      min: -0.08
-      max: 0.08
-    }
+		  type: "xavier"
+	  }
   }
 }
 ```
 
 This layer will be used to embed our character input generated from the sample text.
+
+If you would like to know more about word embedding the blog pages [here](https://blog.acolyer.org/2016/04/21/the-amazing-power-of-word-vectors) and  [here](http://sebastianruder.com/word-embeddings-1) are good starting points.
 
 ## The Droput Layer ##
 
@@ -91,6 +109,10 @@ layer {
 
 ## The HDF5Data Layer ##
 
+Unlike the `Database` layer, the `HDF5Data` layer can generate more than two top blobs for use as inputs in to our network. The name of the top blobs **must** correspond with the key value specified in our database.
+
+The `source` variable specifies the location of a test file that contains a line-separated list of paths to the `.hdf5` file. This allows the loading of large databases that has to be chunked in to smaller parts.
+
 ```
 layer{
 	name: "data"
@@ -107,7 +129,9 @@ layer{
 
 ## Preparing the data ##
 
-A copy of 'Alice in Wonderland' is located at `data/wonderland.txt`. We will be using this to generate a HDF5 data set for our model.
+A copy of 'Alice in Wonderland' is located at `data/wonderland.txt`. We will be using this to generate a HDF5 data set for our model. The text generation model accepts a sequence of characters, a sequence of continuity delta and a target output sequence of characters:
+
+![Alice data](/static/img/intro_dl_sharc_dgx1/alice_continuity.png)
 
 Create a python file `create_text_gen_dataset.py` add the start importing packages that we'll need:
 
@@ -117,7 +141,7 @@ import numpy as np
 import json
 ```
 
-Delclare out the input and output file paths:
+Declare out the input and output file paths:
 
 ```
 filename = "data/wonderland.txt"
@@ -196,6 +220,10 @@ for i in range(num_streams):
     target_data.append(target_stream)
 ```
 
+We're not worried about continuity data for our model so will always use `1` in `cont_stream` to indicate that everything belongs to the same sequence.
+
+Notice that we're simply passing in a single integer value in to the `input_stream` and `target_stream`. Caffe knows to expand this value in to a one-hot representation for us as we'll have to specify the `input_dim` in the `Embed` layer and `num_output` in the last `InnerProduct` layer.
+
 Then we can convert them to numpy arrays and transpose their axis in to the correct `TxN` dimension:
 
 ```
@@ -240,7 +268,9 @@ file1.hdf5
 file2.hdf5
 ```
 
-Run the file to generate the data:
+You can check your code against the file `code/lab06/create_text_gen_dataset.py`.
+
+Now run the file to generate the data:
 
 ```
 $ python create_text_gen_dataset.py
@@ -251,10 +281,18 @@ Text length:  50000  stream length:  200  numstreams:  250
 Input data shape:  (200, 250)
 Cont data shape:  (200, 250)
 Target data shape:  (200, 250)
-Dataset created
 ```
 
-*Note that we have 47 unique characters in our dataset, we need to keep this in mind as we design our `Embed` and `SoftmaxWithLoss` layer.*
+*Note that we have 47 unique characters in our dataset, we need to keep this in mind as we design our `Embed` and the last `InnerProduct` layer.*
+
+For completeness, here's how we would open and use a hdf5 file in python:
+
+```
+with h5py.File("hdf_file_path.hdf5", "r") as f:
+    print(f["input_sequence"].shape)
+    print(f["cont_sequence"].shape)
+    print(f["target_sequence"].shape)
+```
 
 ## Exercise 6.1 Implementing the model ##
 The diagram below shows the network we'll be implementing:
@@ -264,13 +302,28 @@ The diagram below shows the network we'll be implementing:
 
 The layer sequence is:
 * `HDF5Data`
+* `Embed`
 * `LSTM`
 * `Dropout`
 * `InnerProduct`
 * `SoftmaxWithLoss`
 
-Create a `text_gen.prototxt` file and implement the model.
+Create a `text_gen.prototxt` file and try to implement the model using information about the layers above. Here are some guidelines for the implementation:
 
+* There's no testing phase for the model as we are not interested in its accuracy of prediction.
+* `HDF5Data` layer
+  * Has 3 top blobs
+  * Use a batch size of `50`
+* `Embed` layer
+  * `num_output` can be any arbitrary number lower than the input vocabulary size.
+* `LSTM` layer
+  * Use `num_output: 256` for now.
+* `Dropout` layer
+  * Start with `dropout_ratio` of 0.35 to add a good amount of randomisation.
+* `InnerProduct` layer
+  * In the `inner_product_param` set `axis: 2`. Unlike our previous model, an additional time `T` dimension is added `TxNxC` and an `axis: 2` means we keep the entire output matrix rather than the default `axis: 1` where we would only keep `TxN` matrix.
+* `SoftmaxWithLoss`
+  * Similarly in the `softmax_param` set `axis:2` to tell the layer to evaluate classification along the last axis.
 
 You can check your model with the file `code/lab06/text_gen.prototxt`.
 
@@ -301,7 +354,7 @@ power: 0.75
 display: 100
 
 # The maximum number of iterations
-max_iter: 4000
+max_iter: 6000
 
 # snapshot intermediate results
 snapshot: 2000
@@ -310,30 +363,208 @@ snapshot_prefix: "text_gen"
 # solver mode: CPU or GPU
 solver_mode: GPU
 
-clip_gradients: 0.7
+#Apply gradient clipping threshold to all layers
+clip_gradients: 1.0
 ```
 
-Start training the model. You should get one with loss of around `0.4`.
+An additional variable `clip_gradients` was added, it has been shown to help deal with exploding gradients and vanishing gradients problem \([Pascam et al. 2012 ](https://arxiv.org/abs/1211.5063)\) which occurs more frequently in recurrent networks due to the use of sigmoid function in the recurrent units.
 
-## Exercise 6.2 Deploy the model ##
+Create a script for training the model and submit with `qsub`. The loss values will depend on the model variable you've set but for the example model it should be around `0.4`.
 
-Create a deployable model file called `text_gen_deploy.prototxt` by replacing `HDF5Data` layer with `Input` layers. Also replace `SoftmaxWithLoss` layer with just the `Softmax` layer.
+## Exercise 6.2 Create a deployable model ##
+
+Create a deployable model file called `text_gen_deploy.prototxt` by replacing `HDF5Data` layer with 2 `Input` layers. Also replace `SoftmaxWithLoss` layer with just the `Softmax` layer.
 
 Check with the file `code/lab06/text_gen_deploy.prototxt` to ensure your model is correct.
 
-## Setting up an interactive predictor ##
+## Creating a text generation script ##
 
-Need to write this section up.
+With the deployment version of the model completed, we're ready to create a script that generates some text for us.
 
-Check with the file `code/lab06/generate_text.py` to ensure your script is correct.
+Create `generate_text.py` file and start importing the necessary modules:
 
-## Exercise 6.3 Adding additional LSTM layers ##
+```
+import numpy as np
+import caffe
+import json
+import random
+```
+
+Add paths to our deployment model and weights and load the model:
+
+```
+model_path = "code/lab06/text_gen_deploy.prototxt"
+weights_path = "text_gen_iter_6000.caffemodel"
+net = caffe.Net(model_path, 1, weights=weights_path)
+```
+
+Set GPU mode:
+
+```
+caffe.set_mode_gpu()
+caffe.set_device(0)
+```
+
+Get out previously saved charcter dictionary and make a reverse lookup dictionary:
+
+```
+#Gets the json char index map
+dict_input_file = "wonderland_dict.json"
+char_to_int = json.loads(open(dict_input_file).read())
+
+#And make a reverse char lookup map
+int_to_char = dict((i, c) for c, i in char_to_int.items())
+
+num_vocab = len(int_to_char)
+print("Total Vocab: ", num_vocab)
+
+```
+
+We'll use the same sequence length as the batching in the model:
+
+```
+#Predict sequence
+seq_length = 50
+no_predict = 1000 #Number of characters to generate
+```
+
+Choose a random excerpt from the data:
+
+```
+test_file = "data/looking_glass.txt"
+raw_text = open(test_file,"r").read()
+raw_text_length = len(raw_text)
+seed_start = random.randint(0,raw_text_length - seq_length)
+seed_text = raw_text[seed_start:seed_start+seq_length].lower()
+```
+
+Replace any charcters not used in our training data with a blank space:
+
+```
+for i, c in enumerate(seed_text):
+	if c not in char_to_int:
+		seed_text[i] = " "
+```
+
+Create data structures for feeding in to our model:
+
+```
+#Gets the input blobs
+input_blob = net.blobs['input_sequence']
+cont_blob = net.blobs['cont_sequence']
+
+#Create ndarray for filling
+input_np = np.zeros( (seq_length, 1), dtype="float32")
+cont_np = np.zeros( (seq_length,1) , dtype="float32")
+cont_np.fill(1) #Continuity is always 1
+
+#Stores character sequence as we start generation
+input_queue= []
+```
+
+Fill `input_queue` with seed text:
+
+```
+for c in seed_text:
+	input_queue.append(c)
+
+print("Seeding with text: \n", "".join(input_queue))
+```
+
+Finally we create a loop to generate the text. Conver `input_queue` to an integer representaiton and fed it in to `input_np`. The two data blobs `input_blob` and `cont_blob` are then filled. After running the model `net.forward()` we get an ouptput sequence matrix of size `50x1x47`. The model makes an entire sequence of prediction but we only add the last generated character to our `input_queue` and continue with our text generation:
+
+```
+result = ""
+
+#Generate some text
+for i in range(no_predict):
+
+	#Fill numpy arrays
+	for j in range(seq_length):
+		input_np[j,0] = char_to_int[input_queue[j]]
+
+	#Fill the data blob
+	input_blob.data[...] = input_np
+	cont_blob.data[...] = cont_np
+	output = net.forward()
+	output_prob = output['probs']
+
+	#Gets all the predicted characters and its confidence
+	out_seq = []
+	out_conf_seq = []
+	for p in output_prob:
+		#Gets the index with maximum probability
+		out_max_index = p[0].argmax()
+		#Get actual charcter
+		predicted_char = int_to_char[out_max_index]
+		#Get confidence of the prediction
+		confidence = p[0,out_max_index]
+
+		#Adds to the array
+		out_seq.append(predicted_char)
+		out_conf_seq.append(confidence)
+
+
+	next_char = out_seq[-1]
+	next_confidence = out_conf_seq[-1]
+
+
+	#Print the result of this prediction
+	print("Prediction no.: ", str(i))
+	print("Input sequence: \n", input_queue)
+	print("Output sequence: \n", out_seq)
+	print("Output confidence: \n", out_conf_seq)
+	print("Next char prediction: ", repr(next_char), " confidence: ", str(next_confidence))
+
+	#Add to the input list and pop the first character
+	input_queue.append(next_char)
+	popped_char = input_queue.pop(0)
+
+	#Add text to the final string
+	result += popped_char
+
+#Fill the rest text with the remaining prediction
+for c in input_queue:
+	result += c
+
+print("Final output:")
+print(result)
+```
+
+Check with the file `code/lab06/generate_text.py` to ensure your script is correct. Create and run a job script with `qsub` when done.
+
+With the following seed:
+```
+nished: and the trial doesn’t
+even begin till next
+```
+You should get something almost legible:
+
+```
+nished: and the trial doesn’t
+even begin till next crass all mast cemantyou say, at to liked to conly way
+.
+alowe toute, ‘curnder ferle sooned lattle white rabed of on the hald was very angar a reall
+of atile, and down at of then wher sme the reagrit lessall, ‘ah, i should be litele that it marked and sorewh, ron ture call to the way that sales, and ereh surey was goting on the eagher,
+and a doicam as the caterpillar cerlealy to fin her white say it was cotsins, and be sound seem to be sureristhim irosthatalas! cold it against and took the hall was mowend on forth the
+harss--and seet, as no cats of thist, but sperad in the window, and of little they, as she swould feel her eats rame-be a get wordo way in a corfustone it as it was look and our her.
+
+‘why, mary ann thes all speend, and had be nowers in a moner--howe near the comfle, on the doon ould mark herself herself to little they was grizt near of took that all ther, she
+was to dry be
+if she could no reasing to her
+very good--bores, i fon’t fintth the rook, and ‘whey seemid out of
+```
+
+
+## Exercise 6.3 Varying dropouts and adding additional LSTM layers ##
 * Try changing the dropout values when training
 * Try adding additional `LSTM` layers to your model.
   * You can check with `code/lab/06/text_gen_multilayer.prototxt` and `code/lab/06/text_gen_multilayer_solver.prototxt`
   * Don't forget to change the model paths in your `generate_text.py`
 
 ## Extra ##
+* If you'd prefer to use LMDB instead, Gustav Larsson has provided a very concise tutorial on using them in Python on his [blog page](http://deepdish.io/2015/04/28/creating-lmdb-in-python).
+* Convolution can be rolled in to recurrent network to perform activity recognition, image description or video description. On [Jeff Donaue's website](http://jeffdonahue.com/lrcn/), one of the main contributors to Caffe, you can find the link to his published paper and video examples of a video description problem.
 
 ---
 
