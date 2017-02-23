@@ -75,6 +75,12 @@ Caffe also provides a function for query the GPU:
 ```
 # query the first device
 $caffe device_query -gpu=0
+```
+
+Which shows information about the specific GPU:
+
+```
+
 
 I0221 22:16:16.010140  7842 caffe.cpp:138] Querying GPUs 0
 I0221 22:16:21.959296  7842 common.cpp:177] Device id:                     0
@@ -102,7 +108,7 @@ It can also be used to query multiple GPUs:
 
 ```
 # querying device 0 and 1
-$caffe device_query -gpu=0,1
+caffe device_query -gpu=0,1
 ```
 
 
@@ -157,14 +163,13 @@ caffe time -model=code/lab05/mnist_lenet.prototxt   -gpu 0,1
 #If you want to run the code below, make sure you've trained the MNIST model first and are pointing to the correct .caffemodel file
 
 # time a model architecture with the given weights on the first GPU for 10 iterations
-caffe time -model code/lab05/mnist_lenet.prototxt  -weights=mnist_lenet_iter_10000.caffemodel -gpu 0 -iterations 10
+#caffe time -model code/lab05/mnist_lenet.prototxt  -weights=mnist_lenet_iter_10000.caffemodel -gpu 0 -iterations 10
 
 # time a model architecture with the given weights on the first two GPUs for 10 iterations
-caffe time -model code/lab05/mnist_lenet.prototxt  -weights=mnist_lenet_iter_10000.caffemodel -gpu 0,1 -iterations 10
+#caffe time -model code/lab05/mnist_lenet.prototxt  -weights=mnist_lenet_iter_10000.caffemodel -gpu 0,1 -iterations 10
 ```
 
 Use the `-gpu` flag to declare which GPU to use. To use GPU 0 and 1 for example use the flag `-gpu 0,1` or to use all GPUs you can set `-gpu all`.
-
 
 
 ---
