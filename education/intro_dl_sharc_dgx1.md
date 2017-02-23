@@ -33,7 +33,12 @@ If you're not familiar with Nueral Networks please see Stephen Welch's Neural Ne
 * [**Lab 02**: Convolution Neural Network](./lab02)
 * [**Lab 03**: Deploying and using your trained model](./lab03)
 
+## Day 2 ##
 
+* [**Slides**: Introduction to Deep Learning Day 2](/static/slides/intro_dl_sharc_dgx1/intro_to_dl_day2.pptx)
+* [**Lab 04**: Using and visualising pre-trained models](./lab04)
+* [**Lab 05**: Multi-GPU and Benchmarking](./lab05)
+* [**Lab 06**: Recurrent Neural Networks](./lab06)
 
 
 

@@ -10,6 +10,22 @@ permalink: /education/intro_dl_sharc_dgx1/lab02/
 
 In this lab we will put together a convolution model that can identify handwritten digits by learning from the [MNIST database](http://yann.lecun.com/exdb/mnist/) with a much higher accuracy.
 
+## Job scripts ##
+**A reminder to add the following lines to all the job script that you submit with `qsub`:**
+
+```
+#!/bin/bash
+#$ -l gpu=1 -P rse-training -q rse-training.q -l rmem=10G
+
+module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
+source activate caffe
+export LD_LIBRARY_PATH="/home/$USER/.conda/envs/caffe/lib:$LD_LIBRARY_PATH"
+
+#Your code below....
+```
+
+Currently when you run Caffe you will get a `libpython3.5m.so.1.0` missing error if the `export` part is not included.
+
 ## Running the pre-made model ##
 
 Submit the job file `code/lab02/mnist_lenet_train.sh` using `qsub`:
