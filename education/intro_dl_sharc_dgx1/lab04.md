@@ -49,7 +49,7 @@ Caffe provides a directory of official and community trained models. They can be
 All necessary files are included in `code/lab04/caffenet` folder apart from the pre-traind binary file which is too large to store in the repository (over 240MB). To get the file use:
 
 ```
-wget "https://www.dropbox.com/s/srmy7h9bqy25vaq/bvlc_reference_caffenet.caffemodel?dl=0"  -O data/lab04/caffenet/bvlc_reference_caffenet.caffemodel
+wget "https://www.dropbox.com/s/srmy7h9bqy25vaq/bvlc_reference_caffenet.caffemodel?dl=0"  -O code/lab04/caffenet/bvlc_reference_caffenet.caffemodel
 ```
 
 The model is more complex than our previous LeNet MNIST model using five stages of convolution and uses Local Response Normalization `LRN` layers after pooling which introduces lateral inhibition allowing more excited neurons to subdue the activty of others around it. A diagram of the model is shown below:
