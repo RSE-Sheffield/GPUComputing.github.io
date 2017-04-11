@@ -16,6 +16,11 @@
     "icon": "fa-code",
   },
   {
+    "text": "Seminars",
+    "url": "/seminars",
+    "icon": "fa-commenting",
+  },
+  {
     "text": "Education",
     "url": "/education",
     "icon": "fa-calendar",

@@ -209,3 +209,27 @@ td {
     background: #FAFAFA; /* Lighter grey background */
     text-align: center; /* Center our text */
 }
+
+
+/* Seminars page */
+.seminars {
+	margin: 2em 0;
+}
+
+.seminars h1{
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.seminars header div{
+	font-size: 1.1em;
+	font-style: italic;
+}
+
+.seminars p{
+	padding-top:1em;
+}
+
+.seminars a{
+	font-weight: bold;
+}
