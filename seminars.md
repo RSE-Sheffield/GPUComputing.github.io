@@ -12,7 +12,7 @@ This page provides a list of upcoming and previous seminars held by GPUComputing
 
 	<article>
 		<header>
-			<h1><time>30/05/2016 1-2pm</time> Towards achieving GPU-native adaptive mesh refinement</h1>
+			<h1><time>30/05/2017 1-2pm</time> Towards achieving GPU-native adaptive mesh refinement</h1>
 			<div>Speaker: Ania Brown</div>
 			<div>Location: Workroom 2 (G05), The Diamond</div>
 		</header>
