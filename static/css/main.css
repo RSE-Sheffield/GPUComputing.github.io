@@ -217,7 +217,7 @@ td {
 }
 
 .seminars h1{
-	font-size: 1.2em;
+	font-size: 1.3em;
 	font-weight: bold;
 }
 
@@ -231,5 +231,9 @@ td {
 }
 
 .seminars a{
+	font-weight: bold;
+}
+
+.seminars .notes{
 	font-weight: bold;
 }
