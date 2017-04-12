@@ -1,0 +1,12 @@
+[
+  {
+    "date": "2017-05-30",
+    "time": "1-2pm",
+    "title": "Towards achieving GPU-native adaptive mesh refinement",
+    "speaker": "Ania Brown",
+    "location": "Workroom 2 (G05), The Diamond",
+    "description": "Modern simulations model increasingly complex multiscale systems, and the need to capture details at multiple length scales can lead to large memory requirements. Adaptive mesh refinement (AMR) is a method for reducing memory cost by varying the accuracy in each region to match the physical characteristics of the simulation, at the cost of increased data structure complexity. This complexity is a particular problem on the GPU architecture, which is most naturally suited to regular data sets. I will describe some of the optimisation and software challenges that need to be considered when implementing AMR on GPUs, based on my experience working on a GPU-native framework for stencil calculations on a tree-based adaptively refined mesh as part of my Master degree. Topics covered will include achieving coalesced access with the AMR data structure, memory defragmentation after grid changes and load balancing using space-filling curves.",
+    "notes": "Refreshments will be available from 12.30pm. Extra time has been allocated for questions and discussions at 2.00-2.30pm.",
+    "register_link": "https://www.eventbrite.co.uk/e/talk-towards-achieving-gpu-native-adaptive-mesh-refinement-tickets-33614872990"
+  }
+]
