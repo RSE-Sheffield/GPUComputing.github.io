@@ -15,16 +15,15 @@ In this lab we will put together a convolution model that can identify handwritt
 
 ```
 #!/bin/bash
-#$ -l gpu=1 -P rse-training -q rse-training.q -l rmem=10G
+#$ -l gpu=1 -P rse-training -q rse-training.q -l rmem=10G -j y
 
-module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
-source activate caffe
-export LD_LIBRARY_PATH="/home/$USER/.conda/envs/caffe/lib:$LD_LIBRARY_PATH"
+module load apps/caffe/rc5/gcc-4.9.4-cuda-8.0-cudnn-5.1
+
 
 #Your code below....
 ```
 
-Currently when you run Caffe you will get a `libpython3.5m.so.1.0` missing error if the `export` part is not included.
+The `-j y` option is included so that the job output prints everything to one output file e.g. `your_scriptname.sh.o<jobid>`.
 
 ## Running the pre-made model ##
 
