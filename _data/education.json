@@ -35,5 +35,12 @@
 		"url": "/education/intro_dl_sharc_dgx1",
 		"tags": ["Nvidia", "Deep Learning", "Machine Learning", "ShARC", "DGX-1", "Introduction", "Lectures", "Labs"]
 	},
+	{
+		"name": "Creating GPU-Enabled Singularity Images",
+		"length": "Short Online Tutorial",
+		"image": "TUOS.png",
+		"url": "/education/creating_gpu_singularity",
+		"tags": ["Singularity","Nvidia", "GPU", "CUDA","Tutorial"]
+	}
 
 ]

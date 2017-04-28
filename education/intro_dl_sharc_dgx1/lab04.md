@@ -6,20 +6,12 @@ permalink: /education/intro_dl_sharc_dgx1/lab04/
 
 # Lab 04: Using and visualising pre-trained models #
 
-**Remember to be working from the root directory of DLTraining2 code sample throughout all practicals.**
+**Remember to be working from the root directory of DLTraining code sample throughout all practicals.**
 
 The ImageNet competition provides a dataset of tagged images collected from the internet. The whole set is around 55GB and can take days or weeks to train.
 
 In this lab we will look at using a pre-trained models provided by Caffe and its community, in particular the Caffenet model that was based on Alexnet architecture that won the 2012 ImageNet competition. In addition we will explore how the model parameters can be visualised using the Python interface.
 
-## Getting the code for Day 2 ##
-
-Another set of code and data has been provided for day 2 of the course. Navigate to a suitable directory then, clone it and go in to the directory using:
-
-```
-git clone https://github.com/RSE-Sheffield/DLTraining2.git
-cd DLTraining2
-```
 
 ## Job scripts ##
 **A reminder to add the following lines to all the job script that you submit with `qsub`:**
@@ -28,16 +20,13 @@ cd DLTraining2
 #!/bin/bash
 #$ -l gpu=1 -P rse-training -q rse-training.q -l rmem=10G -j y
 
-module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
-source activate caffe
-export LD_LIBRARY_PATH="/home/$USER/.conda/envs/caffe/lib:$LD_LIBRARY_PATH"
+module load apps/caffe/rc5/gcc-4.9.4-cuda-8.0-cudnn-5.1
+
 
 #Your code below....
 ```
 
 The `-j y` option is included so that the job output prints everything to one output file e.g. `your_scriptname.sh.o<jobid>`.
-
-Currently when you run Caffe you will get a `libpython3.5m.so.1.0` missing error if the `export` part is not included.
 
 ## Caffe model zoo ##
 

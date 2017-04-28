@@ -133,33 +133,15 @@ Use `qstat -j` to get more information about your job:
  qstat -j <jobid>
 ```
 
-## Getting your environment ready for Caffe ##
+## Loading the Caffe module ##
 
-There are two version of Caffe on ShARC (see [documentation](https://github.com/RSE-Sheffield/GPUComputing/blob/master/deeplearning/Caffe.rst)), the standard version that is newer (has more layer types) and Nvidia's version that is more optimised for multi-GPU use. We'll be using the standard version as it has support for recurrent layers.
-
-To use the python bindings for Caffe we need to prepare our python environment. First we load up the Caffe module which also loads Conda 3.4, CUDA 8, cuDNN 5.1 and GCC 4.9.4
+Caffe is available to be loaded as a module which comes with Conda 4.2.0 (Python 3.5), CUDA 8, cuDNN 5.1 and GCC 4.9.4. Type the following the load the module:
 
 ```
-module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
+module load apps/caffe/rc5/gcc-4.9.4-cuda-8.0-cudnn-5.1
 ```
 
-We'll create a local python 3.5 environment named `caffe`, activate it then install `matplotlib`, `numpy`, `scikit-image` and Python `protobuf` runtime  which which be needed later for visualising our models.
-
-```
-conda create -n caffe python=3.5
-source activate caffe
-conda install -y matplotlib numpy scikit-image
-pip install protobuf
-```
-
-
-Every time you log in to the node and in **all your job scripts**, you will need to load the module and activate the `caffe` conda environment again:
-
-```
-module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
-source activate caffe
-export LD_LIBRARY_PATH="/home/$USER/.conda/envs/caffe/lib:$LD_LIBRARY_PATH"
-```
+Remember that the module needs to be loaded **every time** you log in to the node and in **all your job scripts**.
 
 ## Downloading the code for the practicals ##
 

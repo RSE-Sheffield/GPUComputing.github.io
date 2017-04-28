@@ -15,16 +15,13 @@ permalink: /education/intro_dl_sharc_dgx1/lab03/
 #!/bin/bash
 #$ -l gpu=1 -P rse-training -q rse-training.q -l rmem=10G -j y
 
-module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
-source activate caffe
-export LD_LIBRARY_PATH="/home/$USER/.conda/envs/caffe/lib:$LD_LIBRARY_PATH"
+module load apps/caffe/rc5/gcc-4.9.4-cuda-8.0-cudnn-5.1
+
 
 #Your code below....
 ```
 
 The `-j y` option is included so that the job output prints everything to one output file e.g. `your_scriptname.sh.o<jobid>`.
-
-Currently when you run Caffe you will get a `libpython3.5m.so.1.0` missing error if the `export` part is not included.
 
 ## Altering the model file for deployment ##
 We'll use the previous MNIST LeNet model that you've just trained.
@@ -151,9 +148,9 @@ Save and create a batch script named `mnist_deploy.sh` with the command:
 
 ```
 #!/bin/bash
-module load libs/caffe/rc3/gcc-4.9.4-cuda-8.0-cudnn-5.1-conda-3.4-TESTING
-source activate caffe
-export LD_LIBRARY_PATH="/home/$USER/.conda/envs/caffe/lib:$LD_LIBRARY_PATH"
+module load apps/caffe/rc5/gcc-4.9.4-cuda-8.0-cudnn-5.1
+
+
 
 python mnist_deploy.py data/minist_six.png
 ```
