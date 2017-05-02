@@ -1,3 +1,3 @@
-## AccleratedComputing.ac.uk website
+## GPUComputing Sheffield website
 
-This is a community driven website for the UK accelerated computing research community. Feel free to contribute by submitting a pull request.
+This is a community driven website for the UK accelerated computing research community. Feel free to contribute training or posts by submitting a pull request.
