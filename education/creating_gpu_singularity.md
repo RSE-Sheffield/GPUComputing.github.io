@@ -12,7 +12,7 @@ This tutorial will walk you through the creation of a Nvidia GPU-enabled Singula
 
 [Singularity](http://singularity.lbl.gov/) is a containerization technology similar to Docker. Each Singularity image is a self-contained executable package of a piece of software and everything needed to run it. As Singularity does not require a root-level daemon to run its images, unlike Docker, it is the preferred container technology for use on HPC systems including the ShARC cluster at the University of Sheffield.
 
-The use of Singularity means that an image created on your local development machine that has a complex set of software and dependencies will also work when transferred to another machine, e.g. a HPC cluster, that supports it.
+The use of Singularity means that an image created on your local development machine that has a complex set of software and dependencies will also work when transferred to another machine, e.g. a HPC cluster, that has Singularity installed.
 
 The problem faced when trying to run a Singularity image with the software that uses Nvidia GPUs (e.g. CUDA) is that driver files must be present and the version must match the one installed on the host system. Embedding of driver files within the image creates non-portable container that only works on a single driver version. Fortunately it is possible to host the driver files externally and mount them in to the image at run-time.
 
@@ -87,7 +87,7 @@ From: nvidia/cuda:8.0-cudnn5-devel-ubuntu16.04
 
 ```
 
-The definition file takes a base image from [docker hub](https://hub.docker.com/) (`Bootstrap: docker`). In this case we're using the image taht comes with Ubuntu 16.04, CUDA 8.0 and cuDNN 5.0 pre-installed (`From nvidia/cuda:8.0-cudnn5-devel-ubuntu16.04`).
+The definition file takes a base image from [docker hub](https://hub.docker.com/) (`Bootstrap: docker`). In this case we're using the image that comes with Ubuntu 16.04, CUDA 8.0 and cuDNN 5.0 pre-installed (`From nvidia/cuda:8.0-cudnn5-devel-ubuntu16.04`).
 
 In the `%post` section of the definition file, we created two directories at the root, `/nvbin` for the driver executables like `nvidia-smi`  and `/nvlib` for the driver library files. These directories are added to the `PATH` and `LD_LIBRARY_PATH` environment variables by appending it to the `/environment` file in the image which is equivalent to the `.bashrc` file in `bash`.
 
@@ -214,7 +214,7 @@ extractnvdriver.sh 367.57 ~/mynvdriver
 
 If the extraction is successful, the driver files will be located at `~/mynvdriver`. We're now ready to test the image that we've just built.
 
-*Note that `~/mynvdriver` directory contains both the executable and library files and so in this case `/nvbin` and `/nvlib` will actually be mounted to the same location. Instead of downloading the drivers, it is possible to use the existing driver files on your machine instead if you already know their location. In that case, the executables and library files are often located in separate folders.*
+*Note that `~/mynvdriver` directory contains both the executable and library files and so in this case `/nvbin` and `/nvlib` will actually be mounted to the same location. Instead of downloading the drivers, it is possible to use the existing driver files on your machine instead if you already know their location, in this case the executable and library files are often located in different folders. Ensure that there are ONLY Nvidia driver executables and libraries in the folder in order to prevent contamination.*
 
 *The driver extraction code is taken from a part of the [gpu4singularity script by NIH](https://hpc.nih.gov/apps/singularity.html).*
 
