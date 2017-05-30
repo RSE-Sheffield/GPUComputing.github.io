@@ -1,12 +1,11 @@
 [
   {
-    "date": "2017-05-30",
-    "time": "1-2pm",
-    "title": "Towards achieving GPU-native adaptive mesh refinement",
-    "speaker": "Ania Brown",
+    "date": "2017-06-29",
+    "time": "4-5pm",
+    "title": "From Democratic Consensus to Cannibalistic Hordes: The Principles of Collective Animal Behaviour",
+    "speaker": "Iaian Couzin",
     "location": "Workroom 2 (G05), The Diamond",
-    "description": "Modern simulations model increasingly complex multiscale systems, and the need to capture details at multiple length scales can lead to large memory requirements. Adaptive mesh refinement (AMR) is a method for reducing memory cost by varying the accuracy in each region to match the physical characteristics of the simulation, at the cost of increased data structure complexity. This complexity is a particular problem on the GPU architecture, which is most naturally suited to regular data sets. I will describe some of the optimisation and software challenges that need to be considered when implementing AMR on GPUs, based on my experience working on a GPU-native framework for stencil calculations on a tree-based adaptively refined mesh as part of my Master degree. Topics covered will include achieving coalesced access with the AMR data structure, memory defragmentation after grid changes and load balancing using space-filling curves.",
-    "notes": "Refreshments will be available from 12.30pm. Extra time has been allocated for questions and discussions at 2.00-2.30pm.",
-    "register_link": "https://www.eventbrite.co.uk/e/talk-towards-achieving-gpu-native-adaptive-mesh-refinement-tickets-33614872990"
+    "description": "<strong>No offical talks are held by GPU Computing group in June but we highly recommend this upcoming seminar.</strong><br/><br/> The inaugural Complex Systems Summer Lecture will be delivered by Prof Iain Couzin, Director of the Department of Collective Behaviour at the Max Planck Institute for Ornithology, at Konstanz University, Germany. The topic of the lecture will be 'From Democratic Consensus to Cannibalistic Hordes: The Principles of Collective Animal Behaviour'. Prof Couzin's work combines experiment and theory to understand how animals in groups behave; he is particularly known for work on locusts and on fish: <a href='http://collectivebehaviour.com'>http://collectivebehaviour.com</a>.<br/><br/>The Complex Systems Summer Lecture is a public lecture organised by the Complex Systems Modelling Group, in the Department of Computer Science at the University of Sheffield: <a href='https://www.sheffield.ac.uk/dcs/research/groups/complex-systems-modelling'>https://www.sheffield.ac.uk/dcs/research/groups/complex-systems-modelling</a>",
+    "register_link": "https://www.eventbrite.co.uk/e/complex-systems-summer-lecture-tickets-33333921657"
   }
 ]
