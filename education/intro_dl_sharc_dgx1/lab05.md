@@ -154,19 +154,15 @@ caffe time -model=code/lab05/mnist_lenet.prototxt -iterations 10
 # time LeNet training on GPU for the default 50 iterations
 caffe time -model=code/lab05/mnist_lenet.prototxt  -gpu 0
 
-# time LeNet training on the first two GPUs for the default 50 iterations
-caffe time -model=code/lab05/mnist_lenet.prototxt   -gpu 0,1
-
 #If you want to run the code below, make sure you've trained the MNIST model first and are pointing to the correct .caffemodel file
 
 # time a model architecture with the given weights on the first GPU for 10 iterations
 #caffe time -model code/lab05/mnist_lenet.prototxt  -weights=mnist_lenet_iter_10000.caffemodel -gpu 0 -iterations 10
 
-# time a model architecture with the given weights on the first two GPUs for 10 iterations
-#caffe time -model code/lab05/mnist_lenet.prototxt  -weights=mnist_lenet_iter_10000.caffemodel -gpu 0,1 -iterations 10
+
 ```
 
-Use the `-gpu` flag to declare which GPU to use. To use GPU 0 and 1 for example use the flag `-gpu 0,1` or to use all GPUs you can set `-gpu all`.
+Use the `-gpu` flag to declare which GPU to use. To use GPU 0 and 1 for example use the flag `-gpu 1` to use GPU no. 1. It is currently not possible to benchmark multiple GPUs at the same time with this approach.
 
 
 ---
