@@ -39,7 +39,7 @@ If you would like to recommend a speaker then please contact [Dr Paul Richmond o
 {% endif %}
 
 {% if site.data.previous_seminars.size > 0 %}
-# Previous seminars #
+# Previous Seminars #
 
 <section class="seminars">
 	{% for sem in site.data.previous_seminars %}
