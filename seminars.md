@@ -50,7 +50,15 @@ If you would like to recommend a speaker then please contact [Dr Paul Richmond o
 			<div>Location: {{sem.location}}</div>
 		</header>
 		<p>
+		<img src="{{sem.image_link}}" alt="{{sem.title}}" />
+		</p>
+		<p>
 		{{sem.description}}
+		</p>
+		<p>
+		{% if sem.slide_link %}
+		<a href="{{sem.slide_link}}">Presentation slides</a>
+		{% endif %}
 		</p>
 	</article>
 	{% endfor %}
