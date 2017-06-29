@@ -1,32 +1,17 @@
 [
 	{
+		"name": "Glasgow: Introduction to CUDA",
+		"length": "Two day CUDA course",
+		"image": "glasgow.jpg",
+		"url": "/education/cuda-glasgow",
+		"tags": ["CUDA", "Introduction", "Lectures", "Labs", "Glasgow"]
+	},
+	{
 		"name": "Introduction to CUDA",
-		"length": "NEW: Two day course",
+		"length": "Two day course",
 		"image": "TUOS.png",
 		"url": "/education/cuda",
 		"tags": ["CUDA", "Introduction", "Lectures", "Labs", "ShARC"]
-	},
-	{
-		"name": "GPU Training Course",
-		"length": "One day course",
-		"image": "TUOS.png",
-		"url": "http://paulrichmond.shef.ac.uk/teaching/CUDA/",
-		"tags": ["CUDA", "Introduction", "Lectures", "Labs", "Iceberg"]
-	},
-
-	{
-		"name": "Parallel Computing with GPUS",
-		"length": "2016 Spring Semester Taught module (and DDP)",
-		"image": "TUOS.png",
-		"url": "http://paulrichmond.shef.ac.uk/teaching/COM4521/index_2016/",
-		"tags": ["CUDA", "Lectures", "Labs", "DDP"]
-	},
-	{
-		"name": "Intel Parallel Computing Training",
-		"length": "Two day course",
-		"image": "bristol.jpg",
-		"url": "http://rse.shef.ac.uk/training/intel/",
-		"tags": ["Intel", "TBB", "Vectorisation", "Iceberg"]
 	},
 	{
 		"name": "Introduction to Deep Learning on ShARC's DGX-1",
@@ -41,6 +26,27 @@
 		"image": "TUOS.png",
 		"url": "/education/creating_gpu_singularity",
 		"tags": ["Singularity","Nvidia", "GPU", "CUDA","Tutorial"]
+	},
+	{
+		"name": "Parallel Computing with GPUS",
+		"length": "2016 Spring Semester Taught module (and DDP)",
+		"image": "TUOS.png",
+		"url": "http://paulrichmond.shef.ac.uk/teaching/COM4521/index_2016/",
+		"tags": ["CUDA", "Lectures", "Labs", "DDP"]
+	},
+	{
+		"name": "Intel Parallel Computing Training",
+		"length": "Two day course",
+		"image": "TUOS.png",
+		"url": "http://rse.shef.ac.uk/training/intel/",
+		"tags": ["Intel", "TBB", "Vectorisation", "Iceberg"]
+	},
+	{
+		"name": "GPU Training Course",
+		"length": "One day course",
+		"image": "TUOS.png",
+		"url": "http://paulrichmond.shef.ac.uk/teaching/CUDA/",
+		"tags": ["CUDA", "Introduction", "Lectures", "Labs", "Iceberg"]
 	}
 
 ]
