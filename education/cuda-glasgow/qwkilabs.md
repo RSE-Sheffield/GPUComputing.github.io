@@ -8,11 +8,11 @@ permalink: /education/cuda-glasgow/qwiklabs/
 
 *by Dr [Paul Richmond](http://paulrichmond.shef.ac.uk/) (University of Sheffield)*
 
-This training course will take place using the [NVIDIA Qwiklabs](https://nvlabs.qwiklab.com/) system. This is a cloud based training portal for GPU computing which uses Amazon AWS with GPU images. In order to access a GPU accelerated instance go to [NVIDIA quiklabs](https://nvlabs.qwiklab.com/) and create a free student account. Once created, please select 'Glasgow CUDA Course' (we will use this for both the CUDA and Deep Learning parts of the workshop).
+This training course will take place using the [NVIDIA Qwiklabs](https://nvlabs.qwiklab.com/) system. This is a cloud based training portal for GPU computing which uses Amazon AWS with GPU images. In order to access a GPU accelerated instance go to [NVIDIA quiklabs](https://nvlabs.qwiklab.com/) and create a free student account (Important: You must use the email address you provided when registering). Once created, you should be able to select the 'Introduction to CUDA and DL Glasgow' course (we will use this for both the CUDA and Deep Learning parts of the workshop) and then select `Start Lab`. After ~7 minutes the instance will start and you will be provided with connection information.
 
 ## Logging in to you Amazon Instance ##
 
-Once you have selected the Qwiklabs course you will be presented with an Amazon cloud instance address and username password which can be accessed via an `ssh` terminal. To login from linux you can use the following command (note the requirement of -X for graphical window forwarding);
+The connection information will provide you with an Amazon cloud instance address and username password which can be accessed via an `ssh` terminal. To login from linux you can use the following command (note the requirement of -X for graphical window forwarding);
 
 	ssh -X ubuntu@10-11-12-13.amazon.eu....
 
