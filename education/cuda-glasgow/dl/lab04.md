@@ -6,7 +6,9 @@ permalink: /education/cuda-glasgow/dl/lab04/
 
 # Lab 04: Using and visualising pre-trained models #
 
-**Remember to be working from the root directory of DLTraining code sample throughout all practicals.**
+*by Twin Karmakharm (University of Sheffield)*
+
+**Remember to be working from ~/DLIntro directory throughout all practicals.**
 
 The ImageNet competition provides a dataset of tagged images collected from the internet. The whole set is around 55GB and can take days or weeks to train.
 
@@ -47,6 +49,7 @@ Now open the `caffenet_deploy.py` and modify it so that it can classify the `dat
   import matplotlib
   # Force matplotlib to not use any Xwindows backend.
   matplotlib.use('Agg')
+  import matplotlib.pyplot as plt
   ```
 * Use **only** the **CPU mode** for inferencing `caffe.set_mode_cpu()`. The model uses a deprecated layer that causes it to crash on the GPU.
 * The model file is located at `code/lab04/caffenet/deploy.prototxt`
@@ -75,6 +78,7 @@ Now open the `caffenet_deploy.py` and modify it so that it can classify the `dat
   labels = np.loadtxt(`code/lab04/caffenet/synset_words.txt`, str, delimiter='\t')
   ```
   This returns 1D list with the correct index to label mapping.
+* The output blob is `prob` instead of `loss`
 
 When done, you can check your code against `code/lab04/caffenet_deploy.py`.
 

@@ -6,8 +6,9 @@ permalink: /education/cuda-glasgow/dl/lab03/
 
 # Lab 3: Deploying and using your trained model #
 
-**Remember to be working from the root directory of DLTraining code sample throughout all practicals.**
+*by Twin Karmakharm (University of Sheffield)*
 
+**Remember to be working from ~/DLIntro directory throughout all practicals.**
 
 ## Altering the model file for deployment ##
 We'll use the previous MNIST LeNet model that you've just trained.
@@ -50,12 +51,14 @@ layer {
 
 Now create a new file `mnist_deploy.py` and start editing.
 
-We first import sys, numpy and caffe. Blobs in Caffe are in numpy format:
+We first import sys, os, numpy, time and caffe. Blobs in Caffe are represented in numpy format:
 
 ```
 import sys
+import os
 import numpy as np
 import caffe
+import time
 ```
 
 Declare the paths to the deploy model file we've just created and the pre-trained weights from Lab 2:
@@ -197,7 +200,7 @@ net.blobs['data'].data[0,...] = transformed_image1
 net.blobs['data'].data[1,...] = transformed_image2
 ```
 
-Try applying this to your existing code by batching the following images at the same time and print out all of the predictions:
+Apply this to your existing code by batching the following images at the same time and print out all of the predictions:
 
 ```
 data/mnist_three.png

@@ -6,20 +6,22 @@ permalink: /education/cuda-glasgow/dl/lab02/
 
 # Lab 02: Convolution Neural Network #
 
-**Remember to be working from the root directory of DLTraining code sample throughout all practicals.**
+*by Twin Karmakharm (University of Sheffield)*
+
+**Remember to be working from ~/DLIntro directory throughout all practicals.**
 
 In this lab we will put together a convolution model that can identify handwritten digits by learning from the [MNIST database](http://yann.lecun.com/exdb/mnist/) with a much higher accuracy.
 
 ## Running the pre-made model ##
 
-Submit the job file `code/lab02/mnist_lenet_train.sh` using `qsub`:
+Run the script `code/lab02/mnist_lenet_train.sh` to start training the network:
 
 ```
-qsub code/lab02/mnist_lenet_train.sh
+code/lab02/mnist_lenet_train.sh
 ```
 
 
-Once the job has finished, check the output for more information in the file `mnist_lenet_train.sh.e<jobid>`, at the end of the file you should get something like below
+At the end, you should get something like below
 
 ```
 I0127 16:04:25.357823  9366 solver.cpp:317] Iteration 10000, loss = 0.207118
@@ -94,7 +96,7 @@ In this example, `MAX` pooling is used which selects the highest activation valu
 
 ## Exercise 2.1: Implementing the LeNet CNN model and Solver ##
 
-Try to implement the LeNet model shown in the following diagram:
+Implement the LeNet model shown in the following diagram:
 
 {: .center}
 ![LeNet MNIST diagram](/static/img/intro_dl_sharc_dgx1/mnist_lenet.jpg)
@@ -108,12 +110,15 @@ Which looks like the following in netscope:
 
  Use the previous model as a starting point. The `Data`, `SoftmaxWithLoss` and `Accuracy` layers remains the same, there's also no need to keep the `Flatten` layer. Save the model file with name `mnist_lenet.prototxt`.
 
-Check your model file against `code/lab02/mnist_lenet.prototxt` file to see if you've correctly implemented the model.
-
 Once the model's done, copy the previous model's solver file and name it `mnist_lenet_solver.prototxt`. Edit your solver so that it points to your new convolution model. Don't forget to change the `snapshot_prefix` value to reflect the new model name.
 
-Create a batch script to tell caffe to train the model. The result you get should be similar to the pre-made model with the accuracy of around 99.2%
+You can then start training the model:
 
+```
+caffe train -solver=mnist_lenet_solver.prototxt
+```
+
+ The result you get should be similar to the pre-made model with the accuracy of around 99.2%
 
 ## Resume training ##
 Snapshots are taken every 5000 iterations according to the solver file (`snapshot: 5000`). This generates a `.caffemodel` file that contains model weights and a `.solverstate` file that contains all information to resume training from that point. The files can be used to continue training the model from the previous state.
@@ -121,7 +126,7 @@ Snapshots are taken every 5000 iterations according to the solver file (`snapsho
 Use the `-snapshot` flag to include snapshots in your training e.g.:
 
 ```
-caffe test -solver mnist_lenet_solver.prototxt -snapshot mnist_lenet_iter_5000.solverstate
+caffe train -solver mnist_lenet_solver.prototxt -snapshot mnist_lenet_iter_5000.solverstate
 ```
 
 

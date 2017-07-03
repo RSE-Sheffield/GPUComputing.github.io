@@ -6,7 +6,9 @@ permalink: /education/cuda-glasgow/dl/lab05/
 
 # Practical 5: Recurrent Neural Networks #
 
-**Remember to be working from the root directory of DLTraining code sample throughout all practicals.**
+*by Twin Karmakharm (University of Sheffield)*
+
+**Remember to be working from ~/DLIntro directory throughout all practicals.**
 
 In this lab we will create a simple text generation model that allows us to see the capabilities of the Long Short Term Memory (LSTM) units. It will include creating a HDF5 data set from raw sample text 'Alice in Wonderland' as well as creating a simple script for generating a random text sequence from the output of our trained model. The lab introduces 4 new layers, the `HDF5Data`, `LSTM`, `Embed` and `Dropout` layers.
 
@@ -116,15 +118,6 @@ A copy of 'Alice in Wonderland' is located at `data/wonderland.txt`. We will be 
 
 ![Alice data](/static/img/intro_dl_sharc_dgx1/alice_continuity.png)
 
-Start by installing the `h5py` package:
-
-```
-module load apps/caffe/rc5/gcc-4.9.4-cuda-8.0-cudnn-5.1
-
-
-
-pip install h5py
-```
 
 Create a python file `create_text_gen_dataset.py` add the start importing packages that we'll need:
 
@@ -146,8 +139,8 @@ hdf_list_file = "wonderland_hdf5_list.txt"
 Open the file `data/wonderland.txt`, read the text and convert it to lowercase:
 
 ```
-raw_text = open(filename).read()
-raw_text = raw_text.lower()
+raw_text = open(filename).read().lower()
+raw_text = "".join(i for i in raw_text if ord(i)<128) #< Remove all non-ascii characters
 print("Raw text length: ", len(raw_text))
 ```
 
@@ -269,14 +262,14 @@ Now run the file to generate the data:
 $ python create_text_gen_dataset.py
 Raw text length:  144436
 Total Characters:  50001
-Total Vocab:  47
+Total Vocab:  43
 Text length:  50000  stream length:  200  numstreams:  250
 Input data shape:  (200, 250)
 Cont data shape:  (200, 250)
 Target data shape:  (200, 250)
 ```
 
-*Note that we have 47 unique characters in our dataset, we need to keep this in mind as we design our `Embed` and the last `InnerProduct` layer.*
+*Note that we have 43 unique characters in our dataset, we need to keep this in mind as we design our `Embed` and the last `InnerProduct` layer.*
 
 For completeness, here's how we would open and use a hdf5 file in python:
 
@@ -398,12 +391,17 @@ caffe.set_mode_gpu()
 caffe.set_device(0)
 ```
 
-Get out previously saved charcter dictionary and make a reverse lookup dictionary:
+Get out previously saved character dictionary and make a reverse lookup dictionary. The default text type in Python 2 are bytestrings but dict in our serialised json file contains unicode key which has to be converted back to bytestring using `encode('utf-8')`:
 
 ```
 #Gets the json char index map
 dict_input_file = "wonderland_dict.json"
-char_to_int = json.loads(open(dict_input_file).read())
+uchar_to_int = json.loads(open(dict_input_file).read())
+
+#Convert unicode keys to bytestring
+char_to_int = {}
+for c , i in uchar_to_int.items():
+	char_to_int[c.encode('utf-8')] = i
 
 #And make a reverse char lookup map
 int_to_char = dict((i, c) for c, i in char_to_int.items())
@@ -431,7 +429,7 @@ seed_start = random.randint(0,raw_text_length - seq_length)
 seed_text = raw_text[seed_start:seed_start+seq_length].lower()
 ```
 
-Replace any charcters not used in our training data with a blank space:
+Replace any characters not used in our training data with a blank space:
 
 ```
 for i, c in enumerate(seed_text):
@@ -554,11 +552,11 @@ very good--bores, i fon’t fintth the rook, and ‘whey seemid out of
 ## Exercise 5.3 Varying dropouts and adding additional LSTM layers ##
 * Try changing the dropout values when training
 * Try adding additional `LSTM` layers to your model.
-  * You can check with `code/lab/06/text_gen_multilayer.prototxt` and `code/lab/06/text_gen_multilayer_solver.prototxt`
+  * You can check with `code/lab/05/text_gen_multilayer.prototxt` and `code/lab/06/text_gen_multilayer_solver.prototxt`
   * Don't forget to change the model paths in your `generate_text.py`
 
 ## Extra ##
-* If you'd prefer to use LMDB instead, Gustav Larsson has provided a very concise tutorial on using them in Python on his [blog page](http://deepdish.io/2015/04/28/creating-lmdb-in-python).
+* If you'd prefer to use LMDB instead, Gustav Larsson has provided a concise tutorial on using them in Python on his [blog page](http://deepdish.io/2015/04/28/creating-lmdb-in-python).
 * Convolution can be rolled in to recurrent network to perform activity recognition, image description or video description. On [Jeff Donaue's website](http://jeffdonahue.com/lrcn/), one of the main contributors to Caffe, you can find the link to his published paper and video examples of a video description problem.
 
 ---

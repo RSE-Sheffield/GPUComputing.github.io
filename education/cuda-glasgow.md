@@ -53,8 +53,9 @@ If you're not familiar with neural networks please see Stephen Welch's Neural Ne
 ## Day 3 ##
 
 * [**Introduction to Deep Learning With Caffe Slides**](https://docs.google.com/a/sheffield.ac.uk/presentation/d/1k7nfUyDJfk6VeI0mu5Oxc0svIxppI-hOifLfOHy0ABE/edit?usp=sharing)
+* [**Lab 00**: Getting Started](./dl/qwiklabs)
 * [**Lab 01**: A simple Neural Network Model](./dl/lab01)
 * [**Lab 02**: Convolution Neural Networks](./dl/lab02)
 * [**Lab 03**: Deploying your Trained Network](./dl/lab03)
-* [**Lab 04**: Using and Visualising Pre-trian Models](./dl/lab04)
+* [**Lab 04**: Using and Visualising Pre-trained Models](./dl/lab04)
 * [**Lab 05**: Recurrent Neural Networks](./dl/lab05)

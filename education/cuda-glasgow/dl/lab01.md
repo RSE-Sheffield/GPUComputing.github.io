@@ -6,17 +6,19 @@ permalink: /education/cuda-glasgow/dl/lab01/
 
 # Lab 01: A simple MNIST model #
 
-**Remember to be working from the root directory of DLTraining code sample throughout all practicals.**
+*by Twin Karmakharm (University of Sheffield)*
+
+**Remember to be working from ~/DLIntro directory throughout all practicals.**
 
 In this lab, we will put together a basic 3-layer model that can identify handwritten digits by learning from the [MNIST database](http://yann.lecun.com/exdb/mnist/).
 
 
 ## Running the pre-made model ##
 
-Run `code/lab01/mnist_simple_train.sh`:
+Run the `code/lab01/mnist_simple_train.sh` script to start training the network:
 
 ```
-qsub code/lab01/mnist_simple_train.sh
+code/lab01/mnist_simple_train.sh
 ```
 
 When the network has finished training you should get similar values at the end:
@@ -46,7 +48,7 @@ caffe train -solver=code/lab01/mnist_simple_solver.prototxt
 
 Caffe offers a command line interface for training your models. The above command indicates that you will be using `caffe` to `train` the model with solver file located at `code/lab01/mnist_simple_solver.prototxt`.
 
-Two text files are needed to get a model running in Caffe. A model file which defines the architecture of the network and a solver file that lets you choose the approach to training and optimisation.
+Two text files are needed to train a network in Caffe. A model file which defines the architecture of the network and a solver file that lets you choose the approach to training and optimisation.
 
 ## Implementing the model ##
 
@@ -397,11 +399,12 @@ See the [layer catalogue](http://caffe.berkeleyvision.org/tutorial/layers.html) 
 
 ## Exercise 1: Additional Layers ##
 
-Try adding additional `InnerProduct` layer(s) to the current network, does the accuracy improve? (Don't forget to add activation functions.)
+* Add an additional `InnerProduct` layer to the current network, does the accuracy improve? (Don't forget to add activation functions.)
+* Add another `InnerProduct` layer, how does the accuracy change?
 
 Check your model at `code/lab01/mnist_simple_extra_layer.prototxt`.
 
 
 ---
 
-&#124; [Home](../../) &#124; [Lab02](../lab02) &#124;
+&#124; [Home](../../) &#124; [Getting Started](../qwiklabs) &#124; [Lab02](../lab02) &#124;

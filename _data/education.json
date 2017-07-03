@@ -1,10 +1,10 @@
 [
 	{
-		"name": "Glasgow: Introduction to CUDA",
-		"length": "Two day CUDA course",
+		"name": "Glasgow: Introduction to CUDA and Deep Learning",
+		"length": "Two day CUDA course, one day Deep Learning",
 		"image": "glasgow.jpg",
 		"url": "/education/cuda-glasgow",
-		"tags": ["CUDA", "Introduction", "Lectures", "Labs", "Glasgow"]
+		"tags": ["CUDA", "Deep Learning", "Introduction", "Lectures", "Labs", "Glasgow"]
 	},
 	{
 		"name": "Introduction to CUDA",
