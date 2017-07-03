@@ -31,7 +31,9 @@ The aim of the CUDA course is to provide a basic understanding of principles of 
 * [**Lab03**: Caching and Memory](./lab03) 
 * [Libraries and Primitives.pdf](https://drive.google.com/file/d/0B2HbOiEppVPMSnAzczhyZ0J6Rjg/view?usp=sharing) 
 * [**Lab04**: Primitives and Thrust](./lab04) 
+
 Optional:
+
 * [CUDA Streams and Async.pdf](https://drive.google.com/file/d/0B2HbOiEppVPMemd6NGYzUzJkX2M/view?usp=sharing)
 * [**Lab05**: Streams and Async](./lab05)
 ## Day 3 ##
