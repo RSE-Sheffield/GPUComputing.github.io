@@ -29,7 +29,7 @@ The asynchronous version that we implement will loop through each stream and per
 4.	Loop through the streams and schedule each stream to perform the kernel execution on a suitable subset of the data.
 5.	Loop through the streams and schedule each stream to perform a device to host memory copy on a suitable subset of the data. Hence copying back the result.
 6.	Destroy each of the CUDA streams.
-7.	Test and Benchmark your code. Modify the `NUM_STREAMS` value and complete the following table of results. Do you understand why the two different stream versions differ?
+7.	Test and Benchmark your code. Modify the `NUM_STREAMS` value and complete the following table of results.
 
 |Version | Streams | GPU timing (s) |
 |---|---|---|
