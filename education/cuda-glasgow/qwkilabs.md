@@ -71,12 +71,12 @@ The outputs should look like the following:
 
 Before moving onto the [first lab classes](../lab01) for day 1, try modifying the grid and block dimensions to see how the thread index changes. Try using more than one block and add the block index (from `blockIdx.x`) to the `printf` statement. If you want to use 2D or 3D blocks then use a `dim3` variable to define the grid and block size. E.g.
 
-	dim3 grid(2, 2, 1);
-	dim3 block(3,3, 1);
+	dim3 blocksPerGrid(2, 2, 1);
+	dim3 threadsPerBlock(3,3, 1);
 
 You can now launch your kernel using these dim variables.
 
-	helloworld<<<grid, block>>>();
+	hello_kernel<<<blocksPerGrid, threadsPerBlock>>>();
 
 To view the y and z index of the thread or the block use the y and z member variables of the `threadIdx` or `blockIdx` dims.
 

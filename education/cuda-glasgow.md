@@ -32,6 +32,11 @@ The aim of the CUDA course is to provide a basic understanding of principles of 
 * [Libraries and Primitives.pdf](https://drive.google.com/file/d/0B2HbOiEppVPMSnAzczhyZ0J6Rjg/view?usp=sharing)
 * [**Lab04**: Primitives and Thrust](./lab04)
 
+Optional:
+
+* [CUDA Streams and Async.pdf](https://drive.google.com/file/d/0B2HbOiEppVPMemd6NGYzUzJkX2M/view?usp=sharing)
+* [**Lab05**: Streams and Async](./lab05)
+
 # Introduction to Deep Learning with Caffe
 
 The course aims to introduce core concepts of deep learning and how it can be applied to your research in a practical way. The course will specifically look at the use of Caffe deep learning package. Through practical examples you will learn to:

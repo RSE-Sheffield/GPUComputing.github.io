@@ -30,7 +30,7 @@ Where $$A^{-1}$$ is the modular multiplicative inverse of $$A modulo M$$. For th
 
 As each of the encrypted character values are independent we can use the GPU to decrypt them in parallel. To do this we will launch a thread for each of the encrypted character values and use a kernel function to perform the decryption. Starting from the code provided in `exercise01.cu`, complete the following;
 
-* 1.1. Modify the modulo function so that it can be called on the device by the `affine_decrypt` kernel. Run the program as a using `qsub` by modifying the `cuda_job_template.sh` bash script.
+* 1.1. Modify the modulo function so that it can be called on the device by the `affine_decrypt` kernel. 
 * 1.2. Implement the decryption kernel for a single block of threads with an `x` dimension of `N` (`1024`). The function should store the result in `d_output`. You can define the inverse modulus `A`, `B` and `M` using a C pre-processor definition. 
 * 1.3. Allocate some memory on the device for the input (`d_input`) and output (`d_output`). 
 * 1.4. Copy the host input values in `h_input` to the device memory `d_input`.

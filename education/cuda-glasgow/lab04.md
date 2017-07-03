@@ -34,7 +34,9 @@ To reduce the shared memory values, you must modify the provided loop which has 
     
 ## Exercise 02 ##
 
-Using the same `marks.cu` file, we will now use thrust to find the number of marks which are greater than `90%`. There are a number of ways in which we can do this by applying different algorithms. We will explore two options.
+Using the same `marks.cu` file, we will now use thrust to find the number of marks which are greater than `90%`. There are a number of ways in which we can do this by applying different algorithms. We will explore two options. For each you may need to refer to the Thurst API documentation for additional information on the specific function arguments;
+
+[Thrust API Docs](http://thrust.github.io/doc/modules.html)
 
 * 2.1	We can find the number of marks greater than `90%` by sorting all the marks and then finding the index of the first mark which is greater than 90. To implement this, complete the following in the `sortSplit_Thrust function`.
     * Create a thrust device vector 
@@ -63,6 +65,6 @@ You will need to commit your local changes to avoid overwriting your changes whe
 
 ---
 
-&#124; [Lab 03](../lab03) &#124; [CUDA Training Home](../) &#124; 
+&#124; [Lab 03](../lab03) &#124; [CUDA Training Home](../) &#124; [Lab05](../lab05) 
 
 
