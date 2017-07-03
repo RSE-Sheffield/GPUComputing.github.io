@@ -1,40 +1,27 @@
 ---
 layout: page
 title: Lab 01 A simple MNIST model
-permalink: /education/intro_dl_sharc_dgx1/lab01/
+permalink: /education/cuda-glasgow/dl/lab01/
 ---
 
 # Lab 01: A simple MNIST model #
 
-**Remember to be working from the root directory of DLTraining code sample throughout all practicals.**
+*by Twin Karmakharm (University of Sheffield)*
+
+**Remember to be working from ~/DLIntro directory throughout all practicals.**
 
 In this lab, we will put together a basic 3-layer model that can identify handwritten digits by learning from the [MNIST database](http://yann.lecun.com/exdb/mnist/).
-
-## Job scripts ##
-**A reminder to add the following lines to all the job script that you submit with `qsub`:**
-
-```
-#!/bin/bash
-#$ -l gpu=1 -P rse-training -q rse-training.q -l rmem=10G -j y
-
-module load apps/caffe/rc5/gcc-4.9.4-cuda-8.0-cudnn-5.1
-
-
-#Your code below....
-```
-
-The `-j y` option is included so that the job output prints everything to one output file e.g. `your_scriptname.sh.o<jobid>`.
 
 
 ## Running the pre-made model ##
 
-Submit the job file `code/lab01/mnist_simple_train.sh` using `qsub`:
+Run the `code/lab01/mnist_simple_train.sh` script to start training the network:
 
 ```
-qsub code/lab01/mnist_simple_train.sh
+code/lab01/mnist_simple_train.sh
 ```
 
-Once the job has finished, check the output for more information in the file `mnist_simple_train.sh.e<jobid>` at the end of the file you should get something like below:
+When the network has finished training you should get similar values at the end:
 
 ```
 I0127 16:04:25.357823  9366 solver.cpp:317] Iteration 10000, loss = 0.207118
@@ -61,7 +48,7 @@ caffe train -solver=code/lab01/mnist_simple_solver.prototxt
 
 Caffe offers a command line interface for training your models. The above command indicates that you will be using `caffe` to `train` the model with solver file located at `code/lab01/mnist_simple_solver.prototxt`.
 
-Two text files are needed to get a model running in Caffe. A model file which defines the architecture of the network and a solver file that lets you choose the approach to training and optimisation.
+Two text files are needed to train a network in Caffe. A model file which defines the architecture of the network and a solver file that lets you choose the approach to training and optimisation.
 
 ## Implementing the model ##
 
@@ -375,20 +362,13 @@ For more information on Caffe's available solvers, see [http://caffe.berkeleyvis
 
 ## Training ##
 
-To train the model create a new script `mnist_simple_train.sh` with the contents
+To train the model, type in:
 
 ```
-#!/bin/bash
-#$ -l gpu=1 -P rse-training -q rse-training.q -l rmem=10G
-
-module load apps/caffe/rc5/gcc-4.9.4-cuda-8.0-cudnn-5.1
-
-
-
 caffe train -solver=mnist_simple_solver.prototxt
 ```
 
-Submit the job using `qsub`. In the output file you should get similar results to the pre-built model with final accuracy of around 92%.
+You should get similar results to the pre-built model with final accuracy of around 92%.
 
 ## Activation Layers ##
 
@@ -419,11 +399,12 @@ See the [layer catalogue](http://caffe.berkeleyvision.org/tutorial/layers.html) 
 
 ## Exercise 1: Additional Layers ##
 
-Try adding additional `InnerProduct` layer(s) to the current network, does the accuracy improve? (Don't forget to add activation functions.)
+* Add an additional `InnerProduct` layer to the current network, does the accuracy improve? (Don't forget to add activation functions.)
+* Add another `InnerProduct` layer, how does the accuracy change?
 
 Check your model at `code/lab01/mnist_simple_extra_layer.prototxt`.
 
 
 ---
 
-&#124; [Home](../) &#124; [Getting Started](../getting_started) &#124; [Lab02](../lab02) &#124;
+&#124; [Home](../../) &#124; [Getting Started](../qwiklabs) &#124; [Lab02](../lab02) &#124;
