@@ -65,6 +65,6 @@ You will need to commit your local changes to avoid overwriting your changes whe
 
 ---
 
-&#124; [Lab 03](../lab03) &#124; [CUDA Training Home](../) &#124; 
+&#124; [Lab 03](../lab03) &#124; [CUDA Training Home](../) &#124; [Lab05](../lab05) 
 
 
