@@ -76,7 +76,7 @@ Before moving onto the [first lab classes](../lab01) for day 1, try modifying th
 
 You can now launch your kernel using these dim variables.
 
-	helloworld<<<grid, block>>>();
+	hello_kernel<<<grid, block>>>();
 
 To view the y and z index of the thread or the block use the y and z member variables of the `threadIdx` or `blockIdx` dims.
 
