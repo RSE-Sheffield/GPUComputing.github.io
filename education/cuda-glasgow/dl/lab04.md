@@ -78,9 +78,8 @@ Now open the `caffenet_deploy.py` and modify it so that it can classify the `dat
   labels = np.loadtxt(`code/lab04/caffenet/synset_words.txt`, str, delimiter='\t')
   ```
   This returns 1D list with the correct index to label mapping.
-* The output blob is `prob` instead of `loss`
+* The output blob is called `prob` instead of `loss`
 
-When done, you can check your code against `code/lab04/caffenet_deploy.py`.
 
 Save and run your `caffenet_deploy.py` script. In the output results you should get the following at the end:
 

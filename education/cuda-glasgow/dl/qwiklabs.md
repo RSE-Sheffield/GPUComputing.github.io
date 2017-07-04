@@ -40,7 +40,15 @@ A convenient script is included in the materials for launching a Docker containe
 ~/DLIntro/rundocker.sh
 ```
 
-It will take around 5 minutes for docker to download and extract the image. Once that's done you will automatically get a shell inside the container.
+It will take around 5 minutes for docker to download and extract the image. Once that's done you will automatically get a shell inside the container. Notice that your machine name is different:
+
+```
+#at login
+ubuntu@ip-10-37-4-34:
+
+#inside the docker image
+ubuntu@b84d07b85473:
+```
 
 ---
 

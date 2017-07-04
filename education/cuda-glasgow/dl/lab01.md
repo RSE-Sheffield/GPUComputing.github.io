@@ -402,8 +402,6 @@ See the [layer catalogue](http://caffe.berkeleyvision.org/tutorial/layers.html) 
 * Add an additional `InnerProduct` layer to the current network, does the accuracy improve? (Don't forget to add activation functions.)
 * Add another `InnerProduct` layer, how does the accuracy change?
 
-Check your model at `code/lab01/mnist_simple_extra_layer.prototxt`.
-
 
 ---
 

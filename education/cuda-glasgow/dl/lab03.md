@@ -45,8 +45,6 @@ layer {
 }
 ```
 
-**Note:** You can check your model file against `code/lab03/mnist_deploy.prototxt`.
-
 ## Create a Python interface ##
 
 Now create a new file `mnist_deploy.py` and start editing.
