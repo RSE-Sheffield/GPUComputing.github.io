@@ -36,7 +36,7 @@ To implement a blocked matrix multiply, it is required that we load `NUM_SUBS` s
     * Load an element of the sub matrix $$A_{1,1}$$ into shared memory from Matrix $$A$$ at position `(ty+BLOCK_SIZE, tx+BLOCK_SIZE)`
     * Load an element of the sub matrix $$B_{1,1}$$ into shared memory from matrix $$B$$ at position `(ty+BLOCK_SIZE tx+BLOCK_SIZE,)`
     * Synchronise to ensure all threads have completed loading sub matrix values to shared memory
-    * Iterate from `0` to `BLOCK_SIZE` to multiply row `tx` of $$A_{1,1}$$ (from shared memory) by column `ty` of $$B_{1,1}$$ (from shared memory) to calculate the sub matrix product value.
+    * Iterate from `0` to `BLOCK_SIZE` to multiply row `ty` of $$A_{1,1}$$ (from shared memory) by column `tx` of $$B_{1,1}$$ (from shared memory) to calculate the sub matrix product value.
     * Add this sub matrix product value to the one calculated for the previous sub matrices.
 4. Store the sum of the sub-matrix dot products into global memory at location `(x, y)` of Matrix $$C$$.
 
