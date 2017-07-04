@@ -101,7 +101,7 @@ We can now add the transformed image data in to the `data` blob
 net.blobs['data'].data[...] = transformed_image
 ```
 
-And start training with `net.forward()` which returns an `output` blob.
+And start inferencing with `net.forward()` which returns an `output` blob.
 
 ```
 ### perform classification
@@ -126,9 +126,9 @@ for i in range(0,9):
 
 #Print our result
 if highest_index < 0:
-    print("Did not detect a number!")
+    print "Did not detect a number!"
 else:
-    print("Digit "+ str(digits_label[highest_index]) + " detected with " + str(highest_probability*100.0)+"%  probability.")
+    print "Digit "+ str(digits_label[highest_index]) + " detected with " + str(highest_probability*100.0)+"%  probability."
 ```
 
 Save and run with the command:
