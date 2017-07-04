@@ -34,7 +34,7 @@ To reduce the shared memory values, you must modify the provided loop which has 
     
 ## Exercise 02 ##
 
-Using the same `marks.cu` file, we will now use thrust to find the number of marks which are greater than `90%`. There are a number of ways in which we can do this by applying different algorithms. We will explore two options. For each you may need to refer to the Thurst API documentation for additional information on the specific function arguments;
+Using the same `marks.cu` file, we will now use thrust to find the number of marks which are greater than `90%`. There are a number of ways in which we can do this by applying different algorithms. We will explore two options. For each you may need to refer to the Thrust API documentation for additional information on the specific function arguments;
 
 [Thrust API Docs](http://thrust.github.io/doc/modules.html)
 
@@ -45,7 +45,7 @@ Using the same `marks.cu` file, we will now use thrust to find the number of mar
     ```__host__ __device__ bool operator()(float x);```
     * Use `thrust::distance` to find the number of elements between the start of your thrust device vector and the returned iterator. Use this to return the correct value.
     
-* 2.2	An alternative approach to finding marks greater than `90%` is to use a prefix sum to partition and re-reorder the data. Thrust provided an algorithms for doing this called `thrust::partition`. This algorithm will partition the data into the original array with all records meeting the condition at the front of the array and all records failing the condition at the end of the array.  The partition function returns an iterator which points to the end of the data records which pass the condition. Modify the partition_Thrust function to use the `thrust::partition` function to find the number of marks which exceed `90%`. *Hint: you can re-use the binary operator from the previous task.*
+* 2.2	An alternative approach to finding marks greater than `90%` is to use a prefix sum to partition and re-reorder the data. Thrust provides an algorithms for doing this called `thrust::partition`. This algorithm will partition the data into the original array with all records meeting the condition at the front of the array and all records failing the condition at the end of the array.  The partition function returns an iterator which points to the end of the data records which pass the condition. Modify the partition_Thrust function to use the `thrust::partition` function to find the number of marks which exceed `90%`. *Hint: you can re-use the binary operator from the previous task.*
 
 * 2.3	Increase the `NUMBER_LOOPS` so that you can get more accurate timing values to compare the two approaches.
 
