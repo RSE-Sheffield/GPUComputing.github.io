@@ -150,7 +150,7 @@ Use the `tools/parse_log.sh` on the the generated log file to create a `.train` 
 tools/parse_log.py mnist_training.log
 ```
 
-Use the `tools/plot_log.py` on one of the generated files to see what fields are available to plot against:
+Use the `tools/plot_log.sh` on one of the generated files to see what fields are available to plot against:
 
 ```
 $ tools/plot_log.py mnist_training.log.train
