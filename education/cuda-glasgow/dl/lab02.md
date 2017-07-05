@@ -147,7 +147,7 @@ mnist_simple_train.sh 2>&1 | tee mnist_training.log
 Use the `tools/parse_log.sh` on the the generated log file to create a `.train` and `.test` files with the training and test statistics.
 
 ```
-tools/parse_log.py mnist_training.log
+tools/parse_log.sh mnist_training.log
 ```
 
 Use the `tools/plot_log.sh` on one of the generated files to see what fields are available to plot against:
