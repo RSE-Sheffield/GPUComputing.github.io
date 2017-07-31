@@ -6,7 +6,7 @@ permalink: /seminars/
 
 This page provides a list of upcoming and previous seminars held by GPUComputing@Sheffield group. We aim to hold lunchtime seminars on the last Tuesday of every month, inviting speakers to talk about a wide range of topics that involves the application of GPUs in research and industry.
 
-If you would like to recommend a speaker then please contact [Dr Paul Richmond or Dr Mozhgan Kabiri Chemeh from the RSE Group](http://rse.shef.ac.uk/contact).
+If you would like to recommend a speaker then please contact [Dr Paul Richmond or Dr Mozhgan Kabiri Chimeh from the RSE Group](http://rse.shef.ac.uk/contact).
 
 
 {% if site.data.seminars.size > 0 %}

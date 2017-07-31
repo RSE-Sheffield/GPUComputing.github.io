@@ -9,4 +9,4 @@ A series of [GPU Computing Seminars](/seminars) run by Research software Enginee
 
 The first speaker will be Ania Brown from the University of Oxford who will talk about the use of GPUs in Adaptive Mesh Refinement. [More details](/seminars).
 
-If you would like to recommend a speaker then please contact [Dr Paul Richmond or Dr Mozhgan Kabiri Chemeh front the RSE Group](http://rse.shef.ac.uk/contact/).
+If you would like to recommend a speaker then please contact [Dr Paul Richmond or Dr Mozhgan Kabiri Chimeh front the RSE Group](http://rse.shef.ac.uk/contact/).
