@@ -49,9 +49,11 @@ If you would like to recommend a speaker then please contact [Dr Paul Richmond o
 			<div>Speaker: {{sem.speaker}}</div>
 			<div>Location: {{sem.location}}</div>
 		</header>
+        {% if sem.image_link %}
 		<p>
 		<img src="{{sem.image_link}}" alt="{{sem.title}}" />
 		</p>
+        {% endif %}
 		<p>
 		{{sem.description}}
 		</p>
