@@ -1,12 +1,12 @@
 [
   {
-    "date": "2017-08-29",
+    "date": "2017-09-27",
     "time": "1-2pm",
-    "title": "Containers for High Performance Computing",
-    "speaker": "Twin Karmakharm, Research Software Engineer, University of Sheffield",
+    "title": "Opportunities and challenges for spiking neural networks on GPUs",
+    "speaker": "Dr Thomas Nowotny, University of Sussex",
     "location": "Workroom 3 (205), The Diamond",
-    "description": "Containerization is a lightweight virtualisation technology where users can package workflows, software, libraries and data for running on various machines with minimal loss of performance. The technology can be used a way for scientists to deploy custom software on the HPC cluster and easily share reproducible software along with their data. The talk explores the concept of containers and existing container technologies suitable for the HPC. Particular focus is given for Singularity which has recently been introduced on the new Sheffield Advance Research Computer (ShARC) cluster.",
-    "register_link": "https://gpucomp_seminar_containers.eventbrite.co.uk",
+    "description": "In the past 6 years, we have developed the GeNN (GPU enhanced neuronal networks) framework for GPU accelerated spiking neuronal network simulations. In essence, GeNN is based on a simple design of code generation that allows a large extent of flexibility for computational models while at the same time taking care of some of the GPU specific optimisation work in the background. In this talk I will present the main features of GeNN, its design principles and show benchmarks. I will then discuss limitations, both specific to GeNN and to numerical simulation work on GPUs more generally and present some further work, including the SpineML-GeNN and Brian2GeNN interfaces. GeNN is developed within the Green Brain (http://greenbrain.group.shef.ac.uk/) and Brains on Board (http://brainsonboard.co.uk/) projects and is available under GPL v2 at Github (http://genn-team.github.io/genn/)",
+    "register_link": "https://gpucomp_seminar_thomas_nowotny.eventbrite.co.uk/",
     "slide_link": null
   }
 ]
