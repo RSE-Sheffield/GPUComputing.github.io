@@ -1,5 +1,16 @@
 [
   {
+    "date": "2017-09-27",
+    "time": "1-2pm",
+    "title": "Opportunities and challenges for spiking neural networks on GPUs",
+    "speaker": "Dr Thomas Nowotny, University of Sussex",
+    "location": "Workroom 3 (205), The Diamond",
+    "description": "In the past 6 years, we have developed the GeNN (GPU enhanced neuronal networks) framework for GPU accelerated spiking neuronal network simulations. In essence, GeNN is based on a simple design of code generation that allows a large extent of flexibility for computational models while at the same time taking care of some of the GPU specific optimisation work in the background. In this talk I will present the main features of GeNN, its design principles and show benchmarks. I will then discuss limitations, both specific to GeNN and to numerical simulation work on GPUs more generally and present some further work, including the SpineML-GeNN and Brian2GeNN interfaces. GeNN is developed within the Green Brain (http://greenbrain.group.shef.ac.uk/) and Brains on Board (http://brainsonboard.co.uk/) projects and is available under GPL v2 at Github (http://genn-team.github.io/genn/)",
+    "register_link": "https://gpucomp_seminar_thomas_nowotny.eventbrite.co.uk/",
+    "slide_link": "https://sussex.box.com/s/8i7dby89e6fj2t8lw447y68dkrsc1oo5",
+    "image_link": "/static/seminars/2017_09_27_thomas_nowotny.jpg"
+  },
+  {
     "date": "2017-08-29",
     "time": "1-2pm",
     "title": "Containers for High Performance Computing",
