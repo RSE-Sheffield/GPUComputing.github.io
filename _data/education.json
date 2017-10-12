@@ -1,4 +1,5 @@
 [
+
 	{
 		"name": "Glasgow: Introduction to CUDA and Deep Learning",
 		"length": "Two day CUDA course, one day Deep Learning",
@@ -8,7 +9,7 @@
 	},
 	{
 		"name": "Introduction to CUDA",
-		"length": "Two day course",
+		"length": "Two day course<br/><br/><br/>",
 		"image": "TUOS.png",
 		"url": "/education/cuda",
 		"tags": ["CUDA", "Introduction", "Lectures", "Labs", "ShARC"]
@@ -36,7 +37,7 @@
 	},
 	{
 		"name": "Intel Parallel Computing Training",
-		"length": "Two day course",
+		"length": "Two day course <br/><br/>",
 		"image": "TUOS.png",
 		"url": "http://rse.shef.ac.uk/training/intel/",
 		"tags": ["Intel", "TBB", "Vectorisation", "Iceberg"]
@@ -47,6 +48,14 @@
 		"image": "TUOS.png",
 		"url": "http://paulrichmond.shef.ac.uk/teaching/CUDA/",
 		"tags": ["CUDA", "Introduction", "Lectures", "Labs", "Iceberg"]
+	},
+	{
+		"name": "Online Deep Learning Resource",
+		"length": "<br/>",
+		"image": "TUOS.png",
+		"url": "/education/deep_learning_resource/",
+		"tags": ["Deep Learning", "Machine Learning"]
 	}
+
 
 ]
