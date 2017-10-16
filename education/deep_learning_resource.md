@@ -12,10 +12,10 @@ If you would like to contribute to the list, please get in touch with Twin at [t
 
 * General Machine Learning & Deep Learning
   * Reading
-      * [Yann Lecun's NYU deep learning course](http://www.cs.nyu.edu/~yann/2010f-G22-2565-001/schedule.html)
       * [Online book by Michael Nielson](http://neuralnetworksanddeeplearning.com/)
       * [Online book Ian Goofellow et al](http://www.deeplearningbook.org/)
       * [Stanford DL tutorial](http://ufldl.stanford.edu/tutorial/)
+      * [Yann Lecun's NYU spring 2017 DL course](http://cilvr.nyu.edu/doku.php?id=courses:deeplearning2017:start)
   * Video
       * [Andrew Ng's Machine Learning Coursera module](https://www.coursera.org/learn/machine-learning) - Provides excellent foundation on ML techniques
       * [Andrew Ng's Neural Network and Deep Learning Module](https://www.coursera.org/learn/neural-networks-deep-learning)
