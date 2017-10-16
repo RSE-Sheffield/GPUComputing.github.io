@@ -11,19 +11,20 @@ In this page you will find a list of free Deep Learning resources accessible onl
 If you would like to contribute to the list, please get in touch with Twin at [t.karmakharm@sheffield.ac.uk](mailto:t.karmakharm@sheffield.ac.uk)
 
 * General Machine Learning & Deep Learning
+  * Reading with Practical exercises
+    * [Online book & Exercises by Michael Nielson](http://neuralnetworksanddeeplearning.com/)
+    * [Stanford DL tutorial](http://ufldl.stanford.edu/tutorial/)
   * Reading
-      * [Online book by Michael Nielson](http://neuralnetworksanddeeplearning.com/)
-      * [Online book Ian Goofellow et al](http://www.deeplearningbook.org/)
-      * [Stanford DL tutorial](http://ufldl.stanford.edu/tutorial/)
-      * [Yann Lecun's NYU spring 2017 DL course](http://cilvr.nyu.edu/doku.php?id=courses:deeplearning2017:start)
+    * [Online book Ian Goofellow et al](http://www.deeplearningbook.org/)
+    * [Yann Lecun's NYU spring 2017 DL course](http://cilvr.nyu.edu/doku.php?id=courses:deeplearning2017:start) - Slides & course notes
   * Video
-      * [Andrew Ng's Machine Learning Coursera module](https://www.coursera.org/learn/machine-learning) - Provides excellent foundation on ML techniques
-      * [Andrew Ng's Neural Network and Deep Learning Module](https://www.coursera.org/learn/neural-networks-deep-learning)
-* [A list of other ML algorithms that's good to be aware of (e.g. K-means, Random forest)](https://www.dezyre.com/article/top-10-machine-learning-algorithms/202)
-* DL network types
-  * Convolution networks (for visual recognition, signal processing)
+    * [Andrew Ng's Machine Learning Coursera module](https://www.coursera.org/learn/machine-learning) - Provides excellent foundation on ML techniques
+    * [Andrew Ng's Neural Network and Deep Learning Module](https://www.coursera.org/learn/neural-networks-deep-learning)
+* [A list of other ML algorithms to be aware of](https://www.dezyre.com/article/top-10-machine-learning-algorithms/202)
+* DL network architecture
+  * Convolution networks (visual recognition, image classification & image segmentation)
     * [Convolution Neural Networks for visual recognition, Stanford Course](http://cs231n.stanford.edu/)
-  * Recurrent networks (for sequences, videos & NLP)
+  * Recurrent networks (sequences, audio, video & NLP)
     * [Deep Learning for Natural Language Processing, Stanford Course](http://cs224d.stanford.edu/)
   * Unsupervised pretraining networks
     * [Autoencoder](http://ufldl.stanford.edu/tutorial/unsupervised/Autoencoders/)
