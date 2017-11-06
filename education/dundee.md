@@ -40,7 +40,7 @@ In this full-day workshop, you will learn the basics of deep learning by trainin
 
 **Content level:** Beginner
 
-**Pre-Requisites:*** Technical background and basic understanding of deep learning concepts
+**Pre-Requisites:** Technical background and basic understanding of deep learning concepts
 
 * [Deep Learning Demystified](https://docs.google.com/a/sheffield.ac.uk/presentation/d/1O40Xpko3TYQSjEqem6g_qMgj4G_tatJHK_RaI1XQKtQ/edit?usp=sharing)
 * [**Lab 01**: Image Classification with DIGITS](https://docs.google.com/a/sheffield.ac.uk/presentation/d/1oS5GSayXkxRLerKowaytY_CWC9iBRJgWdZwxRHa3n9s/edit?usp=sharing)
