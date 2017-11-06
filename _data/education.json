@@ -1,6 +1,13 @@
 [
 
 	{
+		"name": "Dundee: Introduction to CUDA and Deep Learning",
+		"length": "One day CUDA, one day Deep Learning at University of Dundee",
+		"image": "dundee.jpg",
+		"url": "/education/dundee",
+		"tags": ["CUDA", "Deep Learning", "Introduction", "Lectures", "Labs", "Dundee"]
+	},
+	{
 		"name": "Glasgow: Introduction to CUDA and Deep Learning",
 		"length": "Two day CUDA course, one day Deep Learning",
 		"image": "glasgow.jpg",
@@ -9,7 +16,7 @@
 	},
 	{
 		"name": "Introduction to CUDA",
-		"length": "Two day course<br/><br/><br/>",
+		"length": "Two day course at University of Sheffield<br/><br/><br/>",
 		"image": "TUOS.png",
 		"url": "/education/cuda",
 		"tags": ["CUDA", "Introduction", "Lectures", "Labs", "ShARC"]
@@ -37,14 +44,14 @@
 	},
 	{
 		"name": "Intel Parallel Computing Training",
-		"length": "Two day course <br/><br/>",
+		"length": "Two day course at University of Sheffield<br/><br/>",
 		"image": "TUOS.png",
 		"url": "http://rse.shef.ac.uk/training/intel/",
 		"tags": ["Intel", "TBB", "Vectorisation", "Iceberg"]
 	},
 	{
 		"name": "GPU Training Course",
-		"length": "One day course",
+		"length": "One day course at University of Sheffield",
 		"image": "TUOS.png",
 		"url": "http://paulrichmond.shef.ac.uk/teaching/CUDA/",
 		"tags": ["CUDA", "Introduction", "Lectures", "Labs", "Iceberg"]
