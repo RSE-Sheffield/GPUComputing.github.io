@@ -17,9 +17,9 @@ In this full-day workshop, you will learn the basics of deep learning by trainin
 
 **Content level:** Beginner
 
-**Pre-Requisites:*** Technical background and basic understanding of deep learning concepts
+**Pre-Requisites:** Technical background and basic understanding of deep learning concepts
 
-* [Deep Learning Demystified](https://docs.google.com/a/sheffield.ac.uk/presentation/d/1O40Xpko3TYQSjEqem6g_qMgj4G_tatJHK_RaI1XQKtQ/edit?usp=sharing)
-* [**Lab 01**: Image Classification with DIGITS](https://docs.google.com/a/sheffield.ac.uk/presentation/d/1oS5GSayXkxRLerKowaytY_CWC9iBRJgWdZwxRHa3n9s/edit?usp=sharing)
-* [**Lab 02**: Object Detection with DIGITS](https://docs.google.com/presentation/d/15CCC-SY5qhG9BNMWX_FGXlGlJKYW8kG9u-omSDgHK-U/edit?usp=sharing)
-* [**Lab 03**: Neural Network Deployment with DIGITS and TensorRT](https://docs.google.com/presentation/d/1mkvw6je9BRSuwMiFE6HeHSoOVECfBFUCCQ1K0uXFCb8/edit?usp=sharing)
+* [Deep Learning Demystified](/static/slides/deep-learning-demystified.pdf)
+* [**Lab 01**: Image Classification with DIGITS](/static/slides/image-classification-with-digits.pdf)
+* [**Lab 02**: Object Detection with DIGITS](/static/slides/object-detection-with-digits.pdf)
+* [**Lab 03**: Neural Network Deployment with DIGITS and TensorRT](/static/slides/neural-network-deployment.pdf)
