@@ -39,6 +39,7 @@ In this full-day workshop, you will learn the basics of deep learning by trainin
 * Deploy your networks to start solving real-world problems
 
 **Content level:** Beginner
+
 **Pre-Requisites:*** Technical background and basic understanding of deep learning concepts
 
 * [Deep Learning Demystified](https://docs.google.com/a/sheffield.ac.uk/presentation/d/1O40Xpko3TYQSjEqem6g_qMgj4G_tatJHK_RaI1XQKtQ/edit?usp=sharing)
