@@ -8,6 +8,13 @@
 		"tags": ["CUDA", "Deep Learning", "Introduction", "Lectures", "Labs", "Dundee"]
 	},
 	{
+		"name": "DLI Deep Learning Fundamentals Workshop",
+		"length": "One day workshop",
+		"image": "TUOS.png",
+		"url": "/education/dliworkshop/",
+		"tags": ["Deep Learning", "Introduction", "Lectures", "Labs", "Sheffield"]
+	},
+	{
 		"name": "Glasgow: Introduction to CUDA and Deep Learning",
 		"length": "Two day CUDA course, one day Deep Learning",
 		"image": "glasgow.jpg",
