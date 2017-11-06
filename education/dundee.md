@@ -29,28 +29,19 @@ Optional Material:
 * [Advanced Memory.pdf](https://drive.google.com/file/d/0B2HbOiEppVPMT0NIRS13X014eXc/view?usp=sharing)
 * [**Lab**: Caching and Memory](./lab03)
 
-## Day 2 Introduction to Deep Learning with Caffe ##
+## Day 2 Deep Learning Fundamentals ##
 
-The course aims to introduce core concepts of deep learning and how it can be applied to your research in a practical way. The course will specifically look at the use of Caffe deep learning package. Through practical examples you will learn to:
-* Implement convolution models for image classification.
-* Implement recurrent models for serial inputs and outputs such as text prediction.
-* Visually debugging your model by visualising their weights.
-* Deploying and inferencing a trained model.
+In this full-day workshop, you will learn the basics of deep learning by training and deploying neural networks. Build the skill-set and toolbox you need to build your own deep learning solutions through hands-on projects. Learners will:
+* Understand general terms and background of deep learning
+* Implement common deep learning workflows such as Image Classification and Object Detection
+* Manipulate training parameters to improve accuracy
+* Modify internal layers of neural networks to adapt to new problems
+* Deploy your networks to start solving real-world problems
 
+**Content level:** Beginner
+**Pre-Requisites:*** Technical background and basic understanding of deep learning concepts
 
-**Pre-requisites**
-
-Familiarity with Linux, the use of command line, Python and basic understanding of neural network.
-If you're not familiar with neural networks please see Stephen Welch's Neural Networks Demystified to get a better understanding. **Working through his code exercises may also be useful but is not essential for the course**:
-- [Short Videos (7 in total)](https://www.youtube.com/playlist?list=PLiaHhY2iBX9hdHaRr6b7XevZtgZRa1PoU)
-- [Accompanying Code](https://github.com/stephencwelch/Neural-Networks-Demystified)
-
-**Lectures and Labs**
-
-* [**Introduction to Deep Learning With Caffe Slides**](https://docs.google.com/a/sheffield.ac.uk/presentation/d/1k7nfUyDJfk6VeI0mu5Oxc0svIxppI-hOifLfOHy0ABE/edit?usp=sharing)
-* [**Lab 00**: Getting Started](./dl/qwiklabs)
-* [**Lab 01**: A simple Neural Network Model](./dl/lab01)
-* [**Lab 02**: Convolution Neural Networks](./dl/lab02)
-* [**Lab 03**: Deploying your Trained Network](./dl/lab03)
-* [**Lab 04**: Using and Visualising Pre-trained Models](./dl/lab04)
-* [**Lab 05**: Recurrent Neural Networks](./dl/lab05)
+* [Deep Learning Demystified](https://docs.google.com/a/sheffield.ac.uk/presentation/d/1O40Xpko3TYQSjEqem6g_qMgj4G_tatJHK_RaI1XQKtQ/edit?usp=sharing)
+* [**Lab 01**: Image Classification with DIGITS](https://docs.google.com/a/sheffield.ac.uk/presentation/d/1oS5GSayXkxRLerKowaytY_CWC9iBRJgWdZwxRHa3n9s/edit?usp=sharing)
+* [**Lab 02**: Object Detection with DIGITS](https://docs.google.com/presentation/d/15CCC-SY5qhG9BNMWX_FGXlGlJKYW8kG9u-omSDgHK-U/edit?usp=sharing)
+* [**Lab 03**: Neural Network Deployment with DIGITS and TensorRT](https://docs.google.com/presentation/d/1mkvw6je9BRSuwMiFE6HeHSoOVECfBFUCCQ1K0uXFCb8/edit?usp=sharing)
