@@ -48,7 +48,7 @@ This will check out the hello world example into the folder `CUDAHelloWorld`. Yo
 
 Compile the code using nvcc with the following command:
 
-	nvcc helloworld.cu –o helloworld
+	nvcc –o helloworld helloworld.cu
 
 Assuming there are no errors, your code will be built and you will have a new executable file in the working directory. Execute the compiled program;
 
