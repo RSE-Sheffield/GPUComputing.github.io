@@ -24,7 +24,7 @@ ssh -X your_cics_username@sharc.shef.ac.uk
 
 If you are connecting from a machine which is your own (i.e. not a CICS managed desktop) then connect to ShARC using the instructions provided on the ShARC documentation site:
 
-[http://docs.hpc.shef.ac.uk/en/latest/hpc/getting-started.html](http://docs.hpc.shef.ac.uk/en/latest/hpc/getting-started.html).
+[http://docs.hpc.shef.ac.uk/en/latest/hpc/connecting.html](http://docs.hpc.shef.ac.uk/en/latest/hpc/connecting.html).
 
 Once you are logged into a ShARC head node then request an interactive session by typing `qrshx`. This creates an interactive session on a CPU worker node which supports running graphical applications as well as command line programs. The worker node **will not** be a GPU accelerated node and and it is advised that you **not** run any Neural Network training on it. The worker node can however be used for interactive editing of our deep learning models and submission of jobs to the DGX-1 or other GPU-enabled nodes. This is a much better solution than running an interactive session on a GPU node as interactive jobs will request GPU resource which will be unused if you are performing tasks like modifying or building your code.
 
