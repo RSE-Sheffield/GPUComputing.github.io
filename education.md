@@ -11,6 +11,17 @@ This page provides a number of permanently available resources and self paced la
 <div class="griditem row">
 {% include education_tags.html %}
 {% for i in site.data.education %}
+{% assign mod_two = forloop.index0 | modulo: 2 %}
+{% assign mod_three = forloop.index0 | modulo: 3 %}
+
+{% if forloop.index0 > 0 and mod_two == 0 %}
+    <!-- Clear floating property for 2 column layout (sm) -->
+    <div class="clearfix visible-sm-block"></div>
+{% endif %}
+<!-- Clear floating property for 3 column layout (md and above) -->
+{% if forloop.index0 > 0 and mod_three == 0 %}
+    <div class="clearfix visible-md-block visible-lg-block"></div>
+{% endif %}
 <div class="griditem-item col-md-4 col-sm-6 col-xs-12" data-tags='{{ i.tags | jsonify | downcase }}'>
 	<div class="well griditem-outer">
 		<div class="griditem-inner">
@@ -38,6 +49,7 @@ This page provides a number of permanently available resources and self paced la
 		</div>
 	</div>
 	</div>
+
 {% endfor %}
 </div>
  
