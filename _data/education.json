@@ -1,6 +1,13 @@
 [
 
 	{
+		"name": "Sheffield: One Day Introduction to CUDA",
+		"length": "One day CUDA course at University of Sheffield",
+		"image": "TUOS.png",
+		"url": "/education/sheffield_onedaycuda",
+		"tags": ["CUDA", "Introduction", "Lectures", "Labs", "Sheffield"]
+	},
+    {
 		"name": "Dundee: Introduction to CUDA and Deep Learning",
 		"length": "One day CUDA, one day Deep Learning at University of Dundee",
 		"image": "dundee.jpg",
