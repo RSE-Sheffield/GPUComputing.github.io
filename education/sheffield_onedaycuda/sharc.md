@@ -44,9 +44,10 @@ Test your CUDA module is correctly loaded by calling:
 You should get the version information similar to the output below.
 
 	nvcc: NVIDIA (R) Cuda compiler driver
-	Copyright (c) 2005-2015 NVIDIA Corporation
-	Built on ...
-	Cuda compilation tools, release 9.X, VX.X.XX
+	Copyright (c) 2005-2016 NVIDIA Corporation
+	Built on Sun_Sep__4_22:14:01_CDT_2016
+	Cuda compilation tools, release 8.0, V8.0.44
+
 
 ## Hello World for GPUs ##
 
@@ -62,7 +63,7 @@ This will check out the hello world example into the folder `CUDAHelloWorld`. Ta
 
 Compile the code using nvcc with the following command:
 
-	nvcc helloworld.cu –o helloworld
+	nvcc helloworld.cu -o helloworld
 
 Assuming there are no errors, your code will be built and you will have a new executable file in the working directory.
 
