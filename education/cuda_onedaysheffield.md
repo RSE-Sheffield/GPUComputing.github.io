@@ -12,18 +12,18 @@ The aim of the course is to provide a basic understanding of principles of CUDA 
 
 A rough agenda for the day is as follows however depending on the pace of participants an additional lecture and lab is available
  
-* 10:00-10:30 - [Architectures.pdf](https://drive.google.com/file/d/1hKsMWC1eU9dhuagD3bih7Z9g9QGWalZl/view?usp=sharing)
-* 10:30-11:00 - [Introduction to CUDA.pdf](https://drive.google.com/file/d/1ISWym2jcH-WdG19SniLshYTMHAKOJoKz/view?usp=sharing)
+* 10:00-10:30 - [Architectures.pdf](https://drive.google.com/file/d/14Fg47M4hvi9_8BKC_zRTVNHyuiBeTnTd/view?usp=sharing)
+* 10:30-11:00 - [Introduction to CUDA.pdf](https://drive.google.com/file/d/1soubWyrZzEhUKVVYQ4AyV19CKW6SJv3x/view?usp=sharing)
 * 11:00-11:30 - [**Lab**: Getting Started with CUDA on ShARC](./sharc)
 * 11:30-12:30 - [**Lab**: Lab01 - CUDA Basics Lab](./lab01)
 * 12:30-13:30 - *Lunch*
-* 13:30-14:30 - [Optimisation.pdf](https://drive.google.com/file/d/1gSx-ER7QTPTgr1vsTN8qnYVNoLG_r8G8/view?usp=sharing)
+* 13:30-14:30 - [Optimisation.pdf](https://drive.google.com/file/d/1fvrnF1MXSF1-hsz9wNcV8YTpH1ipTlOW/view?usp=sharing)
 * 14:30-16:00 - [**Lab**: Lab 02 - CUDA Optimisation Lab](./lab02)
 * 16:00-13:30 - Final Words / Advanced Material / Next Steps
 
 
 ## Additional Material ##
 
-* [Advanced Memory.pdf](https://drive.google.com/file/d/1N5bsNt-ARsH9_6Xc8oLfyVRlrmjTLffS/view?usp=sharing)
+* [Advanced Memory.pdf](https://drive.google.com/file/d/1WcnbzD6OWNfrxfp18dcSznBNzl37pUau/view?usp=sharing)
 * [**Lab**: Caching and Memory](./lab03)
 * [CUDA Compilation and execution in Visual Studio.pdf](https://drive.google.com/file/d/0B2HbOiEppVPMOEVUVWR3Tm9vSlE/view?usp=sharing) 
