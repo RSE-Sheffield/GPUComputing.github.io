@@ -14,7 +14,7 @@ A rough agenda for the day is as follows however depending on the pace of partic
  
 * 10:00-10:30 - [Architectures.pdf](https://drive.google.com/file/d/14Fg47M4hvi9_8BKC_zRTVNHyuiBeTnTd/view?usp=sharing)
 * 10:30-11:00 - [Introduction to CUDA.pdf](https://drive.google.com/file/d/1soubWyrZzEhUKVVYQ4AyV19CKW6SJv3x/view?usp=sharing)
-* 11:00-11:30 - [**Lab**: Getting Started with CUDA on ShARC](./sharc)
+* 11:00-11:30 - [**Lab**: Getting Started with CUDA on ShARC](./sharc) OR [Getting Started with CUDA on an EC2 Instance](./instancehub)
 * 11:30-12:30 - [**Lab**: Lab01 - CUDA Basics Lab](./lab01)
 * 12:30-13:30 - *Lunch*
 * 13:30-14:30 - [Optimisation.pdf](https://drive.google.com/file/d/1fvrnF1MXSF1-hsz9wNcV8YTpH1ipTlOW/view?usp=sharing)
