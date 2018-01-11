@@ -74,9 +74,9 @@ We cannot run our compiled GPU code on the worked node as it has no GPUs or CUDA
 
 The `–l` command allow us to request specific resources in this case a GPU (`gpu=1`). The `–b y` command specifies that we are submitting a binary file rather than a batch script. To avoid queuing on the main ShARC GPU nodes we can use the following extended version of `qsub` for this training session:
 
-	qsub -P training -q training.q -l gpu=1 -b y ./helloworld
+	qsub -P rse-training -q rse-training.q -l gpu=1 -b y ./helloworld
 
-This will run the jobs on a private job queue (`-q training.q`) which requires that your CICS username is a member of the training project (`-P training`). All participants of the course have been made members of this group for the duration of the training course (see and instructor if you have a permission error). You will be notified that your job has been submitted but you will not see the output of the executable in the terminal.
+This will run the jobs on a private job queue (`-q rse-training.q`) which requires that your CICS username is a member of the training project (`-P rse-training`). All participants of the course have been made members of this group for the duration of the training course (see and instructor if you have a permission error). You will be notified that your job has been submitted but you will not see the output of the executable in the terminal.
 
 Rather than using this long `qsub` command each time you want to run this example, you can instead place the job submission options in a bash script file and submit this. Examine the file `helloworld.sh` which matches the above configurations and submit the job using the following command instead:
 
