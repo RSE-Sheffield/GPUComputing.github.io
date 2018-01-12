@@ -23,7 +23,11 @@ If you are connecting from a machine which is your own (i.e. not a CICS managed 
 
 [http://docs.hpc.shef.ac.uk/en/latest/hpc/getting-started.html](http://docs.hpc.shef.ac.uk/en/latest/hpc/getting-started.html).
 
-Once you are logged into a ShARC head node then request an interactive session by typing `qrshx`. This creates an interactive session on a CPU worker node which supports running graphical applications as well as command line programs. The worker node **will not** be a GPU accelerated node and **cannot** be used to execute CUDA applications. The worker node can however be used for CUDA compilation, interactive editing of our GPU code and submission of jobs to a GPU accelerated worker. This is a much better solution than running an interactive session on a GPU node as interactive jobs will request GPU resource which will be unused if you are performing tasks like modifying or building your code.
+Once you are logged into a ShARC head node then request an interactive session by typing 
+
+	qrshx
+	
+This creates an interactive session on a CPU worker node which supports running graphical applications as well as command line programs. The worker node **will not** be a GPU accelerated node and **cannot** be used to execute CUDA applications. The worker node can however be used for CUDA compilation, interactive editing of our GPU code and submission of jobs to a GPU accelerated worker. This is a much better solution than running an interactive session on a GPU node as interactive jobs will request GPU resource which will be unused if you are performing tasks like modifying or building your code.
 
 ## Configuring the CPU worker node ##
 
@@ -55,7 +59,11 @@ From your interactive session on the CPU worker node get the *"hello world for G
 
 	git clone https://github.com/RSE-Sheffield/CUDAHelloWorld.git
 
-This will check out the hello world example into the folder `CUDAHelloWorld`. Take a look at the contents of this file in the console using `nano` e.g.
+This will check out the hello world example into the folder `CUDAHelloWorld`. Change directory to this folder. e.g.
+
+	cd CUDAHellowWorld
+
+Take a look at the contents of this file in the console using `nano` e.g.
 
 	nano helloworld.cu
 
@@ -124,7 +132,7 @@ Before moving onto the [first lab classes](../lab01) for day 1, try modifying th
 
 You can now launch your kernel using these dim variables.
 
-	helloworld<<<grid, block>>>();
+	hello_kernel<<<grid, block>>>();
 
 To view the y and z index of the thread or the block use the y and z member variables of the `threadIdx` or `blockIdx` dims.
 
