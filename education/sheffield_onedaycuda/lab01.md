@@ -26,7 +26,7 @@ $$D(x)= A^{-1} (x-B)  mod M$$
 
 Where $$A^{-1}$$ is the modular multiplicative inverse of $$A modulo M$$. For this exercise $$A^{-1}$$ has a value of `111`. 
 
-*Note: The mod operation is not the same as the remainder operator (`%`) for negative numbers. A suitable mod function has been provided for the example.*
+Note: The $$mod$$ operation is not the same as the remainder operator (`%`) for negative numbers. A suitable $$mod$$ function (`modulo`) has been provided for the example. The provided function takes the form of `modulo(int a, int b)` where `a` in this case is everything left of the affine decryption functions $$mod$$ opertor and `b` is everything to the right of the $$mod$$ operator.
 
 As each of the encrypted character values are independent we can use the GPU to decrypt them in parallel. To do this we will launch a thread for each of the encrypted character values and use a kernel function to perform the decryption. Starting from the code provided in `exercise01.cu`, complete the following;
 
