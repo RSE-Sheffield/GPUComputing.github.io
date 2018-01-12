@@ -30,9 +30,9 @@ Try compiling and running the code and examine the output of the blurred image. 
 
 ## Viewing the Images using X Forwarding ##
 
-Assuming you started your ssh session with the `–X` argument (in the Putty configurations), you can use X forwarding to view the image using the `viewinput.py` and `viewoutput.py` python files provided.  You will need to ensure that you have an X server running on your local machine (see [Getting started with qwiklabs](../qwiklabs)). E.g.
+Assuming you started your ssh session with the `–X` argument (in the Putty configurations), you can use X forwarding to view the image using the `display` command.  You will need to ensure that you have an X server running on your local machine (see [Getting started with qwiklabs](../qwiklabs)). E.g.
  
-    python viewinput.py
+    display imagename.ppm
 
 {: .center}
 ![XMing](\static\img\cuda\xming.png)
