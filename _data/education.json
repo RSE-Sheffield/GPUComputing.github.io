@@ -1,4 +1,11 @@
 [
+	{
+	"name": "Bristol: DLI Deep Learning Fundamentals workshop for the RSE Network",
+	"length": "One day workshop.",
+	"image": "TUOS.png",
+	"url": "/education/2018-01-29-dli-bristol",
+	"tags": [ "Deep Learning", "Introduction", "Lectures", "Labs", "Bristol"]
+},
 
 	{
 		"name": "Sheffield: One Day Introduction to CUDA",
