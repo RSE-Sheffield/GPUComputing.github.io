@@ -1,3 +1,12 @@
 [
-
+  {
+    "date": "2018-04-30",
+    "time": "15pm-16pm",
+    "title": "Accelerating Road Network Simulations using GPUs",
+    "speaker": "Peter Heywood, University of Sheffield",
+    "location": "Broad Lane Lecture Theater 11 (BROAD-LT11)",
+    "description": "<strong>No offical talks are held by GPU Computing group in May but we highly recommend this upcoming seminar.</strong><br/><br/>Road network Simulations are a vital tool used in the planning and management of transport network infrastructure. Large-scale simulations are computationally expensive tasks, taking many-hours for a single simulation to complete using multi-core CPU architectures, hindering the use of large-scale simulations.<br/>Using Graphics Processing Units (GPUs) we demonstrate that both Macroscopic (top-down) simulations and Microscopic (bottom-up) simulations can be considerably accelerated using many-core architectures and novel fine-grained data-parallel algorithms.<br/> A multi-GPU version of the SATURN macroscopic road network simulation package has been developed, demonstrating assignment performance improvements of over 11x compared to a multi-socket CPU. A FLAME GPU based microscopic simulation demonstrates performance improvements of up to 65x using a single GPU compared to the commercial multi-core microsimulation tool Aimsun.",
+    "slide_link": "",
+    "image_link": "/static/seminars/2018_04_30_roadNetwork.jpg"
+  }
 ]

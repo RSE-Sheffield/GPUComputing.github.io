@@ -21,6 +21,11 @@ If you would like to recommend a speaker then please contact [Dr Paul Richmond o
 			<div>Speaker: {{sem.speaker}}</div>
 			<div>Location: {{sem.location}}</div>
 		</header>
+        {% if sem.image_link %}
+        <p>
+		<img src="{{sem.image_link}}" alt="{{sem.title}}" />
+		</p>
+        {% endif %}
 		<p>
 		{{sem.description}}
 		</p>
@@ -30,7 +35,9 @@ If you would like to recommend a speaker then please contact [Dr Paul Richmond o
 		</p>
 		{% endif %}
 		<p>
+        {% if sem.register_link %}
 		<a class="btn btn-info btn-raised btn-sm griditem-link" href="{{sem.register_link}}">Register to attend the event</a>
+        {% endif %}
 		</p>
 	</article>
 	{% endfor %}
