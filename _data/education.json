@@ -1,5 +1,12 @@
 [
 	{
+	"name": "Sheffield: Fundamentals of Deep Learning for Computer Vision",
+	"length": "One day workshop.",
+	"image": "TUOS.png",
+	"url": "/education/2018-07-19-dli-sheffield",
+	"tags": [ "Deep Learning", "Introduction", "Lectures", "Labs", "Sheffield"]
+},
+	{
 	"name": "Bristol: DLI Deep Learning Fundamentals workshop for the RSE Network",
 	"length": "One day workshop.",
 	"image": "TUOS.png",
