@@ -17,7 +17,7 @@ In this full-day workshop, you will learn the basics of deep learning by trainin
 
 **Pre-Requisites:** Technical background and basic understanding of deep learning concepts
 
-* [Deep Learning Demystified](/static/slides/deep-learning-demystified.pdf)
-* [**Lab 01**: Image Classification with DIGITS](/static/slides/image-classification-with-digits.pdf)
-* [**Lab 02**: Object Detection with DIGITS](/static/slides/object-detection-with-digits.pdf)
-* [**Lab 03**: Neural Network Deployment with DIGITS and TensorRT](/static/slides/neural-network-deployment.pdf)
+* [Deep Learning Demystified](/static/slides/2018-01-29-dl-bristol/deep-learning-demystified.pdf)
+* [**Lab 01**: Image Classification with DIGITS](/static/slides/2018-01-29-dl-bristol/image-classification-with-digits.pdf)
+* [**Lab 02**: Object Detection with DIGITS](/static/slides/2018-01-29-dl-bristol/object-detection-with-digits.pdf)
+* [**Lab 03**: Neural Network Deployment with DIGITS and TensorRT](/static/slides/2018-01-29-dl-bristol/neural-network-deployment.pdf)
