@@ -1,5 +1,12 @@
 [
 	{
+	"name": "UCL: Fundamentals of Deep Learning for Computer Vision",
+	"length": "One day workshop.",
+	"image": "TUOS.png",
+	"url": "/education/2018-07-24-dli-ucl",
+	"tags": [ "Deep Learning", "Introduction", "Lectures", "Labs", "UCL"]
+},
+	{
 	"name": "Sheffield: Fundamentals of Deep Learning for Computer Vision",
 	"length": "One day workshop.",
 	"image": "TUOS.png",
